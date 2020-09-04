@@ -20,7 +20,8 @@ This website hosts Riley's honours data analysis. The cleaning, plotting, analys
 
 # 2. Plotting
 
-
+- [plotting cheek and brow activity in response to child and adult faces](7_plotting.html)
 
 # 3. Analysis
 
+- [first models- emotion, bin, emotion*bin with random intercepts for participant and trial](8_analysing.html)

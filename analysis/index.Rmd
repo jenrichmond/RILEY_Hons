@@ -8,4 +8,19 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+This website hosts Riley's honours data analysis. The cleaning, plotting, analysis process is documented in the .Rmd files below. 
+
+# 1. Cleaning
+- [clean emg data for adult face](1_clean_emg-_adult.html)
+- [clean emg data for child faces](2_clean_emg_child.html)
+- [combine cleaned child and adult data](3_combine_clean_adult_child.html)
+- [clean baseline](4_clean_baseline.html)
+- [calculate zscores](5_calculating_zscores.html)
+- [deal wih bin outliers](6_bin_outliers.html)
+
+# 2. Plotting
+
+
+
+# 3. Analysis
+

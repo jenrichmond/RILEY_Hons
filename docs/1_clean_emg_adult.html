@@ -12,7 +12,7 @@
 
 
 
-<title>9_cheek_analysis</title>
+<title>clean_adult_data</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -378,7 +378,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">9_cheek_analysis</h1>
+<h1 class="title toc-ignore">clean_adult_data</h1>
 
 </div>
 
@@ -544,7 +544,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/9_cheek_analysis.Rmd</code>) and HTML (<code>docs/9_cheek_analysis.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/1_clean_emg_adult.Rmd</code>) and HTML (<code>docs/1_clean_emg_adult.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -570,27 +570,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/9_cheek_analysis.html" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
 Rmd
 </td>
 <td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/420b2556cf90e049faa582f7370d580e5019f577/analysis/9_cheek_analysis.Rmd" target="_blank">420b255</a>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/14f6bb08e77a045ed9b5da75ce8f3a62e1340c6d/analysis/1_clean_emg_adult.Rmd" target="_blank">14f6bb0</a>
 </td>
 <td>
 Your Name
@@ -599,7 +582,7 @@ Your Name
 2020-09-04
 </td>
 <td>
-code check CHEEK analysis
+update analysis
 </td>
 </tr>
 </tbody>
@@ -610,360 +593,42 @@ code check CHEEK analysis
 </div>
 </div>
 <div id="load-packages" class="section level1">
-<h1>load packages</h1>
+<h1>Load packages</h1>
 <pre class="r"><code>library(tidyverse)
 library(here)
-library(lme4)
-library(lmerTest)
-library(broom.mixed)
-library(pixiedust)
+library(dplyr)
+library(janitor)
+library(readxl)
+library(naniar)
 library(beepr)</code></pre>
 </div>
-<div id="read-in-data" class="section level1">
-<h1>read in data</h1>
-<pre class="r"><code>df &lt;- read_csv(here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened.csv&quot;))</code></pre>
-<pre><code>Parsed with column specification:
-cols(
-  pp_no = col_character(),
-  model = col_character(),
-  emotion = col_double(),
-  trial = col_character(),
-  muscle = col_character(),
-  bin = col_character(),
-  zdiff = col_double()
-)</code></pre>
+<div id="call-the-functions" class="section level1">
+<h1>call the functions</h1>
+<pre class="r"><code>source(here(&quot;analysis&quot;, &quot;riley_cleaning_functions.R&quot;))</code></pre>
 </div>
-<div id="fix-data-types" class="section level1">
-<h1>fix data types</h1>
-<p>The emotion variable below is numbers so not sure how the emotion %in% c(happy, angry) was working. Add emo variable with emotion labels</p>
-<pre class="r"><code>df$emotion &lt;- as.factor(df$emotion)
+<div id="define-a-file-path" class="section level1">
+<h1>define a file path</h1>
+<pre class="r"><code>file_path &lt;- here(&quot;data&quot;, &quot;adultsfaces&quot;)</code></pre>
+</div>
+<div id="get-a-list-of-files-in-that-file-path" class="section level1">
+<h1>get a list of files in that file path</h1>
+<pre class="r"><code>file_list &lt;- list.files(path = file_path, pattern=&#39;*.xlsx&#39;) </code></pre>
+</div>
+<div id="use-map-to-read-excel-to-read-all-the-files" class="section level1">
+<h1>use map to read excel to read all the files</h1>
+<p>And add a file_name variable to each one</p>
+<pre class="r"><code>rawemg_list &lt;- file_list %&gt;% 
+  map(~ read_excel(path = here(&quot;data&quot;, &quot;adultsfaces&quot;, .x), range = &quot;A2:AE13&quot;)  %&gt;%
+        mutate(&quot;file_name&quot; = .x))
 
-levels(df$emotion)</code></pre>
-<pre><code>[1] &quot;121&quot; &quot;131&quot; &quot;232&quot; &quot;323&quot; &quot;424&quot; &quot;434&quot; &quot;525&quot; &quot;535&quot;</code></pre>
-<pre class="r"><code>df &lt;- df %&gt;%
-  mutate(emo = case_when(emotion == 121 ~ &quot;happy&quot;, 
-                              emotion == 323 ~ &quot;angry&quot;, 
-                              emotion == 424 ~ &quot;fear&quot;, 
-                              emotion == 525 ~ &quot;sad&quot;, 
-                              emotion == 131 ~ &quot;happy&quot;, 
-                              emotion == 232 ~ &quot;angry&quot;, 
-                              emotion == 434 ~ &quot;fear&quot;, 
-                              emotion == 535 ~ &quot;sad&quot;))
+beep()</code></pre>
+</div>
+<div id="use-map-to-cleanwrite_emg-on-all-items-in-the-rawemg_list" class="section level1">
+<h1>use map to cleanwrite_emg on all items in the rawemg_list</h1>
+<pre class="r"><code>cleanemg_list &lt;- rawemg_list %&gt;%
+  map(~ cleanwrite_emg(.x))
 
-df &lt;- df %&gt;% mutate_if(is.character, as.factor)
-
-glimpse(df)</code></pre>
-<pre><code>Rows: 61,480
-Columns: 8
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, …
-$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, …
-$ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0…
-$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, …</code></pre>
-</div>
-<div id="happy-angry-cheek" class="section level1">
-<h1>happy-angry CHEEK</h1>
-<div id="make-df" class="section level3">
-<h3>Make df</h3>
-<p>with just happy/angry child face for cheek</p>
-<pre class="r"><code>HA_child_cheek &lt;- df %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
-  filter(muscle == &quot;cheek&quot;) %&gt;%
-  filter(model == &quot;child&quot;) %&gt;%
-  arrange(pp_no, emotion, trial, bin)
-
-glimpse(HA_child_cheek)</code></pre>
-<pre><code>Rows: 7,570
-Columns: 8
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, …
-$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek, …
-$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, …
-$ zdiff   &lt;dbl&gt; -1.57732881, 4.03450503, -0.86827948, -0.56408140, -0.78…
-$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, …</code></pre>
-</div>
-<div id="fit-model-1" class="section level2">
-<h2>fit model 1</h2>
-<p>THis is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data.</p>
-<pre class="r"><code>child_cheek_emoZ &lt;- lmer(zdiff ~ emotion + bin + emotion * bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)</code></pre>
-<div id="check-assumptions" class="section level3">
-<h3>check assumptions</h3>
-<pre class="r"><code>plot(child_cheek_emoZ)</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
-Past versions of unnamed-chunk-6-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-6-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-6-1.png" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>qqnorm(resid(child_cheek_emoZ))
-qqline(resid(child_cheek_emoZ))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-2">
-Past versions of unnamed-chunk-6-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-6-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-6-2.png" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As suscepted, need to transform to correct normality.</p>
-</div>
-<div id="compute-log_modulus" class="section level3">
-<h3>compute log_modulus</h3>
-<pre class="r"><code>HA_child_cheek &lt;- HA_child_cheek %&gt;%
-  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))</code></pre>
-</div>
-<div id="fit-model-again" class="section level3">
-<h3>fit model again</h3>
-<pre class="r"><code>child_cheek_emo_log &lt;- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)</code></pre>
-</div>
-<div id="check-assumptions-again" class="section level3">
-<h3>check assumptions again</h3>
-<pre class="r"><code>plot(child_cheek_emo_log)</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
-Past versions of unnamed-chunk-9-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-9-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-9-1.png" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>qqnorm(resid(child_cheek_emo_log))
-qqline(resid(child_cheek_emo_log))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-2">
-Past versions of unnamed-chunk-9-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-9-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-9-2.png" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="yikes-something-not-right" class="section level1">
-<h1>YIKES something not right</h1>
-<p><em>WHAT</em> that looks WAY worse…. what is going on here…</p>
-<p>Is that log_mod doing what we think?? How to log modulus here…. <a href="https://blogs.sas.com/content/iml/2014/07/14/log-transformation-of-pos-neg.html" class="uri">https://blogs.sas.com/content/iml/2014/07/14/log-transformation-of-pos-neg.html</a></p>
-<p>RILEY- it is * log not +</p>
-<div id="compute-new-log-mod" class="section level3">
-<h3>compute new log mod</h3>
-<pre class="r"><code>HA_child_cheek &lt;- HA_child_cheek %&gt;%
-  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
-</div>
-<div id="try-fit-model-again" class="section level3">
-<h3>try fit model again</h3>
-<pre class="r"><code>child_cheek_emo_log_new &lt;- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)</code></pre>
-</div>
-<div id="check-assumptions-again-1" class="section level3">
-<h3>check assumptions again</h3>
-<pre class="r"><code>plot(child_cheek_emo_log_new)</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
-Past versions of unnamed-chunk-12-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-12-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-12-1.png" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>qqnorm(resid(child_cheek_emo_log_new))
-qqline(resid(child_cheek_emo_log_new))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-2">
-Past versions of unnamed-chunk-12-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-12-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/473747cf6774e165ac4b17b0bff1d0bc33736315/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-12-2.png" target="_blank">473747c</a>
-</td>
-<td>
-Your Name
-</td>
-<td>
-2020-09-04
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Better but not great.</p>
-<p><em>JENNY CODE CHECK UP TO HERE</em></p>
+beep()</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -987,39 +652,32 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] beepr_1.3         pixiedust_0.9.0   broom.mixed_0.2.6
- [4] lmerTest_3.1-0    lme4_1.1-21       Matrix_1.2-14    
- [7] here_0.1          forcats_0.5.0     stringr_1.4.0    
-[10] dplyr_1.0.1       purrr_0.3.3       readr_1.3.1      
-[13] tidyr_1.1.0       tibble_3.0.3      ggplot2_3.3.2    
-[16] tidyverse_1.3.0   workflowr_1.6.2  
+ [1] beepr_1.3       naniar_0.4.1    readxl_1.3.1    janitor_1.2.0  
+ [5] here_0.1        forcats_0.5.0   stringr_1.4.0   dplyr_1.0.1    
+ [9] purrr_0.3.3     readr_1.3.1     tidyr_1.1.0     tibble_3.0.3   
+[13] ggplot2_3.3.2   tidyverse_1.3.0 workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.1             jsonlite_1.7.0         splines_3.5.1         
- [4] modelr_0.1.8           assertthat_0.2.1       blob_1.2.1            
- [7] cellranger_1.1.0       yaml_2.2.1             numDeriv_2016.8-1.1   
-[10] pillar_1.4.6           backports_1.1.8        lattice_0.20-35       
-[13] glue_1.4.1             digest_0.6.25          promises_1.1.1        
-[16] rvest_0.3.6            minqa_1.2.4            colorspace_1.4-1      
-[19] plyr_1.8.6             htmltools_0.5.0        httpuv_1.5.2          
-[22] pkgconfig_2.0.3        broom_0.7.0            haven_2.3.1           
-[25] scales_1.1.1           whisker_0.4            later_1.1.0.1         
-[28] git2r_0.27.1           generics_0.0.2         ellipsis_0.3.1        
-[31] withr_2.2.0            TMB_1.7.15             cli_2.0.2             
-[34] magrittr_1.5           crayon_1.3.4           readxl_1.3.1          
-[37] evaluate_0.14          fs_1.4.1               fansi_0.4.1           
-[40] nlme_3.1-137           MASS_7.3-51.1          xml2_1.3.2            
-[43] tools_3.5.1            hms_0.5.3              lifecycle_0.2.0       
-[46] munsell_0.5.0          reprex_0.3.0           compiler_3.5.1        
-[49] rlang_0.4.7            grid_3.5.1             nloptr_1.2.2.1        
-[52] rstudioapi_0.11.0-9000 rmarkdown_1.15         boot_1.3-20           
-[55] gtable_0.3.0           DBI_1.0.0              reshape2_1.4.3        
-[58] R6_2.4.1               lubridate_1.7.4        knitr_1.23            
-[61] utf8_1.1.4             rprojroot_1.3-2        stringi_1.4.6         
-[64] Rcpp_1.0.5             vctrs_0.3.2            audio_0.1-5.1         
-[67] dbplyr_1.4.4           tidyselect_1.1.0       xfun_0.8              
-[70] coda_0.19-3           </code></pre>
-</div>
+ [1] Rcpp_1.0.5             lubridate_1.7.4        assertthat_0.2.1      
+ [4] rprojroot_1.3-2        digest_0.6.25          R6_2.4.1              
+ [7] cellranger_1.1.0       backports_1.1.8        reprex_0.3.0          
+[10] visdat_0.5.2           evaluate_0.14          httr_1.4.1            
+[13] pillar_1.4.6           rlang_0.4.7            rematch_1.0.1         
+[16] rstudioapi_0.11.0-9000 whisker_0.4            blob_1.2.1            
+[19] rmarkdown_1.15         munsell_0.5.0          broom_0.7.0           
+[22] compiler_3.5.1         httpuv_1.5.2           modelr_0.1.8          
+[25] xfun_0.8               pkgconfig_2.0.3        htmltools_0.5.0       
+[28] tidyselect_1.1.0       audio_0.1-5.1          fansi_0.4.1           
+[31] crayon_1.3.4           dbplyr_1.4.4           withr_2.2.0           
+[34] later_1.1.0.1          grid_3.5.1             jsonlite_1.7.0        
+[37] gtable_0.3.0           lifecycle_0.2.0        DBI_1.0.0             
+[40] git2r_0.27.1           magrittr_1.5           scales_1.1.1          
+[43] cli_2.0.2              stringi_1.4.6          fs_1.4.1              
+[46] promises_1.1.1         snakecase_0.9.2        xml2_1.3.2            
+[49] ellipsis_0.3.1         generics_0.0.2         vctrs_0.3.2           
+[52] tools_3.5.1            glue_1.4.1             hms_0.5.3             
+[55] yaml_2.2.1             colorspace_1.4-1       rvest_0.3.6           
+[58] knitr_1.23             haven_2.3.1           </code></pre>
 </div>
 </div>
 

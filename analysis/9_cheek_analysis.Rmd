@@ -1,0 +1,137 @@
+---
+title: "9_cheek_analysis"
+output: html_document
+---
+# load packages
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(lme4)
+library(lmerTest)
+library(broom.mixed)
+library(pixiedust)
+library(beepr)
+```
+
+# read in data 
+```{r}
+df <- read_csv(here("data", "adult_child_combined", "zdiff_binscreened.csv"))
+```
+# fix data types
+
+The emotion variable below is numbers so not sure how the emotion %in% c(happy, angry) was working. Add emo variable with emotion labels
+```{r}
+df$emotion <- as.factor(df$emotion)
+
+levels(df$emotion)
+
+df <- df %>%
+  mutate(emo = case_when(emotion == 121 ~ "happy", 
+                              emotion == 323 ~ "angry", 
+                              emotion == 424 ~ "fear", 
+                              emotion == 525 ~ "sad", 
+                              emotion == 131 ~ "happy", 
+                              emotion == 232 ~ "angry", 
+                              emotion == 434 ~ "fear", 
+                              emotion == 535 ~ "sad"))
+
+df <- df %>% mutate_if(is.character, as.factor)
+
+glimpse(df)
+```
+
+# happy-angry CHEEK
+
+### Make df 
+
+with just happy/angry child face for cheek
+
+```{r}
+HA_child_cheek <- df %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  filter(muscle == "cheek") %>%
+  filter(model == "child") %>%
+  arrange(pp_no, emotion, trial, bin)
+
+glimpse(HA_child_cheek)
+```
+
+## fit model 1 
+
+THis is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+
+```{r}
+child_cheek_emoZ <- lmer(zdiff ~ emotion + bin + emotion * bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+
+```
+
+
+### check assumptions
+```{r}
+plot(child_cheek_emoZ)
+
+qqnorm(resid(child_cheek_emoZ))
+qqline(resid(child_cheek_emoZ))
+```
+
+As suscepted, need to transform to correct normality. 
+
+### compute log_modulus
+
+```{r}
+HA_child_cheek <- HA_child_cheek %>%
+  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))
+```
+
+### fit model again
+
+```{r}
+child_cheek_emo_log <- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(child_cheek_emo_log)
+
+qqnorm(resid(child_cheek_emo_log))
+qqline(resid(child_cheek_emo_log))
+```
+
+# YIKES something not right 
+
+*WHAT* that looks WAY worse.... what is going on here...
+
+Is that log_mod doing what we think?? How to log modulus here.... https://blogs.sas.com/content/iml/2014/07/14/log-transformation-of-pos-neg.html
+
+RILEY- it is * log not +
+
+### compute new log mod
+
+```{r}
+HA_child_cheek <- HA_child_cheek %>%
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
+```
+
+### try fit model again
+
+```{r}
+child_cheek_emo_log_new <- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(child_cheek_emo_log_new)
+
+qqnorm(resid(child_cheek_emo_log_new))
+qqline(resid(child_cheek_emo_log_new))
+```
+
+Better but not great. 
+
+*JENNY CODE CHECK UP TO HERE*
+
+
+
+

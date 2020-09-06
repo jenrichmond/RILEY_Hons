@@ -40,11 +40,11 @@ df <- df %>% mutate_if(is.character, as.factor)
 glimpse(df)
 ```
 
-# happy-angry CHEEK
+# CHEEK happy-angry child
 
-### Make df 
+### Make cheek HA child df 
 
-with just happy/angry child face for cheek
+just happy/angry child face for cheek
 
 ```{r}
 HA_child_cheek <- df %>%
@@ -54,14 +54,32 @@ HA_child_cheek <- df %>%
   arrange(pp_no, emotion, trial, bin)
 
 glimpse(HA_child_cheek)
+
+```
+
+Fix factor levels
+
+```{r}
+
+
+
+HA_child_cheek$emo <- fct_relevel(HA_child_cheek$emo, c("happy", "angry", "fear", "sad"))
+
+levels(HA_child_cheek$emo)
+
+
+
+HA_child_cheek$bin <- fct_relevel(HA_child_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(HA_child_cheek$bin)
 ```
 
 ## fit model 1 
 
-THis is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
 
 ```{r}
-child_cheek_emoZ <- lmer(zdiff ~ emotion + bin + emotion * bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+child_cheek_emoZ <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
 
 ```
 
@@ -77,6 +95,8 @@ qqline(resid(child_cheek_emoZ))
 As suscepted, need to transform to correct normality. 
 
 ### compute log_modulus
+
+NOTE: this first log mod calc is WRONG, uses + instead of *
 
 ```{r}
 HA_child_cheek <- HA_child_cheek %>%
@@ -98,7 +118,7 @@ qqnorm(resid(child_cheek_emo_log))
 qqline(resid(child_cheek_emo_log))
 ```
 
-# YIKES something not right 
+## YIKES something not right 
 
 *WHAT* that looks WAY worse.... what is going on here...
 
@@ -133,5 +153,67 @@ Better but not great.
 *JENNY CODE CHECK UP TO HERE*
 
 
+# BUILD model comparisons
+
+What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+
+```{r}
+levels(HA_child_cheek$emo)
+```
 
 
+### model 1 
+
+just main effect of emotion and slope for emotion 
+
+```{r}
+child_cheek_emo <- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_child_cheek, REML = FALSE)
+
+beep(1)
+```
+
+## model 2
+
+just main effect of emotion and bin, and slope for emotion 
+```{r}
+child_cheek_emo_bin <- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_child_cheek, REML = FALSE)
+
+beep(2)
+```
+
+## model 3
+
+main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)
+
+```{r}
+child_cheek_emo_bin_interaction <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_child_cheek, REML = FALSE)
+
+beep(3)
+```
+
+
+# TEST for best fit 
+
+AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, but then goes back up again when the interaction is added. 
+
+```{r}
+AIC(child_cheek_emo)
+AIC(child_cheek_emo_bin)
+AIC(child_cheek_emo_bin_interaction)
+
+```
+
+## likelihood ratio tests
+
+Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES
+
+```{r}
+anova(child_cheek_emo, child_cheek_emo_bin)
+```
+
+Is model with with interaction, better fit than model with just main effects? NO 
+```{r}
+anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
+```
+
+# next to do for riley CHEEK happy-angry adult

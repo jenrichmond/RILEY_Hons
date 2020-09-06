@@ -25,5 +25,6 @@ This website hosts Riley's honours data analysis. The cleaning, plotting, analys
 # 3. Analysis
 
 - [first models- emotion, bin, emotion*bin with random intercepts for participant and trial](8_analysing.html)
-- [cheek analysis take 1- code check](9_cheek_analysis.html)
+- [cheek analysis take 2- code check](9_cheek_analysis.html)
+-- take 2 updated 9:30am 7-9-2020, just child cheek happy angry
 

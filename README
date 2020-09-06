@@ -1,0 +1,14 @@
+Riley's data process
+
+Turn data from rileyraw_data/childfaces and adultfaces into clean data by...
+
+1. use the 1_clean_emg_adult.Rmd script to clean adult faces data 
+
+2. use the 2_clean_emg_child.Rmd script to clean child faces data 
+
+3. use 3_missing_values_data script to clean data within the folders rileyraw_data -> raw_data -> missing_values 
+
+4. Use the 4_clean_baseline.Rmd to filter data for baseline outliers and then plot these outliers for each condition 
+
+
+

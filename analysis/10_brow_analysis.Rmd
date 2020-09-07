@@ -1,0 +1,412 @@
+---
+title: "10_brow_analysis"
+output: html_document
+---
+
+# load packages
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(lme4)
+library(lmerTest)
+library(broom.mixed)
+library(pixiedust)
+library(beepr)
+```
+
+# read in data 
+```{r}
+df <- read_csv(here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
+```
+
+
+
+
+# fix data types
+
+The emotion variable below is numbers so not sure how the emotion %in% c(happy, angry) was working. Add emo variable with emotion labels
+```{r}
+df$emotion <- as.factor(df$emotion)
+
+levels(df$emotion)
+
+df <- df %>% mutate_if(is.character, as.factor)
+
+glimpse(df)
+```
+
+
+
+# BROW happy-angry child
+
+### Make brow HA child df 
+
+just happy/angry child face for cheek
+
+```{r}
+HA_child_brow <- df %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  filter(muscle == "brow") %>%
+  filter(model == "child") %>%
+  arrange(pp_no, emotion, trial, bin)
+
+glimpse(HA_child_brow)
+
+```
+
+
+
+#Fix factor levels
+
+```{r}
+
+HA_child_brow$emo <- fct_relevel(HA_child_brow$emo, c("happy", "angry", "fear", "sad"))
+
+levels(HA_child_brow$emo)
+
+
+
+HA_child_brow$bin <- fct_relevel(HA_child_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(HA_child_brow$bin)
+```
+
+
+## fit model 1 
+
+This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+
+```{r}
+child_brow_emoZ <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)
+
+```
+
+
+### check assumptions
+```{r}
+plot(child_brow_emoZ)
+
+qqnorm(resid(child_brow_emoZ))
+qqline(resid(child_brow_emoZ))
+```
+
+As suscepted, need to transform to correct normality. 
+
+### compute log_modulus
+
+NOTE: this first log mod calc is WRONG, uses + instead of *
+
+```{r}
+HA_child_brow <- HA_child_brow %>%
+  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))
+```
+
+### fit model again
+
+```{r}
+child_brow_emo_log <- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(child_brow_emo_log)
+
+qqnorm(resid(child_brow_emo_log))
+qqline(resid(child_brow_emo_log))
+```
+### compute new log mod
+
+```{r}
+HA_child_brow <- HA_child_brow %>%
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
+```
+
+### try fit model again
+
+```{r}
+child_brow_emo_log_new <- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(child_brow_emo_log_new)
+
+qqnorm(resid(child_brow_emo_log_new))
+qqline(resid(child_brow_emo_log_new))
+```
+
+# BUILD model comparisons
+
+What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+
+```{r}
+levels(HA_child_brow$emo)
+```
+
+
+### model 1 
+
+just main effect of emotion and slope for emotion 
+
+```{r}
+child_brow_emo <- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_child_brow, REML = FALSE)
+
+beep(1)
+```
+
+## model 2
+
+just main effect of emotion and bin, and slope for emotion 
+```{r}
+child_brow_emo_bin <- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_child_brow, REML = FALSE)
+
+beep(2)
+```
+
+## model 3
+
+main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)
+
+```{r}
+child_brow_emo_bin_interaction <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_child_brow, REML = FALSE)
+
+beep(3)
+```
+
+
+# TEST for best fit 
+
+AIC increased from model with just main effect of emotion to model with emotion and bin and continues to increase when interaction is added 
+
+```{r}
+AIC(child_brow_emo)
+AIC(child_brow_emo_bin)
+AIC(child_brow_emo_bin_interaction)
+
+```
+## likelihood ratio tests
+
+Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? NO
+
+```{r}
+anova(child_brow_emo, child_brow_emo_bin)
+```
+
+Is model with with interaction, better fit than model with just main effects? NO 
+```{r}
+anova(child_brow_emo, child_brow_emo_bin_interaction)
+```
+
+#get confidence intervals 
+```{r}
+confint.merMod(child_brow_emo, level = 0.95)
+```
+
+#now do the same for adult 
+
+### Make brow HA adult df 
+
+just happy/angry child face for cheek
+
+```{r}
+HA_adult_brow <- df %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  filter(muscle == "brow") %>%
+  filter(model == "adult") %>%
+  arrange(pp_no, emotion, trial, bin)
+
+glimpse(HA_adult_brow)
+
+```
+
+
+
+#Fix factor levels
+
+```{r}
+
+HA_adult_brow$emo <- fct_relevel(HA_adult_brow$emo, c("happy", "angry", "fear", "sad"))
+
+levels(HA_adult_brow$emo)
+
+
+
+HA_adult_brow$bin <- fct_relevel(HA_adult_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(HA_adult_brow$bin)
+```
+
+
+## fit model 1 
+
+This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+
+```{r}
+adult_brow_emoZ <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)
+
+```
+
+
+### check assumptions
+```{r}
+plot(adult_brow_emoZ)
+
+qqnorm(resid(adult_brow_emoZ))
+qqline(resid(adult_brow_emoZ))
+```
+
+As suscepted, need to transform to correct normality. 
+
+### compute log_modulus
+
+NOTE: this first log mod calc is WRONG, uses + instead of *
+
+```{r}
+HA_adult_brow <- HA_adult_brow %>%
+  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))
+```
+
+### fit model again
+
+```{r}
+adult_brow_emo_log <- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(adult_brow_emo_log)
+
+qqnorm(resid(adult_brow_emo_log))
+qqline(resid(adult_brow_emo_log))
+```
+### compute new log mod
+
+```{r}
+HA_adult_brow <- HA_adult_brow %>%
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
+```
+
+### try fit model again
+
+```{r}
+adult_brow_emo_log_new <- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(adult_brow_emo_log_new)
+
+qqnorm(resid(adult_brow_emo_log_new))
+qqline(resid(adult_brow_emo_log_new))
+```
+
+# BUILD model comparisons
+
+What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+
+```{r}
+levels(HA_adult_brow$emo)
+```
+
+
+### model 1 
+
+just main effect of emotion and slope for emotion 
+
+```{r}
+adult_brow_emo <- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_adult_brow, REML = FALSE)
+
+beep(1)
+```
+
+## model 2
+
+just main effect of emotion and bin, and slope for emotion 
+```{r}
+adult_brow_emo_bin <- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_adult_brow, REML = FALSE)
+
+beep(2)
+```
+
+## model 3
+
+main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)
+
+```{r}
+adult_brow_emo_bin_interaction <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_adult_brow, REML = FALSE)
+
+beep(3)
+```
+
+
+# TEST for best fit 
+
+AIC increased from model with just main effect of emotion to model with emotion and bin and continues to increase when interaction is added 
+
+```{r}
+AIC(adult_brow_emo)
+AIC(adult_brow_emo_bin)
+AIC(adult_brow_emo_bin_interaction)
+
+```
+## likelihood ratio tests
+
+Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? NO
+
+```{r}
+anova(adult_brow_emo, adult_brow_emo_bin)
+```
+
+Is model with with interaction, better fit than model with just main effects? NO 
+```{r}
+anova(adult_brow_emo, adult_brow_emo_bin_interaction)
+```
+
+#get confidence intervals 
+```{r}
+confint.merMod(adult_brow_emo, level = 0.95)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

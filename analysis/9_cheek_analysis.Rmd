@@ -215,6 +215,17 @@ anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
 ```
 
 
+#get confidence intervals
+```{r}
+confint.merMod(child_cheek_emo_bin, level = 0.95)
+```
+
+```{r}
+summary(child_cheek_emo_bin)
+```
+
+
+
 # Cheek happy-angry adult
 
 ```{r}
@@ -371,7 +382,15 @@ Is model with just main effects better than the model with interactions? YES
 anova(adult_cheek_emo_bin, adult_cheek_emo_bin_interaction)
 ```
 
+```{r}
+summary(adult_cheek_emo_bin)
+```
 
+```{r}
+df <- df %>%
+  write_csv(here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
+
+```
 
 
 

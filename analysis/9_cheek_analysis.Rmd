@@ -216,7 +216,6 @@ Is model with with interaction, better fit than model with just main effects? NO
 anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
 ```
 
-# next to do for riley CHEEK happy-angry adult
 
 
-# Riley is starting here 
+# Cheek happy-angry adult

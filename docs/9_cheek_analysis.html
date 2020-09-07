@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eeb03f1aea469f67ecb55b26c146b05a93a511ctargetblank6eeb03fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eeb03f1aea469f67ecb55b26c146b05a93a511c" target="_blank">6eeb03f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eee5470e1bcafabe17269378bf6052580324223targetblank6eee547a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eee5470e1bcafabe17269378bf6052580324223" target="_blank">6eee547</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eeb03f1aea469f67ecb55b26c146b05a93a511ctargetblank6eeb03fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eee5470e1bcafabe17269378bf6052580324223targetblank6eee547a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eeb03f1aea469f67ecb55b26c146b05a93a511c" target="_blank">6eeb03f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eee5470e1bcafabe17269378bf6052580324223" target="_blank">6eee547</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -517,6 +517,9 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
 
 </code></pre>
 <p>
@@ -555,6 +558,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/6eee5470e1bcafabe17269378bf6052580324223/analysis/9_cheek_analysis.Rmd" target="_blank">6eee547</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+adding brow analysis
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/291c16669867cc34b1e1a520ca04999b22b5c0a0/docs/9_cheek_analysis.html" target="_blank">291c166</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1295,6 +1332,84 @@ child_cheek_emo_bin_interaction   24 7458.7 7622.2 -3705.4   7410.7 6.0006  9
                                 Pr(&gt;Chisq)
 child_cheek_emo_bin                       
 child_cheek_emo_bin_interaction     0.7399</code></pre>
+<p>#get confidence intervals</p>
+<pre class="r"><code>confint.merMod(child_cheek_emo_bin, level = 0.95)</code></pre>
+<pre><code>Computing profile confidence intervals ...</code></pre>
+<pre><code>                     2.5 %      97.5 %
+.sig01         0.151581787  0.23206048
+.sig02        -0.861403310 -0.58713501
+.sig03         0.160118622  0.25071485
+.sigma         0.406178473  0.42025792
+(Intercept)   -0.108263518  0.01634436
+emoangry      -0.070567940  0.04979063
+bindiff_bin2  -0.057569186  0.03112199
+bindiff_bin3  -0.061516742  0.02707865
+bindiff_bin4  -0.073493913  0.01522596
+bindiff_bin5  -0.054287852  0.03433573
+bindiff_bin6  -0.022495795  0.06636361
+bindiff_bin7  -0.030072627  0.05838919
+bindiff_bin8  -0.008597887  0.08025438
+bindiff_bin9  -0.004883940  0.08420642
+bindiff_bin10 -0.019113029  0.07070334</code></pre>
+<pre class="r"><code>summary(child_cheek_emo_bin)</code></pre>
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
+  method [lmerModLmerTest]
+Formula: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
+   Data: HA_child_cheek
+
+     AIC      BIC   logLik deviance df.resid 
+  7446.7   7548.9  -3708.4   7416.7     6700 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.7506 -0.4529 -0.0498  0.3452  6.6162 
+
+Random effects:
+ Groups   Name        Variance Std.Dev. Corr 
+ pp_no    (Intercept) 0.03441  0.1855        
+          emoangry    0.03942  0.1985   -0.76
+ Residual             0.17067  0.4131        
+Number of obs: 6715, groups:  pp_no, 49
+
+Fixed effects:
+                Estimate Std. Error         df t value Pr(&gt;|t|)  
+(Intercept)   -4.596e-02  3.142e-02  8.445e+01  -1.463    0.147  
+emoangry      -1.038e-02  3.010e-02  4.901e+01  -0.345    0.732  
+bindiff_bin2  -1.322e-02  2.262e-02  6.618e+03  -0.585    0.559  
+bindiff_bin3  -1.722e-02  2.260e-02  6.618e+03  -0.762    0.446  
+bindiff_bin4  -2.913e-02  2.263e-02  6.618e+03  -1.287    0.198  
+bindiff_bin5  -9.976e-03  2.261e-02  6.618e+03  -0.441    0.659  
+bindiff_bin6   2.193e-02  2.267e-02  6.618e+03   0.968    0.333  
+bindiff_bin7   1.416e-02  2.256e-02  6.618e+03   0.627    0.530  
+bindiff_bin8   3.583e-02  2.266e-02  6.618e+03   1.581    0.114  
+bindiff_bin9   3.966e-02  2.272e-02  6.618e+03   1.745    0.081 .
+bindiff_bin10  2.579e-02  2.291e-02  6.618e+03   1.126    0.260  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Correlation of Fixed Effects:
+            (Intr) emngry bndf_2 bndf_3 bndf_4 bndf_5 bndf_6 bndf_7 bndf_8
+emoangry    -0.654                                                        
+bindiff_bn2 -0.365 -0.001                                                 
+bindiff_bn3 -0.366 -0.001  0.508                                          
+bindiff_bn4 -0.365 -0.001  0.508  0.508                                   
+bindiff_bn5 -0.366  0.000  0.508  0.509  0.508                            
+bindiff_bn6 -0.365  0.000  0.507  0.508  0.507  0.507                     
+bindiff_bn7 -0.367  0.000  0.509  0.510  0.509  0.510  0.508              
+bindiff_bn8 -0.365 -0.001  0.507  0.508  0.507  0.507  0.506  0.508       
+bindiff_bn9 -0.363 -0.001  0.506  0.506  0.505  0.506  0.505  0.507  0.505
+bindff_bn10 -0.361  0.000  0.502  0.502  0.501  0.502  0.501  0.503  0.501
+            bndf_9
+emoangry          
+bindiff_bn2       
+bindiff_bn3       
+bindiff_bn4       
+bindiff_bn5       
+bindiff_bn6       
+bindiff_bn7       
+bindiff_bn8       
+bindiff_bn9       
+bindff_bn10  0.499</code></pre>
 </div>
 </div>
 <div id="cheek-happy-angry-adult" class="section level1">
@@ -1329,84 +1444,10 @@ levels(HA_adult_cheek$bin)</code></pre>
 <p>#fit model 1 - this is the model we use to check assumptions</p>
 <pre class="r"><code>adult_cheek_emoZ &lt;- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)</code></pre>
 <pre class="r"><code>plot(adult_cheek_emoZ)</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-24-1">
-Past versions of unnamed-chunk-24-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-24-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-24-1.png" target="_blank">55e9349</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(adult_cheek_emoZ))
 qqline(resid(adult_cheek_emoZ))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-24-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-24-2">
-Past versions of unnamed-chunk-24-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-24-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-24-2.png" target="_blank">55e9349</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-26-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>need to transform to correct normality.</p>
 <div id="compute-log_modulus-1" class="section level3">
 <h3>compute log_modulus</h3>
@@ -1420,85 +1461,10 @@ RileyFerguson
 <div id="check-assumptions-again-2" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_cheek_emo_log)</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-1">
-Past versions of unnamed-chunk-27-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-27-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-27-1.png" target="_blank">55e9349</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(adult_cheek_emo_log))
 qqline(resid(adult_cheek_emo_log))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-2">
-Past versions of unnamed-chunk-27-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-27-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-27-2.png" target="_blank">55e9349</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>#this is much worse</p>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-29-2.png" width="672" style="display: block; margin: auto;" /> #this is much worse</p>
 </div>
 <div id="compute-new-log-mod-1" class="section level3">
 <h3>compute new log mod</h3>
@@ -1512,84 +1478,10 @@ RileyFerguson
 <div id="check-assumptions-again-3" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_cheek_emo_log_new)</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-1">
-Past versions of unnamed-chunk-30-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-30-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-30-1.png" target="_blank">55e9349</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(adult_cheek_emo_log_new))
 qqline(resid(adult_cheek_emo_log_new))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-30-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-2">
-Past versions of unnamed-chunk-30-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-30-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-30-2.png" target="_blank">55e9349</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-32-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="build-model-comparisons-1" class="section level1">
@@ -1658,6 +1550,67 @@ adult_cheek_emo_bin
 adult_cheek_emo_bin_interaction    0.03589 *
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>summary(adult_cheek_emo_bin)</code></pre>
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
+  method [lmerModLmerTest]
+Formula: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
+   Data: HA_adult_cheek
+
+     AIC      BIC   logLik deviance df.resid 
+  5847.9   5950.4  -2909.0   5817.9     6815 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.0973 -0.4492 -0.0424  0.3495  7.0723 
+
+Random effects:
+ Groups   Name        Variance Std.Dev. Corr 
+ pp_no    (Intercept) 0.01754  0.1324        
+          emoangry    0.02574  0.1604   -0.78
+ Residual             0.13316  0.3649        
+Number of obs: 6830, groups:  pp_no, 50
+
+Fixed effects:
+                Estimate Std. Error         df t value Pr(&gt;|t|)   
+(Intercept)   -8.748e-04  2.388e-02  1.067e+02  -0.037  0.97085   
+emoangry      -3.795e-02  2.435e-02  4.991e+01  -1.558  0.12548   
+bindiff_bin2  -3.047e-02  1.983e-02  6.731e+03  -1.536  0.12453   
+bindiff_bin3  -2.649e-02  1.981e-02  6.731e+03  -1.337  0.18132   
+bindiff_bin4  -6.566e-03  1.979e-02  6.731e+03  -0.332  0.74010   
+bindiff_bin5   2.474e-04  1.983e-02  6.731e+03   0.012  0.99005   
+bindiff_bin6   3.472e-03  1.984e-02  6.731e+03   0.175  0.86109   
+bindiff_bin7   3.295e-02  1.977e-02  6.731e+03   1.666  0.09567 . 
+bindiff_bin8   4.489e-02  1.993e-02  6.732e+03   2.252  0.02432 * 
+bindiff_bin9   5.823e-02  1.991e-02  6.732e+03   2.925  0.00346 **
+bindiff_bin10  3.573e-02  2.000e-02  6.732e+03   1.786  0.07415 . 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Correlation of Fixed Effects:
+            (Intr) emngry bndf_2 bndf_3 bndf_4 bndf_5 bndf_6 bndf_7 bndf_8
+emoangry    -0.637                                                        
+bindiff_bn2 -0.422  0.001                                                 
+bindiff_bn3 -0.423  0.000  0.508                                          
+bindiff_bn4 -0.423  0.000  0.509  0.509                                   
+bindiff_bn5 -0.422  0.000  0.508  0.508  0.509                            
+bindiff_bn6 -0.422  0.000  0.508  0.508  0.509  0.508                     
+bindiff_bn7 -0.423  0.000  0.509  0.510  0.511  0.509  0.509              
+bindiff_bn8 -0.420  0.000  0.505  0.506  0.507  0.505  0.505  0.507       
+bindiff_bn9 -0.420  0.000  0.506  0.507  0.507  0.506  0.506  0.508  0.504
+bindff_bn10 -0.418 -0.001  0.503  0.504  0.505  0.504  0.503  0.505  0.501
+            bndf_9
+emoangry          
+bindiff_bn2       
+bindiff_bn3       
+bindiff_bn4       
+bindiff_bn5       
+bindiff_bn6       
+bindiff_bn7       
+bindiff_bn8       
+bindiff_bn9       
+bindff_bn10  0.502</code></pre>
+<pre class="r"><code>df &lt;- df %&gt;%
+  write_csv(here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened2.csv&quot;))</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

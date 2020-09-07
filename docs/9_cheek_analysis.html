@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree411f8d0a37423cefdc8c996424152f6123641bedtargetblank411f8d0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/411f8d0a37423cefdc8c996424152f6123641bed" target="_blank">411f8d0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeca55bb7e1b20d6dd8717bfb099b00017ce5ca734targetblankca55bb7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/ca55bb7e1b20d6dd8717bfb099b00017ce5ca734" target="_blank">ca55bb7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree411f8d0a37423cefdc8c996424152f6123641bedtargetblank411f8d0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeca55bb7e1b20d6dd8717bfb099b00017ce5ca734targetblankca55bb7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/411f8d0a37423cefdc8c996424152f6123641bed" target="_blank">411f8d0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/ca55bb7e1b20d6dd8717bfb099b00017ce5ca734" target="_blank">ca55bb7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -555,6 +555,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/ca55bb7e1b20d6dd8717bfb099b00017ce5ca734/analysis/9_cheek_analysis.Rmd" target="_blank">ca55bb7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+riley starting adult happy/angry cheek
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/f0b141bba7574161fa1bf587d29e8842aefd9d38/docs/9_cheek_analysis.html" target="_blank">f0b141b</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1197,6 +1231,33 @@ child_cheek_emo_bin_interaction     0.7399</code></pre>
 </div>
 <div id="cheek-happy-angry-adult" class="section level1">
 <h1>Cheek happy-angry adult</h1>
+<pre class="r"><code>HA_adult_cheek &lt;- df %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(muscle == &quot;cheek&quot;) %&gt;%
+  filter(model == &quot;adult&quot;) %&gt;%
+  arrange(pp_no, emotion, trial, bin)
+
+glimpse(HA_adult_cheek)</code></pre>
+<pre><code>Rows: 7,770
+Columns: 8
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
+$ muscle  &lt;fct&gt; cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, diff_…
+$ zdiff   &lt;dbl&gt; 0.065775092, NA, -0.008404521, -0.066137010, -0.009570698, -0…
+$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
+<p>#fix factor levels</p>
+<pre class="r"><code>HA_adult_cheek$emo &lt;- fct_relevel(HA_adult_cheek$emo, c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;))
+
+levels(HA_adult_cheek$emo)</code></pre>
+<pre><code>[1] &quot;happy&quot; &quot;angry&quot; &quot;fear&quot;  &quot;sad&quot;  </code></pre>
+<pre class="r"><code>HA_adult_cheek$bin &lt;- fct_relevel(HA_adult_cheek$bin, c(&quot;diff_bin1&quot;, &quot;diff_bin2&quot;, &quot;diff_bin3&quot;, &quot;diff_bin4&quot;, &quot;diff_bin5&quot;, &quot;diff_bin6&quot;, &quot;diff_bin7&quot;, &quot;diff_bin8&quot;, &quot;diff_bin9&quot;, &quot;diff_bin10&quot;))
+
+levels(HA_adult_cheek$bin)</code></pre>
+<pre><code> [1] &quot;diff_bin1&quot;  &quot;diff_bin2&quot;  &quot;diff_bin3&quot;  &quot;diff_bin4&quot;  &quot;diff_bin5&quot; 
+ [6] &quot;diff_bin6&quot;  &quot;diff_bin7&quot;  &quot;diff_bin8&quot;  &quot;diff_bin9&quot;  &quot;diff_bin10&quot;</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

@@ -350,12 +350,12 @@ beep(3)
 
 # TEST for best fit 
 
-AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, but then goes back up again when the interaction is added. 
+AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, and then stays the same when the interaction is added. 
 
 ```{r}
-AIC(child_cheek_emo)
-AIC(child_cheek_emo_bin)
-AIC(child_cheek_emo_bin_interaction)
+AIC(adult_cheek_emo)
+AIC(adult_cheek_emo_bin)
+AIC(adult_cheek_emo_bin_interaction)
 ```
 
 ## likelihood ratio tests
@@ -363,12 +363,12 @@ AIC(child_cheek_emo_bin_interaction)
 Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES
 
 ```{r}
-anova(child_cheek_emo, child_cheek_emo_bin)
+anova(adult_cheek_emo, adult_cheek_emo_bin)
 ```
 
-Is model with with interaction, better fit than model with just main effects? NO 
+Is model with just main effects better than the model with interactions? YES
 ```{r}
-anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
+anova(adult_cheek_emo_bin, adult_cheek_emo_bin_interaction)
 ```
 
 

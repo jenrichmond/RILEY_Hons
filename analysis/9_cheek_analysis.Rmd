@@ -217,8 +217,6 @@ anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
 
 # Cheek happy-angry adult
 
-
-
 ```{r}
 HA_adult_cheek <- df %>%
   filter(emo %in% c("happy", "angry")) %>%
@@ -248,9 +246,130 @@ levels(HA_adult_cheek$bin)
 
 
 
+#fit model 1 - this is the model we use to check assumptions
+```{r}
+adult_cheek_emoZ <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+```
+
+
+```{r}
+plot(adult_cheek_emoZ)
+
+qqnorm(resid(adult_cheek_emoZ))
+qqline(resid(adult_cheek_emoZ))
+```
 
 
 
+need to transform to correct normality. 
+
+### compute log_modulus
+
+```{r}
+HA_adult_cheek <- HA_adult_cheek %>%
+  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))
+```
+
+
+### fit model again
+
+```{r}
+adult_cheek_emo_log <- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(adult_cheek_emo_log)
+
+qqnorm(resid(adult_cheek_emo_log))
+qqline(resid(adult_cheek_emo_log))
+```
+#this is much worse 
+
+### compute new log mod
+
+```{r}
+HA_adult_cheek <- HA_adult_cheek %>%
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
+```
+
+### try fit model again
+
+```{r}
+adult_cheek_emo_log_new <- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(adult_cheek_emo_log_new)
+
+qqnorm(resid(adult_cheek_emo_log_new))
+qqline(resid(adult_cheek_emo_log_new))
+```
+
+# BUILD model comparisons
+
+What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+
+```{r}
+levels(HA_adult_cheek$emo)
+```
+
+
+### model 1 
+
+just main effect of emotion and slope for emotion 
+
+```{r}
+adult_cheek_emo <- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+beep(1)
+```
+
+## model 2
+
+just main effect of emotion and bin, and slope for emotion 
+```{r}
+adult_cheek_emo_bin <- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+beep(2)
+```
+
+## model 3
+
+main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)
+
+```{r}
+adult_cheek_emo_bin_interaction <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+beep(3)
+```
+
+
+# TEST for best fit 
+
+AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, but then goes back up again when the interaction is added. 
+
+```{r}
+AIC(child_cheek_emo)
+AIC(child_cheek_emo_bin)
+AIC(child_cheek_emo_bin_interaction)
+```
+
+## likelihood ratio tests
+
+Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES
+
+```{r}
+anova(child_cheek_emo, child_cheek_emo_bin)
+```
+
+Is model with with interaction, better fit than model with just main effects? NO 
+```{r}
+anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
+```
 
 
 

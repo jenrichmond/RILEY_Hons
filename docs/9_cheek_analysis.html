@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeca55bb7e1b20d6dd8717bfb099b00017ce5ca734targetblankca55bb7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/ca55bb7e1b20d6dd8717bfb099b00017ce5ca734" target="_blank">ca55bb7</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeb073fde0cba569ec18702507b0b43a70f0e06fd7targetblankb073fdea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/b073fde0cba569ec18702507b0b43a70f0e06fd7" target="_blank">b073fde</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeca55bb7e1b20d6dd8717bfb099b00017ce5ca734targetblankca55bb7a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeb073fde0cba569ec18702507b0b43a70f0e06fd7targetblankb073fdea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/ca55bb7e1b20d6dd8717bfb099b00017ce5ca734" target="_blank">ca55bb7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/b073fde0cba569ec18702507b0b43a70f0e06fd7" target="_blank">b073fde</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -555,6 +555,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/b073fde0cba569ec18702507b0b43a70f0e06fd7/analysis/9_cheek_analysis.Rmd" target="_blank">b073fde</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+riley finding model of best fit
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/67b2af13930f5af25b4777cbb9a2ff4cff81a00a/docs/9_cheek_analysis.html" target="_blank">67b2af1</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1258,6 +1292,110 @@ levels(HA_adult_cheek$emo)</code></pre>
 levels(HA_adult_cheek$bin)</code></pre>
 <pre><code> [1] &quot;diff_bin1&quot;  &quot;diff_bin2&quot;  &quot;diff_bin3&quot;  &quot;diff_bin4&quot;  &quot;diff_bin5&quot; 
  [6] &quot;diff_bin6&quot;  &quot;diff_bin7&quot;  &quot;diff_bin8&quot;  &quot;diff_bin9&quot;  &quot;diff_bin10&quot;</code></pre>
+<p>#fit model 1 - this is the model we use to check assumptions</p>
+<pre class="r"><code>adult_cheek_emoZ &lt;- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)</code></pre>
+<pre class="r"><code>plot(adult_cheek_emoZ)</code></pre>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>qqnorm(resid(adult_cheek_emoZ))
+qqline(resid(adult_cheek_emoZ))</code></pre>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-24-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>need to transform to correct normality.</p>
+<div id="compute-log_modulus-1" class="section level3">
+<h3>compute log_modulus</h3>
+<pre class="r"><code>HA_adult_cheek &lt;- HA_adult_cheek %&gt;%
+  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))</code></pre>
+</div>
+<div id="fit-model-again-1" class="section level3">
+<h3>fit model again</h3>
+<pre class="r"><code>adult_cheek_emo_log &lt;- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)</code></pre>
+</div>
+<div id="check-assumptions-again-2" class="section level3">
+<h3>check assumptions again</h3>
+<pre class="r"><code>plot(adult_cheek_emo_log)</code></pre>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>qqnorm(resid(adult_cheek_emo_log))
+qqline(resid(adult_cheek_emo_log))</code></pre>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /> #this is much worse</p>
+</div>
+<div id="compute-new-log-mod-1" class="section level3">
+<h3>compute new log mod</h3>
+<pre class="r"><code>HA_adult_cheek &lt;- HA_adult_cheek %&gt;%
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
+</div>
+<div id="try-fit-model-again-1" class="section level3">
+<h3>try fit model again</h3>
+<pre class="r"><code>adult_cheek_emo_log_new &lt;- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)</code></pre>
+</div>
+<div id="check-assumptions-again-3" class="section level3">
+<h3>check assumptions again</h3>
+<pre class="r"><code>plot(adult_cheek_emo_log_new)</code></pre>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>qqnorm(resid(adult_cheek_emo_log_new))
+qqline(resid(adult_cheek_emo_log_new))</code></pre>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-30-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="build-model-comparisons-1" class="section level1">
+<h1>BUILD model comparisons</h1>
+<p>What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects.</p>
+<pre class="r"><code>levels(HA_adult_cheek$emo)</code></pre>
+<pre><code>[1] &quot;happy&quot; &quot;angry&quot; &quot;fear&quot;  &quot;sad&quot;  </code></pre>
+<div id="model-1-1" class="section level3">
+<h3>model 1</h3>
+<p>just main effect of emotion and slope for emotion</p>
+<pre class="r"><code>adult_cheek_emo &lt;- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+beep(1)</code></pre>
+</div>
+<div id="model-2-1" class="section level2">
+<h2>model 2</h2>
+<p>just main effect of emotion and bin, and slope for emotion</p>
+<pre class="r"><code>adult_cheek_emo_bin &lt;- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+beep(2)</code></pre>
+</div>
+<div id="model-3-1" class="section level2">
+<h2>model 3</h2>
+<p>main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)</p>
+<pre class="r"><code>adult_cheek_emo_bin_interaction &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
+
+beep(3)</code></pre>
+</div>
+</div>
+<div id="test-for-best-fit-1" class="section level1">
+<h1>TEST for best fit</h1>
+<p>AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, but then goes back up again when the interaction is added.</p>
+<pre class="r"><code>AIC(child_cheek_emo)</code></pre>
+<pre><code>[1] 7449.033</code></pre>
+<pre class="r"><code>AIC(child_cheek_emo_bin)</code></pre>
+<pre><code>[1] 7446.74</code></pre>
+<pre class="r"><code>AIC(child_cheek_emo_bin_interaction)</code></pre>
+<pre><code>[1] 7458.739</code></pre>
+<div id="likelihood-ratio-tests-1" class="section level2">
+<h2>likelihood ratio tests</h2>
+<p>Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES</p>
+<pre class="r"><code>anova(child_cheek_emo, child_cheek_emo_bin)</code></pre>
+<pre><code>Data: HA_child_cheek
+Models:
+child_cheek_emo: log_modulus_new ~ emo + (1 + emo | pp_no)
+child_cheek_emo_bin: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
+                    npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)  
+child_cheek_emo        6 7449.0 7489.9 -3718.5   7437.0                       
+child_cheek_emo_bin   15 7446.7 7548.9 -3708.4   7416.7 20.293  9    0.01619 *
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Is model with with interaction, better fit than model with just main effects? NO</p>
+<pre class="r"><code>anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)</code></pre>
+<pre><code>Data: HA_child_cheek
+Models:
+child_cheek_emo_bin: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
+child_cheek_emo_bin_interaction: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
+                                npar    AIC    BIC  logLik deviance  Chisq Df
+child_cheek_emo_bin               15 7446.7 7548.9 -3708.4   7416.7          
+child_cheek_emo_bin_interaction   24 7458.7 7622.2 -3705.4   7410.7 6.0006  9
+                                Pr(&gt;Chisq)
+child_cheek_emo_bin                       
+child_cheek_emo_bin_interaction     0.7399</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1312,6 +1450,7 @@ loaded via a namespace (and not attached):
 [64] stringi_1.4.6       Rcpp_1.0.5          vctrs_0.3.1        
 [67] audio_0.1-7         dbplyr_1.4.2        tidyselect_1.1.0   
 [70] xfun_0.15           coda_0.19-3        </code></pre>
+</div>
 </div>
 </div>
 

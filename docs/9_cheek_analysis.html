@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeb073fde0cba569ec18702507b0b43a70f0e06fd7targetblankb073fdea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/b073fde0cba569ec18702507b0b43a70f0e06fd7" target="_blank">b073fde</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eeb03f1aea469f67ecb55b26c146b05a93a511ctargetblank6eeb03fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eeb03f1aea469f67ecb55b26c146b05a93a511c" target="_blank">6eeb03f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreeb073fde0cba569ec18702507b0b43a70f0e06fd7targetblankb073fdea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eeb03f1aea469f67ecb55b26c146b05a93a511ctargetblank6eeb03fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/b073fde0cba569ec18702507b0b43a70f0e06fd7" target="_blank">b073fde</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eeb03f1aea469f67ecb55b26c146b05a93a511c" target="_blank">6eeb03f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -555,6 +555,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/6eeb03f1aea469f67ecb55b26c146b05a93a511c/analysis/9_cheek_analysis.Rmd" target="_blank">6eeb03f</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+model of best fit for adult
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/9_cheek_analysis.html" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1296,9 +1330,83 @@ levels(HA_adult_cheek$bin)</code></pre>
 <pre class="r"><code>adult_cheek_emoZ &lt;- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)</code></pre>
 <pre class="r"><code>plot(adult_cheek_emoZ)</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-24-1">
+Past versions of unnamed-chunk-24-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-24-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-24-1.png" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_cheek_emoZ))
 qqline(resid(adult_cheek_emoZ))</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-24-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-24-2">
+Past versions of unnamed-chunk-24-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-24-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-24-2.png" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>need to transform to correct normality.</p>
 <div id="compute-log_modulus-1" class="section level3">
 <h3>compute log_modulus</h3>
@@ -1313,9 +1421,84 @@ qqline(resid(adult_cheek_emoZ))</code></pre>
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_cheek_emo_log)</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-1">
+Past versions of unnamed-chunk-27-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-27-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-27-1.png" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_cheek_emo_log))
 qqline(resid(adult_cheek_emo_log))</code></pre>
-<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /> #this is much worse</p>
+<p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-2">
+Past versions of unnamed-chunk-27-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-27-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-27-2.png" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>#this is much worse</p>
 </div>
 <div id="compute-new-log-mod-1" class="section level3">
 <h3>compute new log mod</h3>
@@ -1330,9 +1513,83 @@ qqline(resid(adult_cheek_emo_log))</code></pre>
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_cheek_emo_log_new)</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-1">
+Past versions of unnamed-chunk-30-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-30-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-30-1.png" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_cheek_emo_log_new))
 qqline(resid(adult_cheek_emo_log_new))</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-30-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-2">
+Past versions of unnamed-chunk-30-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-30-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/55e9349dd4dba02e06884cd1ce5910e0fcf072ae/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-30-2.png" target="_blank">55e9349</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="build-model-comparisons-1" class="section level1">
@@ -1364,38 +1621,43 @@ beep(3)</code></pre>
 </div>
 <div id="test-for-best-fit-1" class="section level1">
 <h1>TEST for best fit</h1>
-<p>AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, but then goes back up again when the interaction is added.</p>
-<pre class="r"><code>AIC(child_cheek_emo)</code></pre>
-<pre><code>[1] 7449.033</code></pre>
-<pre class="r"><code>AIC(child_cheek_emo_bin)</code></pre>
-<pre><code>[1] 7446.74</code></pre>
-<pre class="r"><code>AIC(child_cheek_emo_bin_interaction)</code></pre>
-<pre><code>[1] 7458.739</code></pre>
+<p>AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, and then stays the same when the interaction is added.</p>
+<pre class="r"><code>AIC(adult_cheek_emo)</code></pre>
+<pre><code>[1] 5871.812</code></pre>
+<pre class="r"><code>AIC(adult_cheek_emo_bin)</code></pre>
+<pre><code>[1] 5847.931</code></pre>
+<pre class="r"><code>AIC(adult_cheek_emo_bin_interaction)</code></pre>
+<pre><code>[1] 5847.992</code></pre>
 <div id="likelihood-ratio-tests-1" class="section level2">
 <h2>likelihood ratio tests</h2>
 <p>Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES</p>
-<pre class="r"><code>anova(child_cheek_emo, child_cheek_emo_bin)</code></pre>
-<pre><code>Data: HA_child_cheek
+<pre class="r"><code>anova(adult_cheek_emo, adult_cheek_emo_bin)</code></pre>
+<pre><code>Data: HA_adult_cheek
 Models:
-child_cheek_emo: log_modulus_new ~ emo + (1 + emo | pp_no)
-child_cheek_emo_bin: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
-                    npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)  
-child_cheek_emo        6 7449.0 7489.9 -3718.5   7437.0                       
-child_cheek_emo_bin   15 7446.7 7548.9 -3708.4   7416.7 20.293  9    0.01619 *
+adult_cheek_emo: log_modulus_new ~ emo + (1 + emo | pp_no)
+adult_cheek_emo_bin: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
+                    npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)
+adult_cheek_emo        6 5871.8 5912.8 -2929.9   5859.8                     
+adult_cheek_emo_bin   15 5847.9 5950.4 -2909.0   5817.9 41.881  9  3.455e-06
+                       
+adult_cheek_emo        
+adult_cheek_emo_bin ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>Is model with with interaction, better fit than model with just main effects? NO</p>
-<pre class="r"><code>anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)</code></pre>
-<pre><code>Data: HA_child_cheek
+<p>Is model with just main effects better than the model with interactions? YES</p>
+<pre class="r"><code>anova(adult_cheek_emo_bin, adult_cheek_emo_bin_interaction)</code></pre>
+<pre><code>Data: HA_adult_cheek
 Models:
-child_cheek_emo_bin: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
-child_cheek_emo_bin_interaction: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
-                                npar    AIC    BIC  logLik deviance  Chisq Df
-child_cheek_emo_bin               15 7446.7 7548.9 -3708.4   7416.7          
-child_cheek_emo_bin_interaction   24 7458.7 7622.2 -3705.4   7410.7 6.0006  9
-                                Pr(&gt;Chisq)
-child_cheek_emo_bin                       
-child_cheek_emo_bin_interaction     0.7399</code></pre>
+adult_cheek_emo_bin: log_modulus_new ~ emo + bin + (1 + emo | pp_no)
+adult_cheek_emo_bin_interaction: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
+                                npar    AIC    BIC logLik deviance  Chisq Df
+adult_cheek_emo_bin               15 5847.9 5950.4  -2909   5817.9          
+adult_cheek_emo_bin_interaction   24 5848.0 6011.9  -2900   5800.0 17.939  9
+                                Pr(&gt;Chisq)  
+adult_cheek_emo_bin                         
+adult_cheek_emo_bin_interaction    0.03589 *
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">

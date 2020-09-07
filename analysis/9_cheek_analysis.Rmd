@@ -61,8 +61,6 @@ Fix factor levels
 
 ```{r}
 
-
-
 HA_child_cheek$emo <- fct_relevel(HA_child_cheek$emo, c("happy", "angry", "fear", "sad"))
 
 levels(HA_child_cheek$emo)
@@ -217,5 +215,47 @@ anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
 ```
 
 
-
 # Cheek happy-angry adult
+
+
+
+```{r}
+HA_adult_cheek <- df %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  filter(muscle == "cheek") %>%
+  filter(model == "adult") %>%
+  arrange(pp_no, emotion, trial, bin)
+
+glimpse(HA_adult_cheek)
+
+```
+
+
+
+#fix factor levels 
+
+```{r}
+HA_adult_cheek$emo <- fct_relevel(HA_adult_cheek$emo, c("happy", "angry", "fear", "sad"))
+
+levels(HA_adult_cheek$emo)
+
+
+
+HA_adult_cheek$bin <- fct_relevel(HA_adult_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(HA_adult_cheek$bin)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+

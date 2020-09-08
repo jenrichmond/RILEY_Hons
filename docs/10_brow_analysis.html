@@ -409,7 +409,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-07
+<strong>Last updated:</strong> 2020-09-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -500,22 +500,23 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eee5470e1bcafabe17269378bf6052580324223targetblank6eee547a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eee5470e1bcafabe17269378bf6052580324223" target="_blank">6eee547</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreed52ded6f17cd6a5949179108aa456bb07f80e6f4targetblankd52ded6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/d52ded6f17cd6a5949179108aa456bb07f80e6f4" target="_blank">d52ded6</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6eee5470e1bcafabe17269378bf6052580324223targetblank6eee547a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreed52ded6f17cd6a5949179108aa456bb07f80e6f4targetblankd52ded6a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6eee5470e1bcafabe17269378bf6052580324223" target="_blank">6eee547</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/d52ded6f17cd6a5949179108aa456bb07f80e6f4" target="_blank">d52ded6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Untracked files:
@@ -558,6 +559,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/d52ded6f17cd6a5949179108aa456bb07f80e6f4/analysis/10_brow_analysis.Rmd" target="_blank">d52ded6</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+<td>
+riley analysing
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/0f4683417c138e72a95e55d581007140113cd5d6/docs/10_brow_analysis.html" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -669,9 +704,83 @@ levels(HA_child_brow$bin)</code></pre>
 <h3>check assumptions</h3>
 <pre class="r"><code>plot(child_brow_emoZ)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-7-1.png" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(child_brow_emoZ))
 qqline(resid(child_brow_emoZ))</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-7-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-2">
+Past versions of unnamed-chunk-7-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-7-2.png" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus" class="section level3">
@@ -688,9 +797,86 @@ qqline(resid(child_brow_emoZ))</code></pre>
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_brow_emo_log)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
+Past versions of unnamed-chunk-10-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-10-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-10-1.png" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(child_brow_emo_log))
 qqline(resid(child_brow_emo_log))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /> ### compute new log mod</p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-2">
+Past versions of unnamed-chunk-10-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-10-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-10-2.png" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="compute-new-log-mod" class="section level3">
+<h3>compute new log mod</h3>
 <pre class="r"><code>HA_child_brow &lt;- HA_child_brow %&gt;%
   mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
 </div>
@@ -702,9 +888,83 @@ qqline(resid(child_brow_emo_log))</code></pre>
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_brow_emo_log_new)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
+Past versions of unnamed-chunk-13-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-13-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-13-1.png" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(child_brow_emo_log_new))
 qqline(resid(child_brow_emo_log_new))</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-13-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-2">
+Past versions of unnamed-chunk-13-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-13-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-13-2.png" target="_blank">0f46834</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-07
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -768,15 +1028,301 @@ child_brow_emo_bin_interaction   24 8882.3 9046.5 -4417.1   8834.3 18.462 18
 child_brow_emo                           
 child_brow_emo_bin_interaction     0.4257</code></pre>
 <p>#get confidence intervals</p>
-<pre class="r"><code>confint.merMod(child_brow_emo, level = 0.95)</code></pre>
+<pre class="r"><code>confint.merMod(child_brow_emo_bin_interaction, level = 0.95)</code></pre>
 <pre><code>Computing profile confidence intervals ...</code></pre>
-<pre><code>                  2.5 %      97.5 %
-.sig01       0.08469515  0.13950468
-.sig02      -0.70378601 -0.20058175
-.sig03       0.13397761  0.21650070
-.sigma       0.44530479  0.46050660
-(Intercept) -0.08384310 -0.01477811
-emoangry    -0.03956454  0.06649903</code></pre>
+<pre><code>                              2.5 %       97.5 %
+.sig01                  0.084672317  0.139515697
+.sig02                 -0.703169292 -0.200042538
+.sig03                  0.133984808  0.216399604
+.sigma                  0.444702698  0.459883964
+(Intercept)            -0.109735934  0.004004098
+emoangry               -0.091264599  0.074548436
+bindiff_bin2           -0.080882390  0.054526209
+bindiff_bin3           -0.051302599  0.083511479
+bindiff_bin4           -0.072390703  0.062716855
+bindiff_bin5           -0.040521617  0.094199587
+bindiff_bin6           -0.054777381  0.080036916
+bindiff_bin7           -0.043510214  0.091305204
+bindiff_bin8           -0.053570653  0.081633271
+bindiff_bin9           -0.079256495  0.055847044
+bindiff_bin10          -0.096909952  0.038296491
+emoangry:bindiff_bin2  -0.048633723  0.142789189
+emoangry:bindiff_bin3  -0.106914206  0.083874353
+emoangry:bindiff_bin4  -0.090772584  0.099949221
+emoangry:bindiff_bin5  -0.121392405  0.069475534
+emoangry:bindiff_bin6  -0.102973613  0.087748877
+emoangry:bindiff_bin7  -0.085956668  0.104491354
+emoangry:bindiff_bin8  -0.020435397  0.170906394
+emoangry:bindiff_bin9  -0.052045898  0.139157963
+emoangry:bindiff_bin10 -0.009517059  0.182406433</code></pre>
+<pre class="r"><code>really_nice_table &lt;- dust(child_brow_emo_bin_interaction) %&gt;%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
+  sprinkle_colnames(term = &quot;Term&quot;, 
+                    estimate = &quot;Estimate&quot;, 
+                    std.error = &quot;SE&quot;,
+                    statistic = &quot;t statistic&quot;, 
+                    p.value = &quot;P-value&quot;)  %&gt;%
+  sprinkle(bg_pattern_by = &quot;rows&quot;) %&gt;%
+    sprinkle_print_method(&quot;html&quot;) 
+
+really_nice_table</code></pre>
+<table style = 'margin:auto;border-collapse:collapse;'>
+<tr>
+<th colspan = '1'; rowspan = '1'; style='text-align:left;'>effect </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:left;'>group </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:left;'>Term </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>Estimate </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>SE </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>t statistic </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>df </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>P-value </th>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>(Intercept) </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.053 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-1.826 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>374.772 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.069 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.008 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.198 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>307.796 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.84 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin2 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.013 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.035 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.382 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6820.522 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.7 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin3 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.016 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.468 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.697 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.64 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin4 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.005 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.14 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6820.021 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.89 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin5 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.027 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.781 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.818 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.43 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin6 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.013 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.367 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6819.714 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.71 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin7 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.024 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.695 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.829 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.49 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin8 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.014 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.407 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6819.995 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.68 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin9 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.012 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.34 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.816 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.73 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin10 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.85 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6820.097 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.4 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin2 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.047 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.964 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6820.012 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.33 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin3 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.012 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.237 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6819.451 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.81 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin4 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.005 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.094 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.566 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.92 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin5 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.026 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.533 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6819.667 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.59 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin6 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.008 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.156 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.533 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.88 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin7 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.009 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.191 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6819.5 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.85 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin8 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.075 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>1.542 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.604 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.12 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin9 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.044 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.893 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6819.582 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.37 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin10 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.086 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.049 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>1.766 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6819.742 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.077 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>pp_no </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>sd__(Intercept) </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.108 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>NA </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>pp_no </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>cor__(Intercept).emoangry </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.493 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>pp_no </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>sd__emoangry </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.169 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>NA </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>Residual </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>sd__Observation </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.452 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
+</tr>
+</table></br></br>
+<pre class="r"><code>anova(child_brow_emo)</code></pre>
+<pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
+      Sum Sq  Mean Sq NumDF  DenDF F value Pr(&gt;F)
+emo 0.052866 0.052866     1 48.964  0.2578 0.6139</code></pre>
 <p>#now do the same for adult</p>
 <div id="make-brow-ha-adult-df" class="section level3">
 <h3>Make brow HA adult df</h3>
@@ -817,10 +1363,10 @@ levels(HA_adult_brow$bin)</code></pre>
 <div id="check-assumptions-1" class="section level3">
 <h3>check assumptions</h3>
 <pre class="r"><code>plot(adult_brow_emoZ)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(adult_brow_emoZ))
 qqline(resid(adult_brow_emoZ))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-25-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus-1" class="section level3">
@@ -836,10 +1382,10 @@ qqline(resid(adult_brow_emoZ))</code></pre>
 <div id="check-assumptions-again-2" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_brow_emo_log)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(adult_brow_emo_log))
 qqline(resid(adult_brow_emo_log))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-28-2.png" width="672" style="display: block; margin: auto;" /> ### compute new log mod</p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-30-2.png" width="672" style="display: block; margin: auto;" /> ### compute new log mod</p>
 <pre class="r"><code>HA_adult_brow &lt;- HA_adult_brow %&gt;%
   mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
 </div>
@@ -850,10 +1396,10 @@ qqline(resid(adult_brow_emo_log))</code></pre>
 <div id="check-assumptions-again-3" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_brow_emo_log_new)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(adult_brow_emo_log_new))
 qqline(resid(adult_brow_emo_log_new))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-31-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-33-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -916,16 +1462,309 @@ adult_brow_emo_bin_interaction   24 6979.4 7144.2 -3465.7   6931.4 7.3532 18
                                Pr(&gt;Chisq)
 adult_brow_emo                           
 adult_brow_emo_bin_interaction     0.9868</code></pre>
+<pre class="r"><code>tidy_cheek_adult &lt;- tidy(adult_brow_emo)</code></pre>
+<p>#tidying output</p>
+<pre class="r"><code>terms &lt;- c(&quot;intercept&quot;, &quot;happy vs. angry&quot;, &quot;bin1 vs. bin2&quot;, &quot;bin2 vs. bin3&quot;, &quot;bin3 vs. bin4&quot;, &quot;bin4 vs. bin5&quot;, &quot;bin5 vs. bin6&quot;)
+
+tidier_cheek_adult &lt;- tidy_cheek_adult %&gt;%
+  filter(effect == &quot;fixed&quot;) %&gt;%
+  select(-group) 
+
+
+tidier_cheek_adult &lt;-  tidier_cheek_adult %&gt;%
+  mutate(niceterms = c(&quot;intercept&quot;, &quot;happy vs. angry&quot;))</code></pre>
 <p>#get confidence intervals</p>
-<pre class="r"><code>confint.merMod(adult_brow_emo, level = 0.95)</code></pre>
+<pre class="r"><code>confint.merMod(adult_brow_emo_bin_interaction, level = 0.95)</code></pre>
 <pre><code>Computing profile confidence intervals ...</code></pre>
-<pre><code>                  2.5 %      97.5 %
-.sig01       0.08944012  0.14213012
-.sig02      -0.74418114 -0.31124487
-.sig03       0.13526376  0.21313947
-.sigma       0.38278853  0.39570318
-(Intercept) -0.05833479  0.01014255
-emoangry    -0.06772409  0.03443500</code></pre>
+<pre><code>                             2.5 %      97.5 %
+.sig01                  0.08944486  0.14212171
+.sig02                 -0.74419853 -0.31140715
+.sig03                  0.13524731  0.21312930
+.sigma                  0.38258759  0.39549547
+(Intercept)            -0.05844360  0.04430253
+emoangry               -0.11700197  0.03211102
+bindiff_bin2           -0.08524874  0.02964258
+bindiff_bin3           -0.07832235  0.03648350
+bindiff_bin4           -0.06164434  0.05276189
+bindiff_bin5           -0.06098693  0.05406124
+bindiff_bin6           -0.07638099  0.03817974
+bindiff_bin7           -0.07500092  0.04004910
+bindiff_bin8           -0.07918891  0.03578156
+bindiff_bin9           -0.07600474  0.03880284
+bindiff_bin10          -0.09421178  0.02067380
+emoangry:bindiff_bin2  -0.02077276  0.14229452
+emoangry:bindiff_bin3  -0.04727073  0.11544262
+emoangry:bindiff_bin4  -0.09341904  0.06866552
+emoangry:bindiff_bin5  -0.07715209  0.08555149
+emoangry:bindiff_bin6  -0.04956063  0.11274852
+emoangry:bindiff_bin7  -0.04381515  0.11872456
+emoangry:bindiff_bin8  -0.04277128  0.12005067
+emoangry:bindiff_bin9  -0.04572448  0.11717153
+emoangry:bindiff_bin10 -0.05285363  0.10990853</code></pre>
+<pre class="r"><code>really_nice_table &lt;- dust(adult_brow_emo_bin_interaction) %&gt;%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
+  sprinkle_colnames(term = &quot;Term&quot;, 
+                    estimate = &quot;Estimate&quot;, 
+                    std.error = &quot;SE&quot;,
+                    statistic = &quot;t statistic&quot;, 
+                    p.value = &quot;P-value&quot;)  %&gt;%
+  sprinkle(bg_pattern_by = &quot;rows&quot;) %&gt;%
+    sprinkle_print_method(&quot;html&quot;) 
+
+really_nice_table</code></pre>
+<table style = 'margin:auto;border-collapse:collapse;'>
+<tr>
+<th colspan = '1'; rowspan = '1'; style='text-align:left;'>effect </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:left;'>group </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:left;'>Term </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>Estimate </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>SE </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>t statistic </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>df </th>
+<th colspan = '1'; rowspan = '1'; style='text-align:right;'>P-value </th>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>(Intercept) </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.007 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.026 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.271 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>265.051 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.79 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.038 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-1.121 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>237.83 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.26 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin2 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.028 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.949 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.645 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.34 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin3 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.021 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.714 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.431 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.48 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin4 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.004 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.152 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.322 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.88 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin5 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.003 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.118 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.402 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.91 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin6 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.019 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.654 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.187 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.51 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin7 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.017 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.596 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.494 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.55 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin8 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.022 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.74 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.558 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.46 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>bindiff_bin9 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.019 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.635 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.511 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.53 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>bindiff_bin10 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-0.037 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>-1.255 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.396 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.21 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin2 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.061 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>1.461 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.53 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.14 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin3 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.034 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.821 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.337 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.41 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin4 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.012 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.041 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.299 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.136 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.76 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin5 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.004 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.101 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.108 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.92 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin6 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.032 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.041 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.763 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.146 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.45 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin7 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.037 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.041 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.903 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.229 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.37 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin8 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.039 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.93 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.261 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.35 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>emoangry:bindiff_bin9 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.036 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.86 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>6979.516 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>0.39 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>fixed </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>emoangry:bindiff_bin10 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.029 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.042 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.687 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>6979.188 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>0.49 </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>pp_no </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>sd__(Intercept) </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.112 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>NA </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>pp_no </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>cor__(Intercept).emoangry </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>-0.566 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>pp_no </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:transparent;'>sd__emoangry </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>0.168 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:transparent;'>NA </td>
+</tr>
+<tr>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>ran_pars </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>Residual </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:left;background-color:#DCDCDC;'>sd__Observation </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>0.389 </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;padding:15px;'>NA </td>
+<td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
+</tr>
+</table></br></br>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -956,30 +1795,30 @@ other attached packages:
 [17] workflowr_1.6.2  
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.1          jsonlite_1.7.0      splines_3.6.2      
- [4] modelr_0.1.5        assertthat_0.2.1    statmod_1.4.34     
- [7] cellranger_1.1.0    yaml_2.2.1          numDeriv_2016.8-1.1
-[10] pillar_1.4.6        backports_1.1.8     lattice_0.20-38    
-[13] glue_1.4.1          digest_0.6.25       promises_1.1.0     
-[16] rvest_0.3.5         minqa_1.2.4         colorspace_1.4-1   
-[19] plyr_1.8.5          htmltools_0.5.0     httpuv_1.5.2       
-[22] pkgconfig_2.0.3     broom_0.7.0.9001    haven_2.2.0        
-[25] scales_1.1.0        whisker_0.4         later_1.0.0        
-[28] git2r_0.27.1        generics_0.0.2      ellipsis_0.3.1     
-[31] withr_2.1.2         TMB_1.7.18          lazyeval_0.2.2     
-[34] cli_2.0.2           magrittr_1.5        crayon_1.3.4       
-[37] readxl_1.3.1        evaluate_0.14       fs_1.3.1           
-[40] fansi_0.4.1         nlme_3.1-142        MASS_7.3-51.4      
-[43] xml2_1.2.2          tools_3.6.2         hms_0.5.3          
-[46] lifecycle_0.2.0     munsell_0.5.0       reprex_0.3.0       
-[49] compiler_3.6.2      rlang_0.4.7         grid_3.6.2         
-[52] nloptr_1.2.2.2      rstudioapi_0.11     rmarkdown_2.3      
-[55] boot_1.3-23         gtable_0.3.0        DBI_1.1.0          
-[58] reshape2_1.4.3      R6_2.4.1            lubridate_1.7.4    
-[61] knitr_1.29          utf8_1.1.4          rprojroot_1.3-2    
-[64] stringi_1.4.6       Rcpp_1.0.5          vctrs_0.3.1        
-[67] audio_0.1-7         dbplyr_1.4.2        tidyselect_1.1.0   
-[70] xfun_0.15           coda_0.19-3        </code></pre>
+ [1] nlme_3.1-142        fs_1.3.1            lubridate_1.7.4    
+ [4] httr_1.4.1          rprojroot_1.3-2     numDeriv_2016.8-1.1
+ [7] tools_3.6.2         TMB_1.7.18          backports_1.1.8    
+[10] utf8_1.1.4          R6_2.4.1            DBI_1.1.0          
+[13] lazyeval_0.2.2      colorspace_1.4-1    withr_2.1.2        
+[16] tidyselect_1.1.0    compiler_3.6.2      git2r_0.27.1       
+[19] cli_2.0.2           rvest_0.3.5         xml2_1.2.2         
+[22] scales_1.1.0        checkmate_2.0.0     digest_0.6.25      
+[25] minqa_1.2.4         rmarkdown_2.3       pkgconfig_2.0.3    
+[28] htmltools_0.5.0     dbplyr_1.4.2        rlang_0.4.7        
+[31] readxl_1.3.1        rstudioapi_0.11     generics_0.0.2     
+[34] jsonlite_1.7.0      magrittr_1.5        Rcpp_1.0.5         
+[37] munsell_0.5.0       fansi_0.4.1         lifecycle_0.2.0    
+[40] stringi_1.4.6       whisker_0.4         yaml_2.2.1         
+[43] MASS_7.3-51.4       plyr_1.8.5          grid_3.6.2         
+[46] promises_1.1.0      crayon_1.3.4        lattice_0.20-38    
+[49] haven_2.2.0         splines_3.6.2       hms_0.5.3          
+[52] knitr_1.29          pillar_1.4.6        boot_1.3-23        
+[55] reshape2_1.4.3      reprex_0.3.0        glue_1.4.1         
+[58] evaluate_0.14       modelr_0.1.5        vctrs_0.3.1        
+[61] nloptr_1.2.2.2      httpuv_1.5.2        cellranger_1.1.0   
+[64] gtable_0.3.0        assertthat_0.2.1    xfun_0.15          
+[67] broom_0.7.0.9001    coda_0.19-3         later_1.0.0        
+[70] audio_0.1-7         statmod_1.4.34      ellipsis_0.3.1     </code></pre>
 </div>
 </div>
 </div>

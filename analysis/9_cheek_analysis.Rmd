@@ -146,6 +146,7 @@ qqnorm(resid(child_cheek_emo_log_new))
 qqline(resid(child_cheek_emo_log_new))
 ```
 
+
 Better but not great. 
 
 *JENNY CODE CHECK UP TO HERE*
@@ -217,13 +218,27 @@ anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
 
 #get confidence intervals
 ```{r}
-confint.merMod(child_cheek_emo_bin, level = 0.95)
+confint.merMod(child_cheek_emo_bin_interaction, level = 0.95)
 ```
 
 ```{r}
-summary(child_cheek_emo_bin)
+really_nice_table <- dust(child_cheek_emo_bin_interaction) %>%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+  sprinkle_colnames(term = "Term", 
+                    estimate = "Estimate", 
+                    std.error = "SE",
+                    statistic = "t statistic", 
+                    p.value = "P-value")  %>%
+  sprinkle(bg_pattern_by = "rows") %>%
+    sprinkle_print_method("html") 
+
+really_nice_table
 ```
 
+```{r}
+anova(child_cheek_emo_bin_interaction)
+```
 
 
 # Cheek happy-angry adult
@@ -384,7 +399,35 @@ anova(adult_cheek_emo_bin, adult_cheek_emo_bin_interaction)
 
 ```{r}
 summary(adult_cheek_emo_bin)
+
+anova(adult_cheek_emo_bin)
 ```
+
+```{r}
+confint.merMod(adult_cheek_emo_bin_interaction, level = 0.95)
+```
+
+```{r}
+really_nice_table <- dust(adult_cheek_emo_bin_interaction) %>%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+  sprinkle_colnames(term = "Term", 
+                    estimate = "Estimate", 
+                    std.error = "SE",
+                    statistic = "t statistic", 
+                    p.value = "P-value")  %>%
+  sprinkle(bg_pattern_by = "rows") %>%
+    sprinkle_print_method("html") 
+
+really_nice_table
+```
+
+
+```{r}
+anova(adult_cheek_emo_bin_interaction)
+```
+
+
 
 ```{r}
 df <- df %>%

@@ -201,7 +201,28 @@ anova(child_brow_emo, child_brow_emo_bin_interaction)
 
 #get confidence intervals 
 ```{r}
-confint.merMod(child_brow_emo, level = 0.95)
+confint.merMod(child_brow_emo_bin_interaction, level = 0.95)
+```
+
+```{r}
+
+really_nice_table <- dust(child_brow_emo_bin_interaction) %>%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+  sprinkle_colnames(term = "Term", 
+                    estimate = "Estimate", 
+                    std.error = "SE",
+                    statistic = "t statistic", 
+                    p.value = "P-value")  %>%
+  sprinkle(bg_pattern_by = "rows") %>%
+    sprinkle_print_method("html") 
+
+really_nice_table
+
+```
+
+```{r}
+anova(child_brow_emo)
 ```
 
 #now do the same for adult 
@@ -366,11 +387,47 @@ Is model with with interaction, better fit than model with just main effects? NO
 anova(adult_brow_emo, adult_brow_emo_bin_interaction)
 ```
 
-#get confidence intervals 
 ```{r}
-confint.merMod(adult_brow_emo, level = 0.95)
+tidy_cheek_adult <- tidy(adult_brow_emo)
 ```
 
+
+#tidying output
+```{r}
+terms <- c("intercept", "happy vs. angry", "bin1 vs. bin2", "bin2 vs. bin3", "bin3 vs. bin4", "bin4 vs. bin5", "bin5 vs. bin6")
+
+tidier_cheek_adult <- tidy_cheek_adult %>%
+  filter(effect == "fixed") %>%
+  select(-group) 
+
+
+tidier_cheek_adult <-  tidier_cheek_adult %>%
+  mutate(niceterms = c("intercept", "happy vs. angry"))
+
+```
+
+
+
+#get confidence intervals 
+```{r}
+confint.merMod(adult_brow_emo_bin_interaction, level = 0.95)
+```
+
+```{r}
+
+really_nice_table <- dust(adult_brow_emo_bin_interaction) %>%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+  sprinkle_colnames(term = "Term", 
+                    estimate = "Estimate", 
+                    std.error = "SE",
+                    statistic = "t statistic", 
+                    p.value = "P-value")  %>%
+  sprinkle(bg_pattern_by = "rows") %>%
+    sprinkle_print_method("html") 
+
+really_nice_table
+```
 
 
 

@@ -11,11 +11,12 @@ library(lmerTest)
 library(broom.mixed)
 library(pixiedust)
 library(beepr)
+library(ggplot2) 
 ```
 
 # read in data 
 ```{r}
-df <- read_csv(here("data", "adult_child_combined", "zdiff_binscreened.csv"))
+df <- read_csv(here::here("data", "adult_child_combined", "zdiff_binscreened.csv"))
 ```
 # fix data types
 
@@ -65,36 +66,34 @@ HA_child_cheek$emo <- fct_relevel(HA_child_cheek$emo, c("happy", "angry", "fear"
 
 levels(HA_child_cheek$emo)
 
-
-
 HA_child_cheek$bin <- fct_relevel(HA_child_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
 
 levels(HA_child_cheek$bin)
 ```
 
-## fit model 1 
+## Model 1 (intercepts only)
 
-This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+
+This model predicts Zdiff from fixed effects of emotion (happy, angry), bin (1-10), and emotion x bin interaction. It includes random intercepts for participant (accounting for the potential of some kids to just have more active faces than others) and random intercepts for trials (accounting for the possibiity that face activation differs across the the 10 trials). No slopes are included. 
 
 ```{r}
-child_cheek_emoZ <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
-
+child_cheek_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no) + (1|trial), data = HA_child_cheek, REML = FALSE)
 ```
 
 
-### check assumptions
+### check assumptions - plot residuals and qqplot (check normality)
 ```{r}
-plot(child_cheek_emoZ)
+plot(child_cheek_lm)
 
-qqnorm(resid(child_cheek_emoZ))
-qqline(resid(child_cheek_emoZ))
+qqnorm(resid(child_cheek_lm))
+qqline(resid(child_cheek_lm))
 ```
 
 As suscepted, need to transform to correct normality. 
 
 ### compute log_modulus
 
-NOTE: this first log mod calc is WRONG, uses + instead of *
+log modulus - transforms the absolute value (without the -) and then puts the sign back on. Make a new column for log modulus.
 
 ```{r}
 HA_child_cheek <- HA_child_cheek %>%
@@ -104,25 +103,19 @@ HA_child_cheek <- HA_child_cheek %>%
 ### fit model again
 
 ```{r}
-child_cheek_emo_log <- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+child_cheek_lm_new <- lmer(log_modulus ~ emo + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
 
 ```
 
 ### check assumptions again
 ```{r}
-plot(child_cheek_emo_log)
+plot(child_cheek_lm_new)
 
-qqnorm(resid(child_cheek_emo_log))
-qqline(resid(child_cheek_emo_log))
+qqnorm(resid(child_cheek_lm_new))
+qqline(resid(child_cheek_lm_new))
 ```
 
-## YIKES something not right 
-
-*WHAT* that looks WAY worse.... what is going on here...
-
-Is that log_mod doing what we think?? How to log modulus here.... https://blogs.sas.com/content/iml/2014/07/14/log-transformation-of-pos-neg.html
-
-RILEY- it is * log not +
+#this one looks much worse... 
 
 ### compute new log mod
 
@@ -134,95 +127,93 @@ HA_child_cheek <- HA_child_cheek %>%
 ### try fit model again
 
 ```{r}
-child_cheek_emo_log_new <- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+child_cheek_lm_1 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
 
 ```
 
 ### check assumptions again
 ```{r}
-plot(child_cheek_emo_log_new)
+plot(child_cheek_lm_1)
 
-qqnorm(resid(child_cheek_emo_log_new))
-qqline(resid(child_cheek_emo_log_new))
+qqnorm(resid(child_cheek_lm_1))
+qqline(resid(child_cheek_lm_1))
 ```
 
 
-Better but not great. 
-
-*JENNY CODE CHECK UP TO HERE*
+#this one looks better but not great. 
 
 
-# BUILD model comparisons
+#use ANOVA to estimate effects
+```{r}
+aov_output <- anova(child_cheek_lm_1) %>%
+  rownames_to_column() %>%
+  rename(term = rowname)
+```
 
-What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+
+#use summary to get coefficients
+```{r}
+summary(child_cheek_lm_1)
+```
+
+
+#use tidy to get data frame
 
 ```{r}
-levels(HA_child_cheek$emo)
+tidy_child_cheek1 <- tidy(child_cheek_lm_1)
 ```
 
 
-### model 1 
-
-just main effect of emotion and slope for emotion 
+## Model 2 (slopes for emotion)
 
 ```{r}
-child_cheek_emo <- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_child_cheek, REML = FALSE)
-
-beep(1)
+child_cheek_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = HA_child_cheek, REML = FALSE)
 ```
-
-## model 2
-
-just main effect of emotion and bin, and slope for emotion 
-```{r}
-child_cheek_emo_bin <- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_child_cheek, REML = FALSE)
-
-beep(2)
-```
-
-## model 3
-
-main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)
+#get anova, summary and tidy 
 
 ```{r}
-child_cheek_emo_bin_interaction <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_child_cheek, REML = FALSE)
-
-beep(3)
+anova(child_cheek_lm_2)
 ```
-
-
-# TEST for best fit 
-
-AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, but then goes back up again when the interaction is added. 
 
 ```{r}
-AIC(child_cheek_emo)
-AIC(child_cheek_emo_bin)
-AIC(child_cheek_emo_bin_interaction)
-
+summary(child_cheek_lm_2)
 ```
-
-## likelihood ratio tests
-
-Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES
 
 ```{r}
-anova(child_cheek_emo, child_cheek_emo_bin)
+tidy_child_cheek2 <- tidy(child_cheek_lm_2)
 ```
 
-Is model with with interaction, better fit than model with just main effects? NO 
+#Check fit
+
 ```{r}
-anova(child_cheek_emo_bin, child_cheek_emo_bin_interaction)
+AIC(child_cheek_lm_1)
+AIC(child_cheek_lm_2)
 ```
+
+#likelihood ratio test
+```{r}
+anova(child_cheek_lm_1, child_cheek_lm_2)
+```
+
+#model take away - the addition of a slope for emotion improves model fit 
+
+
+## model 3 (slopes for emotion and bin ) 
+
+```{r}
+child_cheek_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_child_cheek, REML = FALSE)
+```
+# model 3 fails to converge - thus, model 2 provides the best fit for the data
+
 
 
 #get confidence intervals
 ```{r}
-confint.merMod(child_cheek_emo_bin_interaction, level = 0.95)
+confint.merMod(child_cheek_lm_2, level = 0.95)
 ```
 
 ```{r}
-really_nice_table <- dust(child_cheek_emo_bin_interaction) %>%
+really_nice_table <- dust(child_cheek_lm_2) %>%
   sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
   sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
   sprinkle_colnames(term = "Term", 
@@ -234,10 +225,6 @@ really_nice_table <- dust(child_cheek_emo_bin_interaction) %>%
     sprinkle_print_method("html") 
 
 really_nice_table
-```
-
-```{r}
-anova(child_cheek_emo_bin_interaction)
 ```
 
 
@@ -263,31 +250,26 @@ HA_adult_cheek$emo <- fct_relevel(HA_adult_cheek$emo, c("happy", "angry", "fear"
 
 levels(HA_adult_cheek$emo)
 
-
-
 HA_adult_cheek$bin <- fct_relevel(HA_adult_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
 
 levels(HA_adult_cheek$bin)
 ```
+# Model 1
 
-
-
-#fit model 1 - this is the model we use to check assumptions
 ```{r}
-adult_cheek_emoZ <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+adult_cheek_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
 ```
 
 
 ```{r}
-plot(adult_cheek_emoZ)
+plot(adult_cheek_lm)
 
-qqnorm(resid(adult_cheek_emoZ))
-qqline(resid(adult_cheek_emoZ))
+qqnorm(resid(adult_cheek_lm))
+qqline(resid(adult_cheek_lm))
 ```
 
 
-
-need to transform to correct normality. 
+#need to transform to correct normality. 
 
 ### compute log_modulus
 
@@ -300,16 +282,16 @@ HA_adult_cheek <- HA_adult_cheek %>%
 ### fit model again
 
 ```{r}
-adult_cheek_emo_log <- lmer(log_modulus ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
+adult_cheek_lm_new <- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
 
 ```
 
 ### check assumptions again
 ```{r}
-plot(adult_cheek_emo_log)
+plot(adult_cheek_lm_new)
 
-qqnorm(resid(adult_cheek_emo_log))
-qqline(resid(adult_cheek_emo_log))
+qqnorm(resid(adult_cheek_lm_new))
+qqline(resid(adult_cheek_lm_new))
 ```
 #this is much worse 
 
@@ -323,92 +305,79 @@ HA_adult_cheek <- HA_adult_cheek %>%
 ### try fit model again
 
 ```{r}
-adult_cheek_emo_log_new <- lmer(log_modulus_new ~ emotion + bin + emotion*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
+adult_cheek_lm_1 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
 
 ```
 
 ### check assumptions again
 ```{r}
-plot(adult_cheek_emo_log_new)
+plot(adult_cheek_lm_1)
 
-qqnorm(resid(adult_cheek_emo_log_new))
-qqline(resid(adult_cheek_emo_log_new))
+qqnorm(resid(adult_cheek_lm_1))
+qqline(resid(adult_cheek_lm_1))
 ```
 
-# BUILD model comparisons
-
-What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+#get anova, summary, tidy 
 
 ```{r}
-levels(HA_adult_cheek$emo)
-```
-
-
-### model 1 
-
-just main effect of emotion and slope for emotion 
-
-```{r}
-adult_cheek_emo <- lmer(log_modulus_new ~ emo + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
-
-beep(1)
-```
-
-## model 2
-
-just main effect of emotion and bin, and slope for emotion 
-```{r}
-adult_cheek_emo_bin <- lmer(log_modulus_new ~ emo + bin + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
-
-beep(2)
-```
-
-## model 3
-
-main effect of emotion and bin and emotion*bin, and slope for emotion (slope for bin doesnt converge)
-
-```{r}
-adult_cheek_emo_bin_interaction <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_adult_cheek, REML = FALSE)
-
-beep(3)
-```
-
-
-# TEST for best fit 
-
-AIC decreases (i.e. better fit) from model with just main effect of emotion to model with emotion and bin, and then stays the same when the interaction is added. 
-
-```{r}
-AIC(adult_cheek_emo)
-AIC(adult_cheek_emo_bin)
-AIC(adult_cheek_emo_bin_interaction)
-```
-
-## likelihood ratio tests
-
-Is the model with main effects of emotion and bin sig better fit than model with just effect of emotion? YES
-
-```{r}
-anova(adult_cheek_emo, adult_cheek_emo_bin)
-```
-
-Is model with just main effects better than the model with interactions? YES
-```{r}
-anova(adult_cheek_emo_bin, adult_cheek_emo_bin_interaction)
+anova(adult_cheek_lm_1)
 ```
 
 ```{r}
-summary(adult_cheek_emo_bin)
-
-anova(adult_cheek_emo_bin)
+summary(adult_cheek_lm_1)
 ```
 
 ```{r}
-confint.merMod(adult_cheek_emo_bin_interaction, level = 0.95)
+tidy_adult_cheek1 <- tidy(adult_cheek_lm_1)
+```
+
+
+# model 2 (slope for emotion)
+
+```{r}
+adult_cheek_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = HA_adult_cheek, REML = FALSE)
+```
+
+#get anova, summary and tidy 
+```{r}
+anova(adult_cheek_lm_2)
+```
+```{r}
+summary(adult_cheek_lm_2)
 ```
 
 ```{r}
-really_nice_table <- dust(adult_cheek_emo_bin_interaction) %>%
+tidy_adult_cheek2 <- tidy(adult_cheek_lm_2)
+```
+
+#check model fit
+```{r}
+AIC(adult_cheek_lm_1)
+AIC(adult_cheek_lm_2)
+```
+
+```{r}
+anova(adult_cheek_lm_1, adult_cheek_lm_2)
+```
+
+#model take away - the addition of a slope for emotion improves model fit 
+
+# model 3
+
+```{r}
+adult_cheek_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_adult_cheek, REML = FALSE)
+```
+#model 3 fails to converge, thus, model 2 provides the best fit for the data 
+
+
+#get confidence intervals 
+```{r}
+confint.merMod(adult_cheek_lm_2, level = 0.95)
+```
+
+#get really nice table
+```{r}
+really_nice_table <- dust(adult_cheek_lm_2) %>%
   sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
   sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
   sprinkle_colnames(term = "Term", 
@@ -423,15 +392,10 @@ really_nice_table
 ```
 
 
-```{r}
-anova(adult_cheek_emo_bin_interaction)
-```
-
-
 
 ```{r}
 df <- df %>%
-  write_csv(here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
+  write_csv(here::here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
 
 ```
 

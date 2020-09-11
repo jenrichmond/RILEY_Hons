@@ -16,7 +16,7 @@ library(beepr)
 
 # read in data 
 ```{r}
-df <- read_csv(here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
+df <- read_csv(here::here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
 ```
 
 
@@ -222,7 +222,7 @@ really_nice_table
 ```
 
 ```{r}
-anova(child_brow_emo)
+anova(child_brow_emo_bin_interaction)
 ```
 
 #now do the same for adult 
@@ -388,7 +388,13 @@ anova(adult_brow_emo, adult_brow_emo_bin_interaction)
 ```
 
 ```{r}
-tidy_cheek_adult <- tidy(adult_brow_emo)
+anova(adult_brow_emo_bin_interaction)
+```
+
+
+
+```{r}
+tidy_cheek_adult <- tidy(adult_brow_emo_bin_interaction)
 ```
 
 
@@ -400,9 +406,6 @@ tidier_cheek_adult <- tidy_cheek_adult %>%
   filter(effect == "fixed") %>%
   select(-group) 
 
-
-tidier_cheek_adult <-  tidier_cheek_adult %>%
-  mutate(niceterms = c("intercept", "happy vs. angry"))
 
 ```
 

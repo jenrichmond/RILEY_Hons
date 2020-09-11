@@ -409,7 +409,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-08
+<strong>Last updated:</strong> 2020-09-11
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreed52ded6f17cd6a5949179108aa456bb07f80e6f4targetblankd52ded6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/d52ded6f17cd6a5949179108aa456bb07f80e6f4" target="_blank">d52ded6</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree881fbe95ec12b12d152635c9d0435465315b1a38targetblank881fbe9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/881fbe95ec12b12d152635c9d0435465315b1a38" target="_blank">881fbe9</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreed52ded6f17cd6a5949179108aa456bb07f80e6f4targetblankd52ded6a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree881fbe95ec12b12d152635c9d0435465315b1a38targetblank881fbe9a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/d52ded6f17cd6a5949179108aa456bb07f80e6f4" target="_blank">d52ded6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/881fbe95ec12b12d152635c9d0435465315b1a38" target="_blank">881fbe9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -518,9 +518,27 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/child_bar_plot.png
+    Ignored:    analysis/child_cheek_plot.png
+    Ignored:    analysis/child_cheekbin_plot.png
 
 Untracked files:
+    Untracked:  analysis/11_plotting_cheek.Rmd
+    Untracked:  analysis/12_plotting_brow.Rmd
+    Untracked:  analysis/13_adult_child_analysis.Rmd
+    Untracked:  analysis/14_plotting_adult_child.Rmd
+    Untracked:  analysis/testing_zscore.Rmd
+    Untracked:  child_bar_plot.png
+    Untracked:  child_cheek_plot.png
     Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
+
+Unstaged changes:
+    Modified:   analysis/4_clean_baseline.Rmd
+    Modified:   analysis/5_calculating_zscores.Rmd
+    Modified:   analysis/6_bin_outliers.Rmd
+    Modified:   analysis/7_plotting.Rmd
+    Modified:   analysis/8_analysing.Rmd
+    Modified:   analysis/9_cheek_analysis.Rmd
 
 </code></pre>
 <p>
@@ -559,6 +577,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/881fbe95ec12b12d152635c9d0435465315b1a38/analysis/10_brow_analysis.Rmd" target="_blank">881fbe9</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+<td>
+wflow_publish(“analysis/10_brow_analysis.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/10_brow_analysis.html" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -629,7 +681,7 @@ library(beepr)</code></pre>
 </div>
 <div id="read-in-data" class="section level1">
 <h1>read in data</h1>
-<pre class="r"><code>df &lt;- read_csv(here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened2.csv&quot;))</code></pre>
+<pre class="r"><code>df &lt;- read_csv(here::here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened2.csv&quot;))</code></pre>
 <pre><code>Parsed with column specification:
 cols(
   pp_no = col_character(),
@@ -1319,10 +1371,12 @@ really_nice_table</code></pre>
 <td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
 </tr>
 </table></br></br>
-<pre class="r"><code>anova(child_brow_emo)</code></pre>
+<pre class="r"><code>anova(child_brow_emo_bin_interaction)</code></pre>
 <pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
-      Sum Sq  Mean Sq NumDF  DenDF F value Pr(&gt;F)
-emo 0.052866 0.052866     1 48.964  0.2578 0.6139</code></pre>
+         Sum Sq  Mean Sq NumDF  DenDF F value Pr(&gt;F)
+emo     0.05501 0.055008     1   49.0  0.2690 0.6063
+bin     1.49389 0.165988     9 6819.5  0.8118 0.6053
+emo:bin 2.29256 0.254729     9 6819.5  1.2458 0.2617</code></pre>
 <p>#now do the same for adult</p>
 <div id="make-brow-ha-adult-df" class="section level3">
 <h3>Make brow HA adult df</h3>
@@ -1364,9 +1418,83 @@ levels(HA_adult_brow$bin)</code></pre>
 <h3>check assumptions</h3>
 <pre class="r"><code>plot(adult_brow_emoZ)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-1">
+Past versions of unnamed-chunk-27-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-27-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-27-1.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_brow_emoZ))
 qqline(resid(adult_brow_emoZ))</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-2">
+Past versions of unnamed-chunk-27-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-27-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-27-2.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus-1" class="section level3">
@@ -1383,9 +1511,86 @@ qqline(resid(adult_brow_emoZ))</code></pre>
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_brow_emo_log)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-1">
+Past versions of unnamed-chunk-30-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-30-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-30-1.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_brow_emo_log))
 qqline(resid(adult_brow_emo_log))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-30-2.png" width="672" style="display: block; margin: auto;" /> ### compute new log mod</p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-30-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-30-2">
+Past versions of unnamed-chunk-30-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-30-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-30-2.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="compute-new-log-mod-1" class="section level3">
+<h3>compute new log mod</h3>
 <pre class="r"><code>HA_adult_brow &lt;- HA_adult_brow %&gt;%
   mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
 </div>
@@ -1397,9 +1602,83 @@ qqline(resid(adult_brow_emo_log))</code></pre>
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_brow_emo_log_new)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-33-1">
+Past versions of unnamed-chunk-33-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-33-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-33-1.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_brow_emo_log_new))
 qqline(resid(adult_brow_emo_log_new))</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-33-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-33-2">
+Past versions of unnamed-chunk-33-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-33-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-33-2.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1462,17 +1741,19 @@ adult_brow_emo_bin_interaction   24 6979.4 7144.2 -3465.7   6931.4 7.3532 18
                                Pr(&gt;Chisq)
 adult_brow_emo                           
 adult_brow_emo_bin_interaction     0.9868</code></pre>
-<pre class="r"><code>tidy_cheek_adult &lt;- tidy(adult_brow_emo)</code></pre>
+<pre class="r"><code>anova(adult_brow_emo_bin_interaction)</code></pre>
+<pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
+         Sum Sq  Mean Sq NumDF  DenDF F value Pr(&gt;F)
+emo     0.06375 0.063750     1   49.8  0.4214 0.5192
+bin     0.34926 0.038806     9 6979.1  0.2565 0.9856
+emo:bin 0.76494 0.084994     9 6979.1  0.5618 0.8293</code></pre>
+<pre class="r"><code>tidy_cheek_adult &lt;- tidy(adult_brow_emo_bin_interaction)</code></pre>
 <p>#tidying output</p>
 <pre class="r"><code>terms &lt;- c(&quot;intercept&quot;, &quot;happy vs. angry&quot;, &quot;bin1 vs. bin2&quot;, &quot;bin2 vs. bin3&quot;, &quot;bin3 vs. bin4&quot;, &quot;bin4 vs. bin5&quot;, &quot;bin5 vs. bin6&quot;)
 
 tidier_cheek_adult &lt;- tidy_cheek_adult %&gt;%
   filter(effect == &quot;fixed&quot;) %&gt;%
-  select(-group) 
-
-
-tidier_cheek_adult &lt;-  tidier_cheek_adult %&gt;%
-  mutate(niceterms = c(&quot;intercept&quot;, &quot;happy vs. angry&quot;))</code></pre>
+  select(-group) </code></pre>
 <p>#get confidence intervals</p>
 <pre class="r"><code>confint.merMod(adult_brow_emo_bin_interaction, level = 0.95)</code></pre>
 <pre><code>Computing profile confidence intervals ...</code></pre>

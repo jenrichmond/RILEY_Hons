@@ -391,7 +391,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -400,7 +400,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -409,10 +409,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-11
+<strong>Last updated:</strong> 2020-09-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>RILEY_Hons/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -428,12 +428,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree957ee46541d4f261368e61c70180cf5f56d6fdcdtargetblank957ee46a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/957ee46541d4f261368e61c70180cf5f56d6fdcd" target="_blank">957ee46</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree957ee46541d4f261368e61c70180cf5f56d6fdcdtargetblank957ee46a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/957ee46541d4f261368e61c70180cf5f56d6fdcd" target="_blank">957ee46</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -528,6 +528,8 @@ Untracked files:
     Untracked:  analysis/13_adult_child_analysis.Rmd
     Untracked:  analysis/14_plotting_adult_child.Rmd
     Untracked:  analysis/testing_zscore.Rmd
+    Untracked:  child_bar_plot.png
+    Untracked:  child_cheek_plot.png
     Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
 
 Unstaged changes:
@@ -537,6 +539,7 @@ Unstaged changes:
     Modified:   analysis/6_bin_outliers.Rmd
     Modified:   analysis/7_plotting.Rmd
     Modified:   analysis/8_analysing.Rmd
+    Modified:   analysis/9_cheek_analysis.Rmd
 
 </code></pre>
 <p>
@@ -575,6 +578,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/9_cheek_analysis.html" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -1043,6 +1063,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-7-1.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/57eb8f8275c9c559d061e5ae40ea66c1b03539ab/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-7-1.png" target="_blank">57eb8f8</a>
 </td>
 <td>
@@ -1092,6 +1123,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-7-2.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/57eb8f8275c9c559d061e5ae40ea66c1b03539ab/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-7-2.png" target="_blank">57eb8f8</a>
@@ -1845,6 +1887,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-29-1.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-29-1.png" target="_blank">fa74f81</a>
 </td>
 <td>
@@ -1894,6 +1947,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-29-2.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-29-2.png" target="_blank">fa74f81</a>
@@ -1958,6 +2022,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-32-1.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-32-1.png" target="_blank">fa74f81</a>
 </td>
 <td>
@@ -2009,6 +2084,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-32-2.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-32-2.png" target="_blank">fa74f81</a>
 </td>
 <td>
@@ -2048,9 +2134,83 @@ RileyFerguson
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_cheek_lm_1)</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-35-1">
+Past versions of unnamed-chunk-35-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-35-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-35-1.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_cheek_lm_1))
 qqline(resid(adult_cheek_lm_1))</code></pre>
 <p><img src="figure/9_cheek_analysis.Rmd/unnamed-chunk-35-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-35-2">
+Past versions of unnamed-chunk-35-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-35-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/a70b4e7ee13990eb406a2581fbd2d0f8bea97638/docs/figure/9_cheek_analysis.Rmd/unnamed-chunk-35-2.png" target="_blank">a70b4e7</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>#get anova, summary, tidy</p>
 <pre class="r"><code>anova(adult_cheek_lm_1)</code></pre>
 <pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
@@ -2517,7 +2677,6 @@ other attached packages:
  [5] lme4_1.1-23       Matrix_1.2-18     here_0.1          forcats_0.4.0    
  [9] stringr_1.4.0     dplyr_1.0.0       purrr_0.3.4       readr_1.3.1      
 [13] tidyr_1.1.0       tibble_3.0.3      ggplot2_3.2.1     tidyverse_1.3.0  
-[17] workflowr_1.6.2  
 
 loaded via a namespace (and not attached):
  [1] nlme_3.1-142        fs_1.3.1            lubridate_1.7.4    
@@ -2543,7 +2702,8 @@ loaded via a namespace (and not attached):
 [61] nloptr_1.2.2.2      httpuv_1.5.2        cellranger_1.1.0   
 [64] gtable_0.3.0        assertthat_0.2.1    xfun_0.15          
 [67] broom_0.7.0.9001    coda_0.19-3         later_1.0.0        
-[70] audio_0.1-7         statmod_1.4.34      ellipsis_0.3.1     </code></pre>
+[70] audio_0.1-7         workflowr_1.6.2     statmod_1.4.34     
+[73] ellipsis_0.3.1     </code></pre>
 </div>
 </div>
 

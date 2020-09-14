@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -245,6 +244,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -273,6 +273,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -385,7 +391,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -394,7 +400,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -403,10 +409,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-04
+<strong>Last updated:</strong> 2020-09-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>RILEY_Hons/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -422,12 +428,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -494,42 +500,46 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree14f6bb08e77a045ed9b5da75ce8f3a62e1340c6dtargetblank14f6bb0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/14f6bb08e77a045ed9b5da75ce8f3a62e1340c6d" target="_blank">14f6bb0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree14f6bb08e77a045ed9b5da75ce8f3a62e1340c6dtargetblank14f6bb0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/14f6bb08e77a045ed9b5da75ce8f3a62e1340c6d" target="_blank">14f6bb0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    Amy_childadult_raw_data/
-    Ignored:    analysis/just messing around/
-    Ignored:    analysis/working/
-    Ignored:    data/adult_child_combined/
-    Ignored:    data/adultsfaces/
-    Ignored:    data/childfaces/
-    Ignored:    data/clean_data/
-    Ignored:    data/missing_values/
-    Ignored:    data/testdata/
+    Ignored:    analysis/child_bar_plot.png
+    Ignored:    analysis/child_cheek_plot.png
+    Ignored:    analysis/child_cheekbin_plot.png
 
 Untracked files:
-    Untracked:  README
-    Untracked:  site_libs/
+    Untracked:  analysis/11_plotting_cheek.Rmd
+    Untracked:  analysis/12_plotting_brow.Rmd
+    Untracked:  analysis/13_adult_child_analysis.Rmd
+    Untracked:  analysis/14_plotting_adult_child.Rmd
+    Untracked:  analysis/testing_zscore.Rmd
+    Untracked:  child_bar_plot.png
+    Untracked:  child_cheek_plot.png
+    Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
 
 Unstaged changes:
-    Modified:   .gitignore
-    Deleted:    analysis/1_clean_emg _adult.Rmd
+    Modified:   analysis/10_brow_analysis.Rmd
+    Modified:   analysis/4_clean_baseline.Rmd
+    Modified:   analysis/5_calculating_zscores.Rmd
+    Modified:   analysis/6_bin_outliers.Rmd
+    Modified:   analysis/7_plotting.Rmd
+    Modified:   analysis/8_analysing.Rmd
+    Modified:   analysis/9_cheek_analysis.Rmd
 
 </code></pre>
 <p>
@@ -568,6 +578,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/49c2d7c6b4959ea538143598196b2bfd29953272/docs/8_analysing.html" target="_blank">49c2d7c</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-04
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -629,7 +656,7 @@ library(beepr)</code></pre>
 </div>
 <div id="read-in-data" class="section level1">
 <h1>read in data</h1>
-<pre class="r"><code>df &lt;- read_csv(here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened.csv&quot;))</code></pre>
+<pre class="r"><code>df &lt;- read_csv(here::here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened.csv&quot;))</code></pre>
 <pre><code>Parsed with column specification:
 cols(
   pp_no = col_character(),
@@ -658,13 +685,13 @@ levels(df$bin)  </code></pre>
 <pre class="r"><code>glimpse(df)</code></pre>
 <pre><code>Rows: 61,480
 Columns: 7
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, …
-$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, …
-$ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0…</code></pre>
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
+$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, c…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, diff_…
+$ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0.1985…</code></pre>
 </div>
 <div id="cheek-all-emotion-adult" class="section level1">
 <h1>CHEEK all emotion adult</h1>
@@ -678,13 +705,13 @@ $ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0�
 glimpse(adult_cheek)</code></pre>
 <pre><code>Rows: 15,640
 Columns: 7
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, …
-$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek, …
-$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, d…
-$ zdiff   &lt;dbl&gt; 0.065775092, -0.008404521, -0.066137010, -0.009570698, -…</code></pre>
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
+$ muscle  &lt;fct&gt; cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, diff_b…
+$ zdiff   &lt;dbl&gt; 0.065775092, -0.008404521, -0.066137010, -0.009570698, -0.048…</code></pre>
 <pre class="r"><code>levels(adult_cheek$emotion)</code></pre>
 <pre><code>[1] &quot;121&quot; &quot;131&quot; &quot;232&quot; &quot;323&quot; &quot;424&quot; &quot;434&quot; &quot;525&quot; &quot;535&quot;</code></pre>
 <p>evidence of mimicry to happy would be evidenced by greater cheek activity over time (bin) for happy than angry</p>
@@ -710,8 +737,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="use-summary-to-get-coefficients" class="section level2">
 <h2>use summary to get coefficients</h2>
 <pre class="r"><code>summary(adultlm_model_cheek)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
-  Satterthwaite&#39;s method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
+  method [lmerModLmerTest]
 Formula: zdiff ~ emotion + bin + emotion * bin + (1 | pp_no) + (1 | trial)
    Data: adult_cheek
 
@@ -730,88 +757,47 @@ Random effects:
 Number of obs: 13693, groups:  pp_no, 50; trial, 8
 
 Fixed effects:
-                           Estimate Std. Error         df t value Pr(&gt;|t|)
-(Intercept)              -2.142e-02  4.532e-02  9.014e+02  -0.473  0.63650
-emotion232                2.037e-02  5.825e-02  1.364e+04   0.350  0.72653
-emotion434               -2.885e-02  5.786e-02  1.364e+04  -0.499  0.61802
-emotion535               -7.010e-03  5.795e-02  1.364e+04  -0.121  0.90372
-bindiff_bin2             -4.969e-02  5.753e-02  1.364e+04  -0.864  0.38776
-bindiff_bin3             -4.135e-02  5.761e-02  1.364e+04  -0.718  0.47299
-bindiff_bin4              3.832e-02  5.765e-02  1.364e+04   0.665  0.50626
-bindiff_bin5              5.353e-02  5.778e-02  1.364e+04   0.926  0.35425
-bindiff_bin6              7.499e-02  5.778e-02  1.364e+04   1.298  0.19433
-bindiff_bin7              1.070e-01  5.753e-02  1.364e+04   1.859  0.06298
-bindiff_bin8              1.621e-01  5.795e-02  1.364e+04   2.797  0.00517
-bindiff_bin9              2.302e-01  5.799e-02  1.364e+04   3.970 7.22e-05
-bindiff_bin10             1.935e-01  5.842e-02  1.364e+04   3.312  0.00093
-emotion232:bindiff_bin2  -2.220e-03  8.175e-02  1.364e+04  -0.027  0.97834
-emotion434:bindiff_bin2   7.905e-02  8.115e-02  1.364e+04   0.974  0.32999
-emotion535:bindiff_bin2   4.070e-02  8.144e-02  1.364e+04   0.500  0.61730
-emotion232:bindiff_bin3   5.952e-03  8.165e-02  1.364e+04   0.073  0.94189
-emotion434:bindiff_bin3   9.652e-02  8.129e-02  1.364e+04   1.187  0.23511
-emotion535:bindiff_bin3   1.631e-02  8.126e-02  1.364e+04   0.201  0.84098
-emotion232:bindiff_bin4  -8.132e-02  8.157e-02  1.364e+04  -0.997  0.31881
-emotion434:bindiff_bin4   8.589e-03  8.138e-02  1.364e+04   0.106  0.91595
-emotion535:bindiff_bin4  -7.523e-02  8.132e-02  1.364e+04  -0.925  0.35497
-emotion232:bindiff_bin5  -8.116e-02  8.174e-02  1.364e+04  -0.993  0.32079
-emotion434:bindiff_bin5   1.582e-03  8.132e-02  1.364e+04   0.019  0.98448
-emotion535:bindiff_bin5  -4.737e-02  8.161e-02  1.364e+04  -0.580  0.56164
-emotion232:bindiff_bin6  -1.000e-01  8.177e-02  1.364e+04  -1.223  0.22134
-emotion434:bindiff_bin6  -4.190e-02  8.126e-02  1.364e+04  -0.516  0.60610
-emotion535:bindiff_bin6  -7.942e-02  8.161e-02  1.364e+04  -0.973  0.33053
-emotion232:bindiff_bin7  -7.415e-02  8.148e-02  1.364e+04  -0.910  0.36278
-emotion434:bindiff_bin7  -1.120e-02  8.117e-02  1.364e+04  -0.138  0.89031
-emotion535:bindiff_bin7  -1.253e-01  8.124e-02  1.364e+04  -1.543  0.12288
-emotion232:bindiff_bin8  -1.181e-01  8.213e-02  1.364e+04  -1.438  0.15043
-emotion434:bindiff_bin8  -1.012e-01  8.165e-02  1.364e+04  -1.239  0.21533
-emotion535:bindiff_bin8  -1.444e-01  8.174e-02  1.364e+04  -1.767  0.07724
-emotion232:bindiff_bin9  -1.915e-01  8.204e-02  1.364e+04  -2.334  0.01959
-emotion434:bindiff_bin9  -6.434e-02  8.156e-02  1.364e+04  -0.789  0.43022
-emotion535:bindiff_bin9  -1.968e-01  8.180e-02  1.364e+04  -2.406  0.01614
-emotion232:bindiff_bin10 -2.072e-01  8.244e-02  1.364e+04  -2.514  0.01196
-emotion434:bindiff_bin10 -7.033e-02  8.248e-02  1.364e+04  -0.853  0.39385
-emotion535:bindiff_bin10 -8.048e-02  8.238e-02  1.364e+04  -0.977  0.32860
-                            
-(Intercept)                 
-emotion232                  
-emotion434                  
-emotion535                  
-bindiff_bin2                
-bindiff_bin3                
-bindiff_bin4                
-bindiff_bin5                
-bindiff_bin6                
-bindiff_bin7             .  
-bindiff_bin8             ** 
-bindiff_bin9             ***
-bindiff_bin10            ***
-emotion232:bindiff_bin2     
-emotion434:bindiff_bin2     
-emotion535:bindiff_bin2     
-emotion232:bindiff_bin3     
-emotion434:bindiff_bin3     
-emotion535:bindiff_bin3     
-emotion232:bindiff_bin4     
-emotion434:bindiff_bin4     
-emotion535:bindiff_bin4     
-emotion232:bindiff_bin5     
-emotion434:bindiff_bin5     
-emotion535:bindiff_bin5     
-emotion232:bindiff_bin6     
-emotion434:bindiff_bin6     
-emotion535:bindiff_bin6     
-emotion232:bindiff_bin7     
-emotion434:bindiff_bin7     
-emotion535:bindiff_bin7     
-emotion232:bindiff_bin8     
-emotion434:bindiff_bin8     
-emotion535:bindiff_bin8  .  
-emotion232:bindiff_bin9  *  
-emotion434:bindiff_bin9     
-emotion535:bindiff_bin9  *  
-emotion232:bindiff_bin10 *  
-emotion434:bindiff_bin10    
-emotion535:bindiff_bin10    
+                           Estimate Std. Error         df t value Pr(&gt;|t|)    
+(Intercept)              -2.142e-02  4.532e-02  9.014e+02  -0.473  0.63650    
+emotion232                2.037e-02  5.825e-02  1.364e+04   0.350  0.72653    
+emotion434               -2.885e-02  5.786e-02  1.364e+04  -0.499  0.61802    
+emotion535               -7.010e-03  5.795e-02  1.364e+04  -0.121  0.90372    
+bindiff_bin2             -4.969e-02  5.753e-02  1.364e+04  -0.864  0.38776    
+bindiff_bin3             -4.135e-02  5.761e-02  1.364e+04  -0.718  0.47299    
+bindiff_bin4              3.832e-02  5.765e-02  1.364e+04   0.665  0.50626    
+bindiff_bin5              5.353e-02  5.778e-02  1.364e+04   0.926  0.35425    
+bindiff_bin6              7.499e-02  5.778e-02  1.364e+04   1.298  0.19433    
+bindiff_bin7              1.070e-01  5.753e-02  1.364e+04   1.859  0.06298 .  
+bindiff_bin8              1.621e-01  5.795e-02  1.364e+04   2.797  0.00517 ** 
+bindiff_bin9              2.302e-01  5.799e-02  1.364e+04   3.970 7.22e-05 ***
+bindiff_bin10             1.935e-01  5.842e-02  1.364e+04   3.312  0.00093 ***
+emotion232:bindiff_bin2  -2.220e-03  8.175e-02  1.364e+04  -0.027  0.97834    
+emotion434:bindiff_bin2   7.905e-02  8.115e-02  1.364e+04   0.974  0.32999    
+emotion535:bindiff_bin2   4.070e-02  8.144e-02  1.364e+04   0.500  0.61730    
+emotion232:bindiff_bin3   5.952e-03  8.165e-02  1.364e+04   0.073  0.94189    
+emotion434:bindiff_bin3   9.652e-02  8.129e-02  1.364e+04   1.187  0.23511    
+emotion535:bindiff_bin3   1.631e-02  8.126e-02  1.364e+04   0.201  0.84098    
+emotion232:bindiff_bin4  -8.132e-02  8.157e-02  1.364e+04  -0.997  0.31881    
+emotion434:bindiff_bin4   8.589e-03  8.138e-02  1.364e+04   0.106  0.91595    
+emotion535:bindiff_bin4  -7.523e-02  8.132e-02  1.364e+04  -0.925  0.35497    
+emotion232:bindiff_bin5  -8.116e-02  8.174e-02  1.364e+04  -0.993  0.32079    
+emotion434:bindiff_bin5   1.582e-03  8.132e-02  1.364e+04   0.019  0.98448    
+emotion535:bindiff_bin5  -4.737e-02  8.161e-02  1.364e+04  -0.580  0.56164    
+emotion232:bindiff_bin6  -1.000e-01  8.177e-02  1.364e+04  -1.223  0.22134    
+emotion434:bindiff_bin6  -4.190e-02  8.126e-02  1.364e+04  -0.516  0.60610    
+emotion535:bindiff_bin6  -7.942e-02  8.161e-02  1.364e+04  -0.973  0.33053    
+emotion232:bindiff_bin7  -7.415e-02  8.148e-02  1.364e+04  -0.910  0.36278    
+emotion434:bindiff_bin7  -1.120e-02  8.117e-02  1.364e+04  -0.138  0.89031    
+emotion535:bindiff_bin7  -1.253e-01  8.124e-02  1.364e+04  -1.543  0.12288    
+emotion232:bindiff_bin8  -1.181e-01  8.213e-02  1.364e+04  -1.438  0.15043    
+emotion434:bindiff_bin8  -1.012e-01  8.165e-02  1.364e+04  -1.239  0.21533    
+emotion535:bindiff_bin8  -1.444e-01  8.174e-02  1.364e+04  -1.767  0.07724 .  
+emotion232:bindiff_bin9  -1.915e-01  8.204e-02  1.364e+04  -2.334  0.01959 *  
+emotion434:bindiff_bin9  -6.434e-02  8.156e-02  1.364e+04  -0.789  0.43022    
+emotion535:bindiff_bin9  -1.968e-01  8.180e-02  1.364e+04  -2.406  0.01614 *  
+emotion232:bindiff_bin10 -2.072e-01  8.244e-02  1.364e+04  -2.514  0.01196 *  
+emotion434:bindiff_bin10 -7.033e-02  8.248e-02  1.364e+04  -0.853  0.39385    
+emotion535:bindiff_bin10 -8.048e-02  8.238e-02  1.364e+04  -0.977  0.32860    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre><code>
@@ -921,13 +907,13 @@ Your Name
 glimpse(child_cheek)</code></pre>
 <pre><code>Rows: 15,100
 Columns: 7
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, …
-$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek, …
-$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, d…
-$ zdiff   &lt;dbl&gt; -1.57732881, -0.86827948, -0.56408140, -0.78419406, -0.2…</code></pre>
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
+$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
+$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
+$ muscle  &lt;fct&gt; cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek, cheek…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, diff_b…
+$ zdiff   &lt;dbl&gt; -1.57732881, -0.86827948, -0.56408140, -0.78419406, -0.222337…</code></pre>
 <pre class="r"><code>levels(child_cheek$emotion)</code></pre>
 <pre><code>[1] &quot;121&quot; &quot;131&quot; &quot;232&quot; &quot;323&quot; &quot;424&quot; &quot;434&quot; &quot;525&quot; &quot;535&quot;</code></pre>
 </div>
@@ -951,8 +937,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="use-summary-to-get-coefficients-1" class="section level2">
 <h2>use summary to get coefficients</h2>
 <pre class="r"><code>summary(childlm_model_cheek)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
-  Satterthwaite&#39;s method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
+  method [lmerModLmerTest]
 Formula: zdiff ~ emotion + bin + emotion * bin + (1 | pp_no) + (1 | trial)
    Data: child_cheek
 
@@ -965,94 +951,53 @@ Scaled residuals:
 
 Random effects:
  Groups   Name        Variance  Std.Dev.
- pp_no    (Intercept) 0.0177996 0.13342 
- trial    (Intercept) 0.0007698 0.02775 
+ pp_no    (Intercept) 0.0177998 0.13342 
+ trial    (Intercept) 0.0007699 0.02775 
  Residual             0.6895206 0.83037 
 Number of obs: 13394, groups:  pp_no, 49; trial, 8
 
 Fixed effects:
-                           Estimate Std. Error         df t value Pr(&gt;|t|)
-(Intercept)              -1.028e-01  5.043e-02  9.486e+02  -2.038   0.0418
-emotion323                5.372e-02  6.480e-02  1.334e+04   0.829   0.4071
-emotion424                4.689e-02  6.527e-02  1.334e+04   0.718   0.4725
-emotion525                3.941e-02  6.475e-02  1.334e+04   0.609   0.5428
-bindiff_bin2             -2.042e-02  6.417e-02  1.334e+04  -0.318   0.7504
-bindiff_bin3             -2.729e-03  6.408e-02  1.334e+04  -0.043   0.9660
-bindiff_bin4             -2.669e-02  6.422e-02  1.334e+04  -0.416   0.6777
-bindiff_bin5              3.135e-02  6.408e-02  1.334e+04   0.489   0.6247
-bindiff_bin6              1.129e-01  6.417e-02  1.334e+04   1.760   0.0785
-bindiff_bin7              1.507e-01  6.394e-02  1.334e+04   2.357   0.0184
-bindiff_bin8              1.289e-01  6.431e-02  1.334e+04   2.004   0.0451
-bindiff_bin9              1.312e-01  6.465e-02  1.334e+04   2.029   0.0425
-bindiff_bin10             1.212e-01  6.475e-02  1.334e+04   1.871   0.0613
-emotion323:bindiff_bin2   1.656e-02  9.093e-02  1.334e+04   0.182   0.8555
-emotion424:bindiff_bin2   1.009e-01  9.129e-02  1.334e+04   1.106   0.2689
-emotion525:bindiff_bin2   4.147e-03  9.099e-02  1.334e+04   0.046   0.9637
-emotion323:bindiff_bin3  -3.698e-02  9.083e-02  1.334e+04  -0.407   0.6839
-emotion424:bindiff_bin3   1.841e-02  9.112e-02  1.334e+04   0.202   0.8399
-emotion525:bindiff_bin3  -3.585e-03  9.093e-02  1.334e+04  -0.039   0.9685
-emotion323:bindiff_bin4  -4.688e-02  9.096e-02  1.334e+04  -0.515   0.6063
-emotion424:bindiff_bin4   2.983e-02  9.129e-02  1.334e+04   0.327   0.7438
-emotion525:bindiff_bin4  -8.996e-03  9.092e-02  1.334e+04  -0.099   0.9212
-emotion323:bindiff_bin5  -1.021e-01  9.086e-02  1.334e+04  -1.124   0.2610
-emotion424:bindiff_bin5   7.473e-03  9.129e-02  1.334e+04   0.082   0.9348
-emotion525:bindiff_bin5  -2.187e-02  9.086e-02  1.334e+04  -0.241   0.8098
-emotion323:bindiff_bin6  -1.215e-01  9.109e-02  1.334e+04  -1.333   0.1824
-emotion424:bindiff_bin6  -5.862e-02  9.119e-02  1.334e+04  -0.643   0.5204
-emotion525:bindiff_bin6  -1.094e-01  9.120e-02  1.334e+04  -1.200   0.2303
-emotion323:bindiff_bin7  -1.813e-01  9.069e-02  1.334e+04  -1.999   0.0457
-emotion424:bindiff_bin7  -8.932e-02  9.103e-02  1.334e+04  -0.981   0.3265
-emotion525:bindiff_bin7  -5.845e-02  9.079e-02  1.334e+04  -0.644   0.5198
-emotion323:bindiff_bin8  -6.700e-02  9.109e-02  1.334e+04  -0.736   0.4620
-emotion424:bindiff_bin8   4.921e-04  9.146e-02  1.334e+04   0.005   0.9957
-emotion525:bindiff_bin8  -8.392e-02  9.130e-02  1.334e+04  -0.919   0.3580
-emotion323:bindiff_bin9  -7.703e-02  9.133e-02  1.334e+04  -0.843   0.3990
-emotion424:bindiff_bin9  -2.225e-02  9.170e-02  1.334e+04  -0.243   0.8083
-emotion525:bindiff_bin9   9.242e-03  9.136e-02  1.334e+04   0.101   0.9194
-emotion323:bindiff_bin10 -8.690e-02  9.207e-02  1.334e+04  -0.944   0.3453
-emotion424:bindiff_bin10 -3.854e-02  9.215e-02  1.334e+04  -0.418   0.6758
-emotion525:bindiff_bin10 -5.525e-03  9.193e-02  1.334e+04  -0.060   0.9521
-                          
-(Intercept)              *
-emotion323                
-emotion424                
-emotion525                
-bindiff_bin2              
-bindiff_bin3              
-bindiff_bin4              
-bindiff_bin5              
-bindiff_bin6             .
-bindiff_bin7             *
-bindiff_bin8             *
-bindiff_bin9             *
-bindiff_bin10            .
-emotion323:bindiff_bin2   
-emotion424:bindiff_bin2   
-emotion525:bindiff_bin2   
-emotion323:bindiff_bin3   
-emotion424:bindiff_bin3   
-emotion525:bindiff_bin3   
-emotion323:bindiff_bin4   
-emotion424:bindiff_bin4   
-emotion525:bindiff_bin4   
-emotion323:bindiff_bin5   
-emotion424:bindiff_bin5   
-emotion525:bindiff_bin5   
-emotion323:bindiff_bin6   
-emotion424:bindiff_bin6   
-emotion525:bindiff_bin6   
-emotion323:bindiff_bin7  *
-emotion424:bindiff_bin7   
-emotion525:bindiff_bin7   
-emotion323:bindiff_bin8   
-emotion424:bindiff_bin8   
-emotion525:bindiff_bin8   
-emotion323:bindiff_bin9   
-emotion424:bindiff_bin9   
-emotion525:bindiff_bin9   
-emotion323:bindiff_bin10  
-emotion424:bindiff_bin10  
-emotion525:bindiff_bin10  
+                           Estimate Std. Error         df t value Pr(&gt;|t|)  
+(Intercept)              -1.028e-01  5.043e-02  9.485e+02  -2.038   0.0418 *
+emotion323                5.372e-02  6.480e-02  1.334e+04   0.829   0.4071  
+emotion424                4.689e-02  6.527e-02  1.334e+04   0.718   0.4725  
+emotion525                3.941e-02  6.475e-02  1.334e+04   0.609   0.5428  
+bindiff_bin2             -2.042e-02  6.417e-02  1.334e+04  -0.318   0.7504  
+bindiff_bin3             -2.729e-03  6.408e-02  1.334e+04  -0.043   0.9660  
+bindiff_bin4             -2.669e-02  6.422e-02  1.334e+04  -0.416   0.6777  
+bindiff_bin5              3.135e-02  6.408e-02  1.334e+04   0.489   0.6247  
+bindiff_bin6              1.129e-01  6.417e-02  1.334e+04   1.760   0.0785 .
+bindiff_bin7              1.507e-01  6.394e-02  1.334e+04   2.357   0.0184 *
+bindiff_bin8              1.289e-01  6.431e-02  1.334e+04   2.004   0.0451 *
+bindiff_bin9              1.312e-01  6.465e-02  1.334e+04   2.029   0.0425 *
+bindiff_bin10             1.212e-01  6.475e-02  1.334e+04   1.871   0.0613 .
+emotion323:bindiff_bin2   1.656e-02  9.093e-02  1.334e+04   0.182   0.8555  
+emotion424:bindiff_bin2   1.009e-01  9.129e-02  1.334e+04   1.106   0.2689  
+emotion525:bindiff_bin2   4.147e-03  9.099e-02  1.334e+04   0.046   0.9637  
+emotion323:bindiff_bin3  -3.698e-02  9.083e-02  1.334e+04  -0.407   0.6839  
+emotion424:bindiff_bin3   1.841e-02  9.112e-02  1.334e+04   0.202   0.8399  
+emotion525:bindiff_bin3  -3.585e-03  9.093e-02  1.334e+04  -0.039   0.9685  
+emotion323:bindiff_bin4  -4.688e-02  9.096e-02  1.334e+04  -0.515   0.6063  
+emotion424:bindiff_bin4   2.983e-02  9.129e-02  1.334e+04   0.327   0.7438  
+emotion525:bindiff_bin4  -8.996e-03  9.092e-02  1.334e+04  -0.099   0.9212  
+emotion323:bindiff_bin5  -1.021e-01  9.086e-02  1.334e+04  -1.124   0.2610  
+emotion424:bindiff_bin5   7.473e-03  9.129e-02  1.334e+04   0.082   0.9348  
+emotion525:bindiff_bin5  -2.187e-02  9.086e-02  1.334e+04  -0.241   0.8098  
+emotion323:bindiff_bin6  -1.215e-01  9.109e-02  1.334e+04  -1.333   0.1824  
+emotion424:bindiff_bin6  -5.862e-02  9.119e-02  1.334e+04  -0.643   0.5204  
+emotion525:bindiff_bin6  -1.094e-01  9.120e-02  1.334e+04  -1.200   0.2303  
+emotion323:bindiff_bin7  -1.813e-01  9.069e-02  1.334e+04  -1.999   0.0457 *
+emotion424:bindiff_bin7  -8.932e-02  9.103e-02  1.334e+04  -0.981   0.3265  
+emotion525:bindiff_bin7  -5.845e-02  9.079e-02  1.334e+04  -0.644   0.5198  
+emotion323:bindiff_bin8  -6.700e-02  9.109e-02  1.334e+04  -0.736   0.4620  
+emotion424:bindiff_bin8   4.921e-04  9.146e-02  1.334e+04   0.005   0.9957  
+emotion525:bindiff_bin8  -8.392e-02  9.130e-02  1.334e+04  -0.919   0.3580  
+emotion323:bindiff_bin9  -7.703e-02  9.133e-02  1.334e+04  -0.843   0.3990  
+emotion424:bindiff_bin9  -2.225e-02  9.170e-02  1.334e+04  -0.243   0.8083  
+emotion525:bindiff_bin9   9.242e-03  9.136e-02  1.334e+04   0.101   0.9194  
+emotion323:bindiff_bin10 -8.690e-02  9.207e-02  1.334e+04  -0.944   0.3453  
+emotion424:bindiff_bin10 -3.854e-02  9.215e-02  1.334e+04  -0.418   0.6758  
+emotion525:bindiff_bin10 -5.525e-03  9.193e-02  1.334e+04  -0.060   0.9521  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre><code>
@@ -1161,13 +1106,13 @@ Your Name
 glimpse(adult_brow)</code></pre>
 <pre><code>Rows: 15,640
 Columns: 7
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, …
-$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, d…
-$ zdiff   &lt;dbl&gt; 0.13399249, 0.03430089, -0.12614560, -0.19859639, 0.2154…</code></pre>
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
+$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, b…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, diff_b…
+$ zdiff   &lt;dbl&gt; 0.13399249, 0.03430089, -0.12614560, -0.19859639, 0.21545975,…</code></pre>
 <pre class="r"><code>levels(adult_brow$emotion)</code></pre>
 <pre><code>[1] &quot;121&quot; &quot;131&quot; &quot;232&quot; &quot;323&quot; &quot;424&quot; &quot;434&quot; &quot;525&quot; &quot;535&quot;</code></pre>
 </div>
@@ -1191,8 +1136,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="use-summary-to-get-coefficients-2" class="section level2">
 <h2>use summary to get coefficients</h2>
 <pre class="r"><code>summary(adultlm_model_brow)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
-  Satterthwaite&#39;s method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
+  method [lmerModLmerTest]
 Formula: zdiff ~ emotion + bin + emotion * bin + (1 | pp_no) + (1 | trial)
    Data: adult_brow
 
@@ -1211,88 +1156,47 @@ Random effects:
 Number of obs: 14229, groups:  pp_no, 50; trial, 8
 
 Fixed effects:
-                           Estimate Std. Error         df t value Pr(&gt;|t|)
-(Intercept)              -2.659e-03  4.254e-02  1.810e+03  -0.063   0.9502
-emotion232               -5.243e-02  5.676e-02  1.417e+04  -0.924   0.3557
-emotion434               -4.703e-02  5.660e-02  1.417e+04  -0.831   0.4060
-emotion535               -2.741e-02  5.693e-02  1.417e+04  -0.481   0.6302
-bindiff_bin2             -4.633e-02  5.648e-02  1.417e+04  -0.820   0.4120
-bindiff_bin3             -3.563e-02  5.644e-02  1.417e+04  -0.631   0.5279
-bindiff_bin4              8.599e-03  5.624e-02  1.417e+04   0.153   0.8785
-bindiff_bin5              8.323e-03  5.656e-02  1.417e+04   0.147   0.8830
-bindiff_bin6             -2.545e-02  5.632e-02  1.417e+04  -0.452   0.6514
-bindiff_bin7             -6.788e-03  5.656e-02  1.417e+04  -0.120   0.9045
-bindiff_bin8             -1.730e-02  5.652e-02  1.417e+04  -0.306   0.7595
-bindiff_bin9             -1.989e-03  5.644e-02  1.417e+04  -0.035   0.9719
-bindiff_bin10            -4.881e-02  5.648e-02  1.417e+04  -0.864   0.3874
-emotion232:bindiff_bin2   8.872e-02  8.016e-02  1.417e+04   1.107   0.2684
-emotion434:bindiff_bin2   1.226e-01  7.984e-02  1.417e+04   1.536   0.1246
-emotion535:bindiff_bin2   9.723e-02  7.983e-02  1.417e+04   1.218   0.2233
-emotion232:bindiff_bin3   4.381e-02  7.999e-02  1.417e+04   0.548   0.5839
-emotion434:bindiff_bin3   1.430e-01  7.967e-02  1.417e+04   1.795   0.0726
-emotion535:bindiff_bin3   2.339e-02  7.980e-02  1.417e+04   0.293   0.7695
-emotion232:bindiff_bin4  -4.448e-02  7.968e-02  1.417e+04  -0.558   0.5767
-emotion434:bindiff_bin4   3.951e-02  7.954e-02  1.417e+04   0.497   0.6194
-emotion535:bindiff_bin4  -4.596e-02  7.969e-02  1.417e+04  -0.577   0.5641
-emotion232:bindiff_bin5  -2.339e-02  7.999e-02  1.417e+04  -0.292   0.7700
-emotion434:bindiff_bin5   7.261e-02  7.984e-02  1.417e+04   0.909   0.3632
-emotion535:bindiff_bin5  -2.083e-02  8.010e-02  1.417e+04  -0.260   0.7948
-emotion232:bindiff_bin6   4.892e-02  7.979e-02  1.417e+04   0.613   0.5398
-emotion434:bindiff_bin6   9.341e-02  7.973e-02  1.417e+04   1.172   0.2414
-emotion535:bindiff_bin6   8.045e-02  7.985e-02  1.417e+04   1.007   0.3138
-emotion232:bindiff_bin7   4.549e-02  7.990e-02  1.417e+04   0.569   0.5691
-emotion434:bindiff_bin7   4.687e-02  7.965e-02  1.417e+04   0.588   0.5563
-emotion535:bindiff_bin7   2.685e-03  8.005e-02  1.417e+04   0.034   0.9732
-emotion232:bindiff_bin8   5.200e-02  8.004e-02  1.417e+04   0.650   0.5159
-emotion434:bindiff_bin8   3.571e-02  7.981e-02  1.417e+04   0.447   0.6545
-emotion535:bindiff_bin8   8.440e-03  8.008e-02  1.417e+04   0.105   0.9161
-emotion232:bindiff_bin9   3.449e-02  8.007e-02  1.417e+04   0.431   0.6667
-emotion434:bindiff_bin9   8.021e-02  7.976e-02  1.417e+04   1.006   0.3146
-emotion535:bindiff_bin9  -6.857e-02  7.994e-02  1.417e+04  -0.858   0.3910
-emotion232:bindiff_bin10  5.032e-02  8.001e-02  1.417e+04   0.629   0.5294
-emotion434:bindiff_bin10  1.248e-01  7.981e-02  1.417e+04   1.564   0.1179
-emotion535:bindiff_bin10  8.853e-02  8.005e-02  1.417e+04   1.106   0.2688
-                          
-(Intercept)               
-emotion232                
-emotion434                
-emotion535                
-bindiff_bin2              
-bindiff_bin3              
-bindiff_bin4              
-bindiff_bin5              
-bindiff_bin6              
-bindiff_bin7              
-bindiff_bin8              
-bindiff_bin9              
-bindiff_bin10             
-emotion232:bindiff_bin2   
-emotion434:bindiff_bin2   
-emotion535:bindiff_bin2   
-emotion232:bindiff_bin3   
-emotion434:bindiff_bin3  .
-emotion535:bindiff_bin3   
-emotion232:bindiff_bin4   
-emotion434:bindiff_bin4   
-emotion535:bindiff_bin4   
-emotion232:bindiff_bin5   
-emotion434:bindiff_bin5   
-emotion535:bindiff_bin5   
-emotion232:bindiff_bin6   
-emotion434:bindiff_bin6   
-emotion535:bindiff_bin6   
-emotion232:bindiff_bin7   
-emotion434:bindiff_bin7   
-emotion535:bindiff_bin7   
-emotion232:bindiff_bin8   
-emotion434:bindiff_bin8   
-emotion535:bindiff_bin8   
-emotion232:bindiff_bin9   
-emotion434:bindiff_bin9   
-emotion535:bindiff_bin9   
-emotion232:bindiff_bin10  
-emotion434:bindiff_bin10  
-emotion535:bindiff_bin10  
+                           Estimate Std. Error         df t value Pr(&gt;|t|)  
+(Intercept)              -2.659e-03  4.254e-02  1.810e+03  -0.063   0.9502  
+emotion232               -5.243e-02  5.676e-02  1.417e+04  -0.924   0.3557  
+emotion434               -4.703e-02  5.660e-02  1.417e+04  -0.831   0.4060  
+emotion535               -2.741e-02  5.693e-02  1.417e+04  -0.481   0.6302  
+bindiff_bin2             -4.633e-02  5.648e-02  1.417e+04  -0.820   0.4120  
+bindiff_bin3             -3.563e-02  5.644e-02  1.417e+04  -0.631   0.5279  
+bindiff_bin4              8.599e-03  5.624e-02  1.417e+04   0.153   0.8785  
+bindiff_bin5              8.323e-03  5.656e-02  1.417e+04   0.147   0.8830  
+bindiff_bin6             -2.545e-02  5.632e-02  1.417e+04  -0.452   0.6514  
+bindiff_bin7             -6.788e-03  5.656e-02  1.417e+04  -0.120   0.9045  
+bindiff_bin8             -1.730e-02  5.652e-02  1.417e+04  -0.306   0.7595  
+bindiff_bin9             -1.989e-03  5.644e-02  1.417e+04  -0.035   0.9719  
+bindiff_bin10            -4.881e-02  5.648e-02  1.417e+04  -0.864   0.3874  
+emotion232:bindiff_bin2   8.872e-02  8.016e-02  1.417e+04   1.107   0.2684  
+emotion434:bindiff_bin2   1.226e-01  7.984e-02  1.417e+04   1.536   0.1246  
+emotion535:bindiff_bin2   9.723e-02  7.983e-02  1.417e+04   1.218   0.2233  
+emotion232:bindiff_bin3   4.381e-02  7.999e-02  1.417e+04   0.548   0.5839  
+emotion434:bindiff_bin3   1.430e-01  7.967e-02  1.417e+04   1.795   0.0726 .
+emotion535:bindiff_bin3   2.339e-02  7.980e-02  1.417e+04   0.293   0.7695  
+emotion232:bindiff_bin4  -4.448e-02  7.968e-02  1.417e+04  -0.558   0.5767  
+emotion434:bindiff_bin4   3.951e-02  7.954e-02  1.417e+04   0.497   0.6194  
+emotion535:bindiff_bin4  -4.596e-02  7.969e-02  1.417e+04  -0.577   0.5641  
+emotion232:bindiff_bin5  -2.339e-02  7.999e-02  1.417e+04  -0.292   0.7700  
+emotion434:bindiff_bin5   7.261e-02  7.984e-02  1.417e+04   0.909   0.3632  
+emotion535:bindiff_bin5  -2.083e-02  8.010e-02  1.417e+04  -0.260   0.7948  
+emotion232:bindiff_bin6   4.892e-02  7.979e-02  1.417e+04   0.613   0.5398  
+emotion434:bindiff_bin6   9.341e-02  7.973e-02  1.417e+04   1.172   0.2414  
+emotion535:bindiff_bin6   8.045e-02  7.985e-02  1.417e+04   1.007   0.3138  
+emotion232:bindiff_bin7   4.549e-02  7.990e-02  1.417e+04   0.569   0.5691  
+emotion434:bindiff_bin7   4.687e-02  7.965e-02  1.417e+04   0.588   0.5563  
+emotion535:bindiff_bin7   2.685e-03  8.005e-02  1.417e+04   0.034   0.9732  
+emotion232:bindiff_bin8   5.200e-02  8.004e-02  1.417e+04   0.650   0.5159  
+emotion434:bindiff_bin8   3.571e-02  7.981e-02  1.417e+04   0.447   0.6545  
+emotion535:bindiff_bin8   8.440e-03  8.008e-02  1.417e+04   0.105   0.9161  
+emotion232:bindiff_bin9   3.449e-02  8.007e-02  1.417e+04   0.431   0.6667  
+emotion434:bindiff_bin9   8.021e-02  7.976e-02  1.417e+04   1.006   0.3146  
+emotion535:bindiff_bin9  -6.857e-02  7.994e-02  1.417e+04  -0.858   0.3910  
+emotion232:bindiff_bin10  5.032e-02  8.001e-02  1.417e+04   0.629   0.5294  
+emotion434:bindiff_bin10  1.248e-01  7.981e-02  1.417e+04   1.564   0.1179  
+emotion535:bindiff_bin10  8.853e-02  8.005e-02  1.417e+04   1.106   0.2688  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre><code>
@@ -1401,13 +1305,13 @@ Your Name
 glimpse(child_brow)</code></pre>
 <pre><code>Rows: 15,100
 Columns: 7
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
-$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, …
-$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, d…
-$ zdiff   &lt;dbl&gt; -0.66832501, 0.31704396, 0.52214752, 0.54634740, 3.64437…</code></pre>
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
+$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
+$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
+$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, b…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin2, diff_bin3, diff_bin4, diff_bin5, diff_b…
+$ zdiff   &lt;dbl&gt; -0.66832501, 0.31704396, 0.52214752, 0.54634740, 3.64437872, …</code></pre>
 <pre class="r"><code>levels(child_brow$emotion)</code></pre>
 <pre><code>[1] &quot;121&quot; &quot;131&quot; &quot;232&quot; &quot;323&quot; &quot;424&quot; &quot;434&quot; &quot;525&quot; &quot;535&quot;</code></pre>
 </div>
@@ -1429,8 +1333,8 @@ emotion:bin 14.4836 0.53643    27 13686  0.6924 0.8807</code></pre>
 <div id="use-summary-to-get-coefficients-3" class="section level2">
 <h2>use summary to get coefficients</h2>
 <pre class="r"><code>summary(childlm_model_brow)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
-  Satterthwaite&#39;s method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
+  method [lmerModLmerTest]
 Formula: zdiff ~ emotion + bin + emotion * bin + (1 | pp_no) + (1 | trial)
    Data: child_brow
 
@@ -1449,88 +1353,47 @@ Random effects:
 Number of obs: 13735, groups:  pp_no, 49; trial, 8
 
 Fixed effects:
-                           Estimate Std. Error         df t value Pr(&gt;|t|)
-(Intercept)              -6.537e-02  5.113e-02  1.844e+03  -1.279   0.2012
-emotion323               -1.290e-02  6.722e-02  1.369e+04  -0.192   0.8478
-emotion424               -1.292e-02  6.737e-02  1.369e+04  -0.192   0.8479
-emotion525               -2.646e-02  6.747e-02  1.369e+04  -0.392   0.6949
-bindiff_bin2             -1.487e-02  6.722e-02  1.369e+04  -0.221   0.8249
-bindiff_bin3              3.618e-02  6.693e-02  1.369e+04   0.541   0.5888
-bindiff_bin4             -6.277e-03  6.707e-02  1.369e+04  -0.094   0.9254
-bindiff_bin5              4.454e-02  6.688e-02  1.369e+04   0.666   0.5055
-bindiff_bin6              3.713e-02  6.693e-02  1.369e+04   0.555   0.5791
-bindiff_bin7              7.840e-02  6.693e-02  1.369e+04   1.171   0.2414
-bindiff_bin8              4.776e-02  6.712e-02  1.369e+04   0.712   0.4768
-bindiff_bin9             -1.136e-03  6.707e-02  1.369e+04  -0.017   0.9865
-bindiff_bin10            -3.183e-02  6.712e-02  1.369e+04  -0.474   0.6353
-emotion323:bindiff_bin2   6.849e-02  9.503e-02  1.369e+04   0.721   0.4711
-emotion424:bindiff_bin2   2.090e-02  9.517e-02  1.369e+04   0.220   0.8262
-emotion525:bindiff_bin2   7.825e-02  9.520e-02  1.369e+04   0.822   0.4111
-emotion323:bindiff_bin3  -2.913e-02  9.472e-02  1.369e+04  -0.307   0.7585
-emotion424:bindiff_bin3  -6.737e-02  9.528e-02  1.369e+04  -0.707   0.4796
-emotion525:bindiff_bin3  -4.001e-02  9.489e-02  1.369e+04  -0.422   0.6733
-emotion323:bindiff_bin4   1.034e-03  9.468e-02  1.369e+04   0.011   0.9913
-emotion424:bindiff_bin4   5.631e-02  9.496e-02  1.369e+04   0.593   0.5532
-emotion525:bindiff_bin4   4.119e-02  9.507e-02  1.369e+04   0.433   0.6648
-emotion323:bindiff_bin5  -3.410e-02  9.475e-02  1.369e+04  -0.360   0.7189
-emotion424:bindiff_bin5   1.320e-02  9.486e-02  1.369e+04   0.139   0.8893
-emotion525:bindiff_bin5  -4.694e-03  9.479e-02  1.369e+04  -0.050   0.9605
-emotion323:bindiff_bin6  -3.610e-02  9.468e-02  1.369e+04  -0.381   0.7030
-emotion424:bindiff_bin6   3.190e-02  9.476e-02  1.369e+04   0.337   0.7364
-emotion525:bindiff_bin6   4.394e-02  9.476e-02  1.369e+04   0.464   0.6428
-emotion323:bindiff_bin7  -1.991e-02  9.455e-02  1.369e+04  -0.211   0.8332
-emotion424:bindiff_bin7  -4.263e-02  9.482e-02  1.369e+04  -0.450   0.6530
-emotion525:bindiff_bin7   2.405e-02  9.507e-02  1.369e+04   0.253   0.8003
-emotion323:bindiff_bin8   1.263e-01  9.499e-02  1.369e+04   1.330   0.1836
-emotion424:bindiff_bin8  -1.388e-02  9.492e-02  1.369e+04  -0.146   0.8837
-emotion525:bindiff_bin8   6.200e-02  9.520e-02  1.369e+04   0.651   0.5149
-emotion323:bindiff_bin9   1.041e-01  9.492e-02  1.369e+04   1.097   0.2729
-emotion424:bindiff_bin9   4.135e-02  9.513e-02  1.369e+04   0.435   0.6638
-emotion525:bindiff_bin9   1.069e-01  9.542e-02  1.369e+04   1.120   0.2628
-emotion323:bindiff_bin10  1.702e-01  9.528e-02  1.369e+04   1.786   0.0741
-emotion424:bindiff_bin10  3.138e-02  9.564e-02  1.369e+04   0.328   0.7429
-emotion525:bindiff_bin10  1.204e-01  9.602e-02  1.369e+04   1.254   0.2097
-                          
-(Intercept)               
-emotion323                
-emotion424                
-emotion525                
-bindiff_bin2              
-bindiff_bin3              
-bindiff_bin4              
-bindiff_bin5              
-bindiff_bin6              
-bindiff_bin7              
-bindiff_bin8              
-bindiff_bin9              
-bindiff_bin10             
-emotion323:bindiff_bin2   
-emotion424:bindiff_bin2   
-emotion525:bindiff_bin2   
-emotion323:bindiff_bin3   
-emotion424:bindiff_bin3   
-emotion525:bindiff_bin3   
-emotion323:bindiff_bin4   
-emotion424:bindiff_bin4   
-emotion525:bindiff_bin4   
-emotion323:bindiff_bin5   
-emotion424:bindiff_bin5   
-emotion525:bindiff_bin5   
-emotion323:bindiff_bin6   
-emotion424:bindiff_bin6   
-emotion525:bindiff_bin6   
-emotion323:bindiff_bin7   
-emotion424:bindiff_bin7   
-emotion525:bindiff_bin7   
-emotion323:bindiff_bin8   
-emotion424:bindiff_bin8   
-emotion525:bindiff_bin8   
-emotion323:bindiff_bin9   
-emotion424:bindiff_bin9   
-emotion525:bindiff_bin9   
-emotion323:bindiff_bin10 .
-emotion424:bindiff_bin10  
-emotion525:bindiff_bin10  
+                           Estimate Std. Error         df t value Pr(&gt;|t|)  
+(Intercept)              -6.537e-02  5.113e-02  1.844e+03  -1.279   0.2012  
+emotion323               -1.290e-02  6.722e-02  1.369e+04  -0.192   0.8478  
+emotion424               -1.292e-02  6.737e-02  1.369e+04  -0.192   0.8479  
+emotion525               -2.646e-02  6.747e-02  1.369e+04  -0.392   0.6949  
+bindiff_bin2             -1.487e-02  6.722e-02  1.369e+04  -0.221   0.8249  
+bindiff_bin3              3.618e-02  6.693e-02  1.369e+04   0.541   0.5888  
+bindiff_bin4             -6.277e-03  6.707e-02  1.369e+04  -0.094   0.9254  
+bindiff_bin5              4.454e-02  6.688e-02  1.369e+04   0.666   0.5055  
+bindiff_bin6              3.713e-02  6.693e-02  1.369e+04   0.555   0.5791  
+bindiff_bin7              7.840e-02  6.693e-02  1.369e+04   1.171   0.2414  
+bindiff_bin8              4.776e-02  6.712e-02  1.369e+04   0.712   0.4768  
+bindiff_bin9             -1.136e-03  6.707e-02  1.369e+04  -0.017   0.9865  
+bindiff_bin10            -3.183e-02  6.712e-02  1.369e+04  -0.474   0.6353  
+emotion323:bindiff_bin2   6.849e-02  9.503e-02  1.369e+04   0.721   0.4711  
+emotion424:bindiff_bin2   2.090e-02  9.517e-02  1.369e+04   0.220   0.8262  
+emotion525:bindiff_bin2   7.825e-02  9.520e-02  1.369e+04   0.822   0.4111  
+emotion323:bindiff_bin3  -2.913e-02  9.472e-02  1.369e+04  -0.307   0.7585  
+emotion424:bindiff_bin3  -6.737e-02  9.528e-02  1.369e+04  -0.707   0.4796  
+emotion525:bindiff_bin3  -4.001e-02  9.489e-02  1.369e+04  -0.422   0.6733  
+emotion323:bindiff_bin4   1.034e-03  9.468e-02  1.369e+04   0.011   0.9913  
+emotion424:bindiff_bin4   5.631e-02  9.496e-02  1.369e+04   0.593   0.5532  
+emotion525:bindiff_bin4   4.119e-02  9.507e-02  1.369e+04   0.433   0.6648  
+emotion323:bindiff_bin5  -3.410e-02  9.475e-02  1.369e+04  -0.360   0.7189  
+emotion424:bindiff_bin5   1.320e-02  9.486e-02  1.369e+04   0.139   0.8893  
+emotion525:bindiff_bin5  -4.694e-03  9.479e-02  1.369e+04  -0.050   0.9605  
+emotion323:bindiff_bin6  -3.610e-02  9.468e-02  1.369e+04  -0.381   0.7030  
+emotion424:bindiff_bin6   3.190e-02  9.476e-02  1.369e+04   0.337   0.7364  
+emotion525:bindiff_bin6   4.394e-02  9.476e-02  1.369e+04   0.464   0.6428  
+emotion323:bindiff_bin7  -1.991e-02  9.455e-02  1.369e+04  -0.211   0.8332  
+emotion424:bindiff_bin7  -4.263e-02  9.482e-02  1.369e+04  -0.450   0.6530  
+emotion525:bindiff_bin7   2.405e-02  9.507e-02  1.369e+04   0.253   0.8003  
+emotion323:bindiff_bin8   1.263e-01  9.499e-02  1.369e+04   1.330   0.1836  
+emotion424:bindiff_bin8  -1.388e-02  9.492e-02  1.369e+04  -0.146   0.8837  
+emotion525:bindiff_bin8   6.200e-02  9.520e-02  1.369e+04   0.651   0.5149  
+emotion323:bindiff_bin9   1.041e-01  9.492e-02  1.369e+04   1.097   0.2729  
+emotion424:bindiff_bin9   4.135e-02  9.513e-02  1.369e+04   0.435   0.6638  
+emotion525:bindiff_bin9   1.069e-01  9.542e-02  1.369e+04   1.120   0.2628  
+emotion323:bindiff_bin10  1.702e-01  9.528e-02  1.369e+04   1.786   0.0741 .
+emotion424:bindiff_bin10  3.138e-02  9.564e-02  1.369e+04   0.328   0.7429  
+emotion525:bindiff_bin10  1.204e-01  9.602e-02  1.369e+04   1.254   0.2097  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre><code>
@@ -1634,13 +1497,13 @@ Your Name
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
+<pre><code>R version 3.6.2 (2019-12-12)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+Running under: macOS High Sierra 10.13.6
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
@@ -1649,34 +1512,35 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] beepr_1.3       lmerTest_3.1-0  lme4_1.1-21     Matrix_1.2-14  
- [5] here_0.1        forcats_0.5.0   stringr_1.4.0   dplyr_1.0.1    
- [9] purrr_0.3.3     readr_1.3.1     tidyr_1.1.0     tibble_3.0.3   
-[13] ggplot2_3.3.2   tidyverse_1.3.0 workflowr_1.6.2
+ [1] beepr_1.3       lmerTest_3.1-2  lme4_1.1-23     Matrix_1.2-18  
+ [5] here_0.1        forcats_0.4.0   stringr_1.4.0   dplyr_1.0.0    
+ [9] purrr_0.3.4     readr_1.3.1     tidyr_1.1.0     tibble_3.0.3   
+[13] ggplot2_3.2.1   tidyverse_1.3.0
 
 loaded via a namespace (and not attached):
- [1] httr_1.4.1             jsonlite_1.7.0         splines_3.5.1         
- [4] modelr_0.1.8           assertthat_0.2.1       blob_1.2.1            
- [7] cellranger_1.1.0       yaml_2.2.1             numDeriv_2016.8-1.1   
-[10] pillar_1.4.6           backports_1.1.8        lattice_0.20-35       
-[13] glue_1.4.1             digest_0.6.25          promises_1.1.1        
-[16] rvest_0.3.6            minqa_1.2.4            colorspace_1.4-1      
-[19] htmltools_0.5.0        httpuv_1.5.2           pkgconfig_2.0.3       
-[22] broom_0.7.0            haven_2.3.1            scales_1.1.1          
-[25] whisker_0.4            later_1.1.0.1          git2r_0.27.1          
-[28] generics_0.0.2         ellipsis_0.3.1         withr_2.2.0           
-[31] cli_2.0.2              magrittr_1.5           crayon_1.3.4          
-[34] readxl_1.3.1           evaluate_0.14          fs_1.4.1              
-[37] fansi_0.4.1            nlme_3.1-137           MASS_7.3-51.1         
-[40] xml2_1.3.2             tools_3.5.1            hms_0.5.3             
-[43] lifecycle_0.2.0        munsell_0.5.0          reprex_0.3.0          
-[46] compiler_3.5.1         rlang_0.4.7            grid_3.5.1            
-[49] nloptr_1.2.2.1         rstudioapi_0.11.0-9000 rmarkdown_1.15        
-[52] boot_1.3-20            gtable_0.3.0           DBI_1.0.0             
-[55] R6_2.4.1               lubridate_1.7.4        knitr_1.23            
-[58] utf8_1.1.4             rprojroot_1.3-2        stringi_1.4.6         
-[61] Rcpp_1.0.5             vctrs_0.3.2            dbplyr_1.4.4          
-[64] audio_0.1-5.1          tidyselect_1.1.0       xfun_0.8              </code></pre>
+ [1] httr_1.4.1          jsonlite_1.7.0      splines_3.6.2      
+ [4] modelr_0.1.5        assertthat_0.2.1    statmod_1.4.34     
+ [7] cellranger_1.1.0    yaml_2.2.1          numDeriv_2016.8-1.1
+[10] pillar_1.4.6        backports_1.1.8     lattice_0.20-38    
+[13] glue_1.4.1          digest_0.6.25       promises_1.1.0     
+[16] rvest_0.3.5         minqa_1.2.4         colorspace_1.4-1   
+[19] htmltools_0.5.0     httpuv_1.5.2        pkgconfig_2.0.3    
+[22] broom_0.7.0.9001    haven_2.2.0         scales_1.1.0       
+[25] whisker_0.4         later_1.0.0         git2r_0.27.1       
+[28] generics_0.0.2      ellipsis_0.3.1      withr_2.1.2        
+[31] lazyeval_0.2.2      cli_2.0.2           magrittr_1.5       
+[34] crayon_1.3.4        readxl_1.3.1        evaluate_0.14      
+[37] fs_1.3.1            fansi_0.4.1         nlme_3.1-142       
+[40] MASS_7.3-51.4       xml2_1.2.2          tools_3.6.2        
+[43] hms_0.5.3           lifecycle_0.2.0     munsell_0.5.0      
+[46] reprex_0.3.0        compiler_3.6.2      rlang_0.4.7        
+[49] grid_3.6.2          nloptr_1.2.2.2      rstudioapi_0.11    
+[52] rmarkdown_2.3       boot_1.3-23         gtable_0.3.0       
+[55] DBI_1.1.0           R6_2.4.1            lubridate_1.7.4    
+[58] knitr_1.29          utf8_1.1.4          workflowr_1.6.2    
+[61] rprojroot_1.3-2     stringi_1.4.6       Rcpp_1.0.5         
+[64] vctrs_0.3.1         dbplyr_1.4.2        audio_0.1-7        
+[67] tidyselect_1.1.0    xfun_0.15          </code></pre>
 </div>
 </div>
 </div>
@@ -1744,7 +1608,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

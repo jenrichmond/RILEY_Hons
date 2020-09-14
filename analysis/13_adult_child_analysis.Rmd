@@ -1,0 +1,240 @@
+---
+title: "13_adult_child_analyses"
+output: html_document
+---
+
+# load packages
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+library(lme4)
+library(lmerTest)
+library(broom.mixed)
+library(pixiedust)
+library(beepr)
+library(ggplot2) 
+```
+
+# read in data 
+```{r}
+df <- read_csv(here::here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
+```
+# fix data types
+
+The emotion variable below is numbers so not sure how the emotion %in% c(happy, angry) was working. Add emo variable with emotion labels
+```{r}
+df$emotion <- as.factor(df$emotion)
+
+levels(df$emotion)
+
+df <- df %>%
+  mutate(emo = case_when(emotion == 121 ~ "happy", 
+                              emotion == 323 ~ "angry", 
+                              emotion == 424 ~ "fear", 
+                              emotion == 525 ~ "sad", 
+                              emotion == 131 ~ "happy", 
+                              emotion == 232 ~ "angry", 
+                              emotion == 434 ~ "fear", 
+                              emotion == 535 ~ "sad"))
+
+df <- df %>% mutate_if(is.character, as.factor)
+
+glimpse(df)
+```
+
+# CHEEK happy-angry 
+
+### Make cheek HA df 
+
+just happy/angry face for cheek
+
+```{r}
+Happy_cheek <- df %>%
+  filter(emo == "happy") %>%
+  filter(muscle == "cheek") %>%
+  arrange(pp_no, model, trial, bin)
+```
+
+
+## fit model 1 
+
+This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+
+```{r}
+cheek_emoZ <- lmer(zdiff ~ bin + model + model*bin +  (1|pp_no), data = Happy_cheek, REML = FALSE)
+
+```
+
+
+### check assumptions
+```{r}
+plot(cheek_emoZ)
+
+qqnorm(resid(cheek_emoZ))
+qqline(resid(cheek_emoZ))
+```
+
+As suscepted, need to transform to correct normality. 
+
+### compute log_modulus
+
+NOTE: this first log mod calc is WRONG, uses + instead of *
+
+```{r}
+Happy_cheek <- Happy_cheek %>%
+  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))
+```
+
+### fit model again
+
+```{r}
+cheek_happy_log <- lmer(log_modulus ~ bin + model + bin*model + (1|pp_no), data = Happy_cheek, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(cheek_happy_log)
+
+qqnorm(resid(cheek_happy_log))
+qqline(resid(cheek_happy_log))
+```
+
+## YIKES something not right 
+
+*WHAT* that looks WAY worse.... what is going on here...
+
+Is that log_mod doing what we think?? How to log modulus here.... https://blogs.sas.com/content/iml/2014/07/14/log-transformation-of-pos-neg.html
+
+RILEY- it is * log not +
+
+### compute new log mod
+
+```{r}
+Happy_cheek <- Happy_cheek %>%
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
+```
+
+### try fit model again
+
+```{r}
+cheek_happy_log_new <- lmer(log_modulus_new ~ bin + model + model*bin + (1|pp_no), data = Happy_cheek, REML = FALSE)
+
+```
+
+### check assumptions again
+```{r}
+plot(cheek_happy_log_new)
+
+qqnorm(resid(cheek_happy_log_new))
+qqline(resid(cheek_happy_log_new))
+```
+
+
+Better but not great. 
+
+*JENNY CODE CHECK UP TO HERE*
+
+
+# BUILD model comparisons
+
+What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+
+```{r}
+levels(Happy_cheek$emo)
+```
+
+
+### model 1 
+
+just main effect of bin
+
+```{r}
+cheek_bin <- lmer(log_modulus_new ~ bin + (1|pp_no), data = Happy_cheek, REML = FALSE)
+
+beep(1)
+```
+
+## model 2
+
+just main effect of model and bin 
+```{r}
+cheek_model_bin <- lmer(log_modulus_new ~ model + bin + (1|pp_no), data = Happy_cheek, REML = FALSE)
+
+beep(2)
+```
+
+## model 3
+
+main effect of model and bin, and slope for model (slope for bin doesnt converge)
+
+```{r}
+cheek_model_bin_slope <- lmer(log_modulus_new ~ bin + model + (1 + model|pp_no), data = Happy_cheek, REML = FALSE)
+
+beep(3)
+```
+
+## model 4
+
+main effect of emotion, bin, model and emotion*bin interaction, slope for emotion 
+```{r}
+cheek_bin_model_inter <- lmer(log_modulus_new ~ bin + model + model*bin + (1 + model|pp_no), data = Happy_cheek, REML = FALSE)
+
+beep(4)
+```
+
+```{r}
+AIC(cheek_bin)
+AIC(cheek_model_bin)
+AIC(cheek_model_bin_slope)
+AIC(cheek_bin_model_inter)
+```
+
+```{r}
+anova(cheek_bin, cheek_model_bin)
+```
+
+
+```{r}
+anova(cheek_model_bin, cheek_model_bin_slope)
+```
+
+
+```{r}
+anova(cheek_model_bin_slope, cheek_bin_model_inter)
+```
+
+
+```{r}
+anova(cheek_bin_model_inter)
+```
+
+
+#get confidence intervals
+```{r}
+confint.merMod(cheek_bin_model_inter, level = 0.95)
+```
+
+
+
+```{r}
+really_nice_table <- dust(cheek_bin_model_inter) %>%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+  sprinkle_colnames(term = "Term", 
+                    estimate = "Estimate", 
+                    std.error = "SE",
+                    statistic = "t statistic", 
+                    p.value = "P-value")  %>%
+  sprinkle(bg_pattern_by = "rows") %>%
+    sprinkle_print_method("html") 
+
+really_nice_table
+```
+
+
+
+
+
+
+

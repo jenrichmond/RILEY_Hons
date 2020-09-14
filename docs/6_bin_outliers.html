@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -245,6 +244,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -273,6 +273,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -385,7 +391,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -394,7 +400,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -403,10 +409,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-04
+<strong>Last updated:</strong> 2020-09-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>RILEY_Hons/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -422,12 +428,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -494,42 +500,46 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree14f6bb08e77a045ed9b5da75ce8f3a62e1340c6dtargetblank14f6bb0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/14f6bb08e77a045ed9b5da75ce8f3a62e1340c6d" target="_blank">14f6bb0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree14f6bb08e77a045ed9b5da75ce8f3a62e1340c6dtargetblank14f6bb0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/14f6bb08e77a045ed9b5da75ce8f3a62e1340c6d" target="_blank">14f6bb0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    Amy_childadult_raw_data/
-    Ignored:    analysis/just messing around/
-    Ignored:    analysis/working/
-    Ignored:    data/adult_child_combined/
-    Ignored:    data/adultsfaces/
-    Ignored:    data/childfaces/
-    Ignored:    data/clean_data/
-    Ignored:    data/missing_values/
-    Ignored:    data/testdata/
+    Ignored:    analysis/child_bar_plot.png
+    Ignored:    analysis/child_cheek_plot.png
+    Ignored:    analysis/child_cheekbin_plot.png
 
 Untracked files:
-    Untracked:  README
-    Untracked:  site_libs/
+    Untracked:  analysis/11_plotting_cheek.Rmd
+    Untracked:  analysis/12_plotting_brow.Rmd
+    Untracked:  analysis/13_adult_child_analysis.Rmd
+    Untracked:  analysis/14_plotting_adult_child.Rmd
+    Untracked:  analysis/testing_zscore.Rmd
+    Untracked:  child_bar_plot.png
+    Untracked:  child_cheek_plot.png
+    Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
 
 Unstaged changes:
-    Modified:   .gitignore
-    Deleted:    analysis/1_clean_emg _adult.Rmd
+    Modified:   analysis/10_brow_analysis.Rmd
+    Modified:   analysis/4_clean_baseline.Rmd
+    Modified:   analysis/5_calculating_zscores.Rmd
+    Modified:   analysis/6_bin_outliers.Rmd
+    Modified:   analysis/7_plotting.Rmd
+    Modified:   analysis/8_analysing.Rmd
+    Modified:   analysis/9_cheek_analysis.Rmd
 
 </code></pre>
 <p>
@@ -568,6 +578,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/49c2d7c6b4959ea538143598196b2bfd29953272/docs/6_bin_outliers.html" target="_blank">49c2d7c</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-04
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -617,7 +644,7 @@ library(janitor)</code></pre>
 </div>
 <div id="read-in-combined-clean-no-bl-outliers-data" class="section level1">
 <h1>read in combined clean no BL outliers data</h1>
-<pre class="r"><code>bins &lt;- read_csv(here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_cheek_brow.csv&quot;))</code></pre>
+<pre class="r"><code>bins &lt;- read_csv(here::here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_cheek_brow.csv&quot;))</code></pre>
 <pre><code>Parsed with column specification:
 cols(
   pp_no = col_character(),
@@ -654,16 +681,16 @@ glimpse(example)</code></pre>
 <pre><code>Rows: 20
 Columns: 10
 Groups: pp_no, model, emotion, muscle, trial [2]
-$ pp_no       &lt;chr&gt; &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;…
-$ model       &lt;chr&gt; &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;child&quot;…
-$ emotion     &lt;dbl&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 12…
-$ trial       &lt;chr&gt; &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1&quot;, &quot;t…
-$ muscle      &lt;chr&gt; &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;bro…
-$ bin         &lt;chr&gt; &quot;diff_bin1&quot;, &quot;diff_bin10&quot;, &quot;diff_bin2&quot;, &quot;diff_bin3&quot;,…
-$ zdiff       &lt;dbl&gt; -0.62386771, -1.49817375, -0.66706313, -0.75547409, …
-$ meanZdiff   &lt;dbl&gt; -0.9183154, -0.9183154, -0.9183154, -0.9183154, -0.9…
-$ sdZdiff     &lt;dbl&gt; 0.3369094, 0.3369094, 0.3369094, 0.3369094, 0.336909…
-$ bin_outlier &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL…</code></pre>
+$ pp_no       &lt;chr&gt; &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp406&quot;, &quot;pp…
+$ model       &lt;chr&gt; &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;child&quot;, &quot;ch…
+$ emotion     &lt;dbl&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 12…
+$ trial       &lt;chr&gt; &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1&quot;, &quot;trial1…
+$ muscle      &lt;chr&gt; &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;brow&quot;, &quot;…
+$ bin         &lt;chr&gt; &quot;diff_bin1&quot;, &quot;diff_bin10&quot;, &quot;diff_bin2&quot;, &quot;diff_bin3&quot;, &quot;dif…
+$ zdiff       &lt;dbl&gt; -0.62386771, -1.49817375, -0.66706313, -0.75547409, -0.33…
+$ meanZdiff   &lt;dbl&gt; -0.9183154, -0.9183154, -0.9183154, -0.9183154, -0.918315…
+$ sdZdiff     &lt;dbl&gt; 0.3369094, 0.3369094, 0.3369094, 0.3369094, 0.3369094, 0.…
+$ bin_outlier &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</code></pre>
 </div>
 <div id="use-mutate-and-replace-to-replace-the-zdiff-value-with-na" class="section level1">
 <h1>use mutate and replace to replace the Zdiff value with NA</h1>
@@ -680,7 +707,7 @@ $ bin_outlier &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL�
 <h1>drop extra columns, write csv</h1>
 <pre class="r"><code>bins_screen &lt;- bins_screen %&gt;%
   select(1:7) %&gt;%
-  write_csv(here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened.csv&quot;))</code></pre>
+  write_csv(here::here(&quot;data&quot;, &quot;adult_child_combined&quot;, &quot;zdiff_binscreened.csv&quot;))</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -689,13 +716,13 @@ $ bin_outlier &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL�
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.5.1 (2018-07-02)
+<pre><code>R version 3.6.2 (2019-12-12)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS Sierra 10.12.6
+Running under: macOS High Sierra 10.13.6
 
 Matrix products: default
-BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
@@ -704,30 +731,26 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] janitor_1.2.0   here_0.1        forcats_0.5.0   stringr_1.4.0  
- [5] dplyr_1.0.1     purrr_0.3.3     readr_1.3.1     tidyr_1.1.0    
- [9] tibble_3.0.3    ggplot2_3.3.2   tidyverse_1.3.0 workflowr_1.6.2
+ [1] janitor_2.0.1   here_0.1        forcats_0.4.0   stringr_1.4.0  
+ [5] dplyr_1.0.0     purrr_0.3.4     readr_1.3.1     tidyr_1.1.0    
+ [9] tibble_3.0.3    ggplot2_3.2.1   tidyverse_1.3.0
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0       xfun_0.8               haven_2.3.1           
- [4] colorspace_1.4-1       vctrs_0.3.2            generics_0.0.2        
- [7] htmltools_0.5.0        yaml_2.2.1             utf8_1.1.4            
-[10] blob_1.2.1             rlang_0.4.7            later_1.1.0.1         
-[13] pillar_1.4.6           withr_2.2.0            glue_1.4.1            
-[16] DBI_1.0.0              dbplyr_1.4.4           modelr_0.1.8          
-[19] readxl_1.3.1           lifecycle_0.2.0        munsell_0.5.0         
-[22] gtable_0.3.0           cellranger_1.1.0       rvest_0.3.6           
-[25] evaluate_0.14          knitr_1.23             httpuv_1.5.2          
-[28] fansi_0.4.1            broom_0.7.0            Rcpp_1.0.5            
-[31] promises_1.1.1         backports_1.1.8        scales_1.1.1          
-[34] jsonlite_1.7.0         fs_1.4.1               hms_0.5.3             
-[37] digest_0.6.25          stringi_1.4.6          rprojroot_1.3-2       
-[40] grid_3.5.1             cli_2.0.2              tools_3.5.1           
-[43] magrittr_1.5           crayon_1.3.4           whisker_0.4           
-[46] pkgconfig_2.0.3        ellipsis_0.3.1         xml2_1.3.2            
-[49] reprex_0.3.0           lubridate_1.7.4        rstudioapi_0.11.0-9000
-[52] assertthat_0.2.1       rmarkdown_1.15         httr_1.4.1            
-[55] R6_2.4.1               git2r_0.27.1           compiler_3.5.1        </code></pre>
+ [1] tidyselect_1.1.0 xfun_0.15        haven_2.2.0      snakecase_0.11.0
+ [5] colorspace_1.4-1 vctrs_0.3.1      generics_0.0.2   htmltools_0.5.0 
+ [9] yaml_2.2.1       utf8_1.1.4       rlang_0.4.7      later_1.0.0     
+[13] pillar_1.4.6     withr_2.1.2      glue_1.4.1       DBI_1.1.0       
+[17] dbplyr_1.4.2     modelr_0.1.5     readxl_1.3.1     lifecycle_0.2.0 
+[21] munsell_0.5.0    gtable_0.3.0     workflowr_1.6.2  cellranger_1.1.0
+[25] rvest_0.3.5      evaluate_0.14    knitr_1.29       httpuv_1.5.2    
+[29] fansi_0.4.1      broom_0.7.0.9001 Rcpp_1.0.5       promises_1.1.0  
+[33] backports_1.1.8  scales_1.1.0     jsonlite_1.7.0   fs_1.3.1        
+[37] hms_0.5.3        digest_0.6.25    stringi_1.4.6    rprojroot_1.3-2 
+[41] grid_3.6.2       cli_2.0.2        tools_3.6.2      magrittr_1.5    
+[45] lazyeval_0.2.2   crayon_1.3.4     whisker_0.4      pkgconfig_2.0.3 
+[49] ellipsis_0.3.1   xml2_1.2.2       reprex_0.3.0     lubridate_1.7.4 
+[53] rstudioapi_0.11  assertthat_0.2.1 rmarkdown_2.3    httr_1.4.1      
+[57] R6_2.4.1         git2r_0.27.1     compiler_3.6.2  </code></pre>
 </div>
 </div>
 
@@ -793,7 +816,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

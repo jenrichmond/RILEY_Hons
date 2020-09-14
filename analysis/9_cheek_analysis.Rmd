@@ -333,10 +333,10 @@ tidy_adult_cheek1 <- tidy(adult_cheek_lm_1)
 
 
 # model 2 (slope for emotion)
-
 ```{r}
 adult_cheek_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = HA_adult_cheek, REML = FALSE)
 ```
+
 
 #get anova, summary and tidy 
 ```{r}

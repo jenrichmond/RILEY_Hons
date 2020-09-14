@@ -17,7 +17,7 @@ library(janitor)
 
 # read in combined clean no BL outliers data 
 ```{r}
-bins <- read_csv(here("data", "adult_child_combined", "zdiff_cheek_brow.csv"))
+bins <- read_csv(here::here("data", "adult_child_combined", "zdiff_cheek_brow.csv"))
 ```
 # make new screening column 
 
@@ -59,15 +59,17 @@ glimpse(example)
 test <- example %>%
   mutate(zdiff = replace(zdiff, bin_outlier == "TRUE", NA))
 ```
+
 # apply bin screen to whole dataframe
 ```{r}
 bins_screen <- bins_out %>%
   mutate(zdiff = replace(zdiff, bin_outlier == "TRUE", NA))
 ```
+
 # drop extra columns, write csv
 ```{r}
 bins_screen <- bins_screen %>%
   select(1:7) %>%
-  write_csv(here("data", "adult_child_combined", "zdiff_binscreened.csv"))
+  write_csv(here::here("data", "adult_child_combined", "zdiff_binscreened.csv"))
 ```
 

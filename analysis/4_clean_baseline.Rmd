@@ -42,6 +42,7 @@ stim_data <- clean_data %>%
   mutate(bl_outlier = "")
 ```
  
+
 # add mean and sd columns 
 
 and true false if bl_rms is > 1.5sd above the mean for the participant, emotion, muscle

@@ -1,0 +1,22 @@
+Notes re: Analysis
+
+
+1. 9_cheek_analysis.rmd - this just looks at happy and angry faces and compares cheek activity for child and adult face separately
+
+2. 10_brow_analysis.rmd - this just looks at happy and angry faces and compares brow activity for child and adult face separately
+
+3. all_emo_child_analysis.rmd - this rmd finds the model of best fit for each emotion separately for child faces (comparing cheek and brow activity) - i realise this is probably not the best practice given baseline differences
+
+4. all_emo_adult_analysis.rmd - this rmd finds the model of best fit for each emotion separately for adult faces (comparing cheek and brow activity)
+
+5. 12_adult_child_analysis.rmd - this compares cheek activity to happy and angry faces towards adult and child faces (wanted to check for magnitude of difference in muscle responding between child and adult faces) - i was going to then do brow but got confused when i tried to read the cheek output
+
+Notes re: Plotting
+
+1. 11_plotting_cheek.rmd - this one plots cheek for happy and angry for child and adult faces separately
+
+2. 12_plotting_brow.rmd - this one plots brow for happy and angry for child and adult faces separately
+
+3. 14_plotting_adult_child.rmd - this plots brow and cheek activity (separately) for happy and angry faces for adult and child faces together to compare muscle activity across model
+
+4. all_emo_plotting.rmd - this one plots cheek and brow activity together for each of the four emotions for child and adult separately

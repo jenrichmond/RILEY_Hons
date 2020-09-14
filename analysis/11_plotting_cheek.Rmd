@@ -203,7 +203,7 @@ plot_adult_cheek <- plot_adult_cheek %>%
                               "diff_bin10" = "1000", .default = "NA"))
 ```
 
-#plot
+#plot adult cheek for happy and angry 
 ```{r}
 plot_data <- plot_adult_cheek %>%
   filter(model == "adult") %>%

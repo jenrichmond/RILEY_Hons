@@ -133,7 +133,7 @@ qqline(resid(cheek_happy_log_new))
 
 Better but not great. 
 
-*JENNY CODE CHECK UP TO HERE*
+
 
 
 # BUILD model comparisons

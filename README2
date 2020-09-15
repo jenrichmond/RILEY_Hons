@@ -9,7 +9,7 @@ Notes re: Analysis
 
 4. all_emo_adult_analysis.rmd - this rmd finds the model of best fit for each emotion separately for adult faces (comparing cheek and brow activity)
 
-5. 12_adult_child_analysis.rmd - this compares cheek activity to happy and angry faces towards adult and child faces (wanted to check for magnitude of difference in muscle responding between child and adult faces) - i was going to then do brow but got confused when i tried to read the cheek output
+5. 13_adult_child_analysis.rmd - this compares cheek activity to happy and angry faces towards adult and child faces (wanted to check for magnitude of difference in muscle responding between child and adult faces) - i was going to then do brow but got confused when i tried to read the cheek output
 
 Notes re: Plotting
 

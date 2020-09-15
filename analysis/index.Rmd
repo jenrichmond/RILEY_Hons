@@ -44,4 +44,5 @@ This website hosts Riley's honours data analysis. The cleaning, plotting, analys
 
 Jenny has checked code above, looks good. Skipping over the all_emo_chid and adult Rmds. You can't look at emotions individually. The activity level has to be assessed relative to another emotion. 
 
-Analysis folder is  missing key file = 12_adult_child_analysis.rmd
+- [adding model to compare child and adult within the same model](13_adult_child_analysis.html)
+- doesn't look like there is an effect of model or interactions involving model. 

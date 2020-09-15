@@ -15,29 +15,22 @@ library(beepr)
 library(ggplot2) 
 ```
 
+Goal here is to work out whether it is possible to compare responses to child and adult faces i.e. to include model in the model. 
+
 # read in data 
 ```{r}
 df <- read_csv(here::here("data", "adult_child_combined", "zdiff_binscreened2.csv"))
 ```
+
 # fix data types
 
-The emotion variable below is numbers so not sure how the emotion %in% c(happy, angry) was working. Add emo variable with emotion labels
+add log modulus
+
 ```{r}
-df$emotion <- as.factor(df$emotion)
 
-levels(df$emotion)
-
-df <- df %>%
-  mutate(emo = case_when(emotion == 121 ~ "happy", 
-                              emotion == 323 ~ "angry", 
-                              emotion == 424 ~ "fear", 
-                              emotion == 525 ~ "sad", 
-                              emotion == 131 ~ "happy", 
-                              emotion == 232 ~ "angry", 
-                              emotion == 434 ~ "fear", 
-                              emotion == 535 ~ "sad"))
-
-df <- df %>% mutate_if(is.character, as.factor)
+df <- df %>% mutate_if(is.character, as.factor) %>%
+  mutate(log_modulus = sign(zdiff) * log(1+abs(zdiff)))
+  
 
 glimpse(df)
 ```
@@ -49,192 +42,135 @@ glimpse(df)
 just happy/angry face for cheek
 
 ```{r}
-Happy_cheek <- df %>%
-  filter(emo == "happy") %>%
+HA_cheek <- df %>%
+  filter(emo %in% c("happy", "angry")) %>%
   filter(muscle == "cheek") %>%
   arrange(pp_no, model, trial, bin)
+
+HA_cheek$emo <- fct_relevel(HA_cheek$emo, c("happy", "angry"))
+
+HA_cheek$bin <- fct_relevel(HA_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(HA_cheek$bin)
 ```
 
+add "model" to best fit from 9_cheek_analysis 
 
-## fit model 1 
+## model 1 (slopes emo)
 
-This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
+This model adds model to best fit model (including slopes for emo)
+
+> adult_cheek_lm_2 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = HA_adult_cheek, REML = FALSE)
 
 ```{r}
-cheek_emoZ <- lmer(zdiff ~ bin + model + model*bin +  (1|pp_no), data = Happy_cheek, REML = FALSE)
+cheek_lm_1 <- lmer(log_modulus ~ emo + bin + model + 
+                    emo*bin + bin*model +
+                    emo*bin*model +
+                    (1 + emo|pp_no) , 
+                  data = HA_cheek, REML = FALSE)
 
+beepr::beep()
 ```
 
+Error- Doesn't converge... remove slope for emo, just include intercept. 
 
-### check assumptions
+## model 2 (just intercepts participant)
 ```{r}
-plot(cheek_emoZ)
+cheek_lm_2 <- lmer(log_modulus ~ emo + bin + model + 
+                    emo*bin + bin*model +
+                    emo*bin*model +
+                    (1|pp_no) , 
+                  data = HA_cheek, REML = FALSE)
 
-qqnorm(resid(cheek_emoZ))
-qqline(resid(cheek_emoZ))
+beepr::beep()
 ```
 
-As suscepted, need to transform to correct normality. 
 
-### compute log_modulus
+# compare models with and without slopes
 
-NOTE: this first log mod calc is WRONG, uses + instead of *
-
-```{r}
-Happy_cheek <- Happy_cheek %>%
-  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))
-```
-
-### fit model again
-
-```{r}
-cheek_happy_log <- lmer(log_modulus ~ bin + model + bin*model + (1|pp_no), data = Happy_cheek, REML = FALSE)
-
-```
-
-### check assumptions again
-```{r}
-plot(cheek_happy_log)
-
-qqnorm(resid(cheek_happy_log))
-qqline(resid(cheek_happy_log))
-```
-
-## YIKES something not right 
-
-*WHAT* that looks WAY worse.... what is going on here...
-
-Is that log_mod doing what we think?? How to log modulus here.... https://blogs.sas.com/content/iml/2014/07/14/log-transformation-of-pos-neg.html
-
-RILEY- it is * log not +
-
-### compute new log mod
+hmmm weird that model with slope (lm_1) has lower AIC than model without (lm_2) even though lm_1 doesn't converge.  Model with slope does better than model without. 
 
 ```{r}
-Happy_cheek <- Happy_cheek %>%
-  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
+AIC(cheek_lm_1)
+AIC(cheek_lm_2)
+
+anova(cheek_lm_1, cheek_lm_2)
 ```
 
-### try fit model again
+### get summary/tidydf
 
 ```{r}
-cheek_happy_log_new <- lmer(log_modulus_new ~ bin + model + model*bin + (1|pp_no), data = Happy_cheek, REML = FALSE)
+summary(cheek_lm_2)
 
-```
-
-### check assumptions again
-```{r}
-plot(cheek_happy_log_new)
-
-qqnorm(resid(cheek_happy_log_new))
-qqline(resid(cheek_happy_log_new))
+tidy_cheek2 <- tidy(cheek_lm_2)
 ```
 
 
-Better but not great. 
+# BROW happy angry
 
+### Make brow HA df 
 
-
-
-# BUILD model comparisons
-
-What would the model fit look like if we built it from the ground up, adding each main effect then interaction with intercepts for particiapnt and slopes for main effects. 
+just happy/angry face for brow
 
 ```{r}
-levels(Happy_cheek$emo)
+HA_brow <- df %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  filter(muscle == "brow") %>%
+  arrange(pp_no, model, trial, bin)
+
+HA_brow$emo <- fct_relevel(HA_brow$emo, c("happy", "angry"))
+
+HA_brow$bin <- fct_relevel(HA_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(HA_brow$bin)
 ```
 
+add "model" to best fit from 10_brow_analysis 
 
-### model 1 
+## model 1 (slopes emo)
 
-just main effect of bin
+This model adds model to best fit model (including slopes for emo)
+
+> child_brow_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_child_brow, REML = FALSE)
 
 ```{r}
-cheek_bin <- lmer(log_modulus_new ~ bin + (1|pp_no), data = Happy_cheek, REML = FALSE)
+brow_lm_1 <- lmer(log_modulus ~ emo + bin + model + 
+                    emo*bin + bin*model +
+                    emo*bin*model +
+                    (1 + emo|pp_no) , 
+                  data = HA_brow, REML = FALSE)
 
-beep(1)
+beepr::beep()
 ```
 
-## model 2
+This one DOES converge... does it do better than model without slopes for emo? 
 
-just main effect of model and bin 
+## model 2 (just intercepts participant)
 ```{r}
-cheek_model_bin <- lmer(log_modulus_new ~ model + bin + (1|pp_no), data = Happy_cheek, REML = FALSE)
+brow_lm_2 <- lmer(log_modulus ~ emo + bin + model + 
+                    emo*bin + bin*model +
+                    emo*bin*model +
+                    (1|pp_no) , 
+                  data = HA_brow, REML = FALSE)
 
-beep(2)
+beepr::beep()
 ```
 
-## model 3
+# compare models with and without slopes
 
-main effect of model and bin, and slope for model (slope for bin doesnt converge)
-
-```{r}
-cheek_model_bin_slope <- lmer(log_modulus_new ~ bin + model + (1 + model|pp_no), data = Happy_cheek, REML = FALSE)
-
-beep(3)
-```
-
-## model 4
-
-main effect of emotion, bin, model and emotion*bin interaction, slope for emotion 
-```{r}
-cheek_bin_model_inter <- lmer(log_modulus_new ~ bin + model + model*bin + (1 + model|pp_no), data = Happy_cheek, REML = FALSE)
-
-beep(4)
-```
+yes model with slope does better than model without. 
 
 ```{r}
-AIC(cheek_bin)
-AIC(cheek_model_bin)
-AIC(cheek_model_bin_slope)
-AIC(cheek_bin_model_inter)
+AIC(brow_lm_1)
+AIC(brow_lm_2)
+
+anova(brow_lm_1, brow_lm_2)
 ```
 
+
+### get summary/tidydf
 ```{r}
-anova(cheek_bin, cheek_model_bin)
+summary(cheek_lm_2)
+
+tidy_cheek2 <- tidy(cheek_lm_2)
 ```
-
-
-```{r}
-anova(cheek_model_bin, cheek_model_bin_slope)
-```
-
-
-```{r}
-anova(cheek_model_bin_slope, cheek_bin_model_inter)
-```
-
-
-```{r}
-anova(cheek_bin_model_inter)
-```
-
-
-#get confidence intervals
-```{r}
-confint.merMod(cheek_bin_model_inter, level = 0.95)
-```
-
-
-
-```{r}
-really_nice_table <- dust(cheek_bin_model_inter) %>%
-  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
-  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
-  sprinkle_colnames(term = "Term", 
-                    estimate = "Estimate", 
-                    std.error = "SE",
-                    statistic = "t statistic", 
-                    p.value = "P-value")  %>%
-  sprinkle(bg_pattern_by = "rows") %>%
-    sprinkle_print_method("html") 
-
-really_nice_table
-```
-
-
-
-
-
-
-

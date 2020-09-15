@@ -5,6 +5,7 @@ Notes re: Analysis
 
 2. 10_brow_analysis.rmd - this just looks at happy and angry faces and compares brow activity for child and adult face separately
 
+
 3. all_emo_child_analysis.rmd - this rmd finds the model of best fit for each emotion separately for child faces (comparing cheek and brow activity) - i realise this is probably not the best practice given baseline differences
 
 4. all_emo_adult_analysis.rmd - this rmd finds the model of best fit for each emotion separately for adult faces (comparing cheek and brow activity)

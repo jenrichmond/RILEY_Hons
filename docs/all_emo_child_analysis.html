@@ -434,7 +434,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has staged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -501,16 +501,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6a11da0791d294fca2f8fa48aa4a0b623a1a3b7ctargetblank6a11da0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6a11da0791d294fca2f8fa48aa4a0b623a1a3b7c" target="_blank">6a11da0</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree809570952444dee6daf6e77984d263a74cf0e127targetblank8095709a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/809570952444dee6daf6e77984d263a74cf0e127" target="_blank">8095709</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6a11da0791d294fca2f8fa48aa4a0b623a1a3b7ctargetblank6a11da0a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree809570952444dee6daf6e77984d263a74cf0e127targetblank8095709a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6a11da0791d294fca2f8fa48aa4a0b623a1a3b7c" target="_blank">6a11da0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/809570952444dee6daf6e77984d263a74cf0e127" target="_blank">8095709</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,21 +524,10 @@ Ignored files:
     Ignored:    analysis/child_cheekbin_plot.png
 
 Untracked files:
-    Untracked:  analysis/test_zscore.Rmd
+    Untracked:  analysis/adult_child_plot_analyses.Rmd
 
 Unstaged changes:
-    Modified:   analysis/5_calculating_zscores.Rmd
-    Modified:   analysis/6_bin_outliers.Rmd
-
-Staged changes:
-    Modified:   README2
-    Modified:   analysis/10_brow_analysis.Rmd
-    Modified:   analysis/13_adult_child_analysis.Rmd
-    Modified:   analysis/9_cheek_analysis.Rmd
-    Modified:   analysis/all_emo_adult_analysis.Rmd
     Modified:   analysis/all_emo_child_analysis.Rmd
-    Modified:   analysis/all_emo_plotting.Rmd
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -577,6 +566,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/809570952444dee6daf6e77984d263a74cf0e127/docs/all_emo_child_analysis.html" target="_blank">8095709</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+making changes
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/2a18eb70cb4dc4cbaa27e465847afbf02eb87c56/analysis/all_emo_child_analysis.Rmd" target="_blank">2a18eb7</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-15
+</td>
+<td>
+jenny code check
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -620,12 +643,12 @@ riley updating
 </div>
 <p>#load packages</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>── Attaching packages ─────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>✓ ggplot2 3.2.1     ✓ purrr   0.3.4
 ✓ tibble  3.0.3     ✓ dplyr   1.0.0
 ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
-<pre><code>── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(here)</code></pre>
@@ -728,85 +751,10 @@ levels(child_happy$bin)</code></pre>
 <div id="check-assumptions---plot-residuals-and-qqplot-check-normality" class="section level3">
 <h3>check assumptions - plot residuals and qqplot (check normality)</h3>
 <pre class="r"><code>plot(child_happy_lm)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
-Past versions of unnamed-chunk-7-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-7-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-7-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_happy_lm))
 qqline(resid(child_happy_lm))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-7-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-2">
-Past versions of unnamed-chunk-7-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-7-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-7-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As suscepted, need to transform to correct normality.</p>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-6-2.png" width="672" style="display: block; margin: auto;" /> As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus" class="section level3">
 <h3>compute log_modulus</h3>
@@ -821,84 +769,10 @@ RileyFerguson
 <div id="check-assumptions-again" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_happy_lm_new)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
-Past versions of unnamed-chunk-10-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-10-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-10-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_happy_lm_new))
 qqline(resid(child_happy_lm_new))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-2">
-Past versions of unnamed-chunk-10-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-10-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-10-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-9-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks much worse…</p>
 </div>
 <div id="compute-new-log-mod" class="section level3">
@@ -913,84 +787,10 @@ RileyFerguson
 <div id="check-assumptions-again-1" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_happy_lm_1)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
-Past versions of unnamed-chunk-13-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-13-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_happy_lm_1))
 qqline(resid(child_happy_lm_1))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-13-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-2">
-Past versions of unnamed-chunk-13-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-13-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks better but not great.</p>
 <p>#use ANOVA to estimate effects</p>
 <pre class="r"><code>aov_output &lt;- anova(child_happy_lm_1) %&gt;%
@@ -1457,85 +1257,10 @@ levels(child_sad$bin)</code></pre>
 <div id="check-assumptions---plot-residuals-and-qqplot-check-normality-1" class="section level3">
 <h3>check assumptions - plot residuals and qqplot (check normality)</h3>
 <pre class="r"><code>plot(child_sad_lm)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-29-1">
-Past versions of unnamed-chunk-29-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-29-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-29-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_sad_lm))
 qqline(resid(child_sad_lm))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-29-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-29-2">
-Past versions of unnamed-chunk-29-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-29-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-29-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As suscepted, need to transform to correct normality.</p>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-28-2.png" width="672" style="display: block; margin: auto;" /> As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus-1" class="section level3">
 <h3>compute log_modulus</h3>
@@ -1550,84 +1275,10 @@ RileyFerguson
 <div id="check-assumptions-again-2" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_sad_lm_new)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-32-1">
-Past versions of unnamed-chunk-32-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-32-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-32-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_sad_lm_new))
 qqline(resid(child_sad_lm_new))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-32-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-32-2">
-Past versions of unnamed-chunk-32-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-32-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-32-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-31-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks much worse…</p>
 </div>
 <div id="compute-new-log-mod-1" class="section level3">
@@ -1642,84 +1293,10 @@ RileyFerguson
 <div id="check-assumptions-again-3" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_sad_lm_1)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-35-1">
-Past versions of unnamed-chunk-35-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-35-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-35-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_sad_lm_1))
 qqline(resid(child_sad_lm_1))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-35-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-35-2">
-Past versions of unnamed-chunk-35-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-35-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-35-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-34-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks better but not great.</p>
 <p>#use ANOVA to estimate effects</p>
 <pre class="r"><code>aov_output &lt;- anova(child_sad_lm_1) %&gt;%
@@ -2187,85 +1764,10 @@ levels(child_angry$bin)</code></pre>
 <div id="check-assumptions---plot-residuals-and-qqplot-check-normality-2" class="section level3">
 <h3>check assumptions - plot residuals and qqplot (check normality)</h3>
 <pre class="r"><code>plot(child_angry_lm)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-51-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-51-1">
-Past versions of unnamed-chunk-51-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-51-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-51-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-50-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_angry_lm))
 qqline(resid(child_angry_lm))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-51-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-51-2">
-Past versions of unnamed-chunk-51-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-51-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-51-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As suscepted, need to transform to correct normality.</p>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-50-2.png" width="672" style="display: block; margin: auto;" /> As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus-2" class="section level3">
 <h3>compute log_modulus</h3>
@@ -2280,84 +1782,10 @@ RileyFerguson
 <div id="check-assumptions-again-4" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_angry_lm_new)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-54-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-54-1">
-Past versions of unnamed-chunk-54-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-54-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-54-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-53-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_angry_lm_new))
 qqline(resid(child_angry_lm_new))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-54-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-54-2">
-Past versions of unnamed-chunk-54-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-54-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-54-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-53-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks much worse…</p>
 </div>
 <div id="compute-new-log-mod-2" class="section level3">
@@ -2372,84 +1800,10 @@ RileyFerguson
 <div id="check-assumptions-again-5" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_angry_lm_1)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-57-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-57-1">
-Past versions of unnamed-chunk-57-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-57-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-57-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-56-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_angry_lm_1))
 qqline(resid(child_angry_lm_1))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-57-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-57-2">
-Past versions of unnamed-chunk-57-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-57-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-57-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-56-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks better but not great.</p>
 <p>#use ANOVA to estimate effects</p>
 <pre class="r"><code>aov_output &lt;- anova(child_angry_lm_1) %&gt;%
@@ -2916,85 +2270,10 @@ levels(child_fear$bin)</code></pre>
 <div id="check-assumptions---plot-residuals-and-qqplot-check-normality-3" class="section level3">
 <h3>check assumptions - plot residuals and qqplot (check normality)</h3>
 <pre class="r"><code>plot(child_fear_lm)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-73-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-73-1">
-Past versions of unnamed-chunk-73-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-73-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-73-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-72-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_fear_lm))
 qqline(resid(child_fear_lm))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-73-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-73-2">
-Past versions of unnamed-chunk-73-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-73-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-73-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As suscepted, need to transform to correct normality.</p>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-72-2.png" width="672" style="display: block; margin: auto;" /> As suscepted, need to transform to correct normality.</p>
 </div>
 <div id="compute-log_modulus-3" class="section level3">
 <h3>compute log_modulus</h3>
@@ -3009,84 +2288,10 @@ RileyFerguson
 <div id="check-assumptions-again-6" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_fear_lm_new)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-76-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-76-1">
-Past versions of unnamed-chunk-76-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-76-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-76-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-75-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_fear_lm_new))
 qqline(resid(child_fear_lm_new))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-76-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-76-2">
-Past versions of unnamed-chunk-76-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-76-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-76-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-75-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks much worse…</p>
 </div>
 <div id="compute-new-log-mod-3" class="section level3">
@@ -3101,84 +2306,10 @@ RileyFerguson
 <div id="check-assumptions-again-7" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(child_fear_lm_1)</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-79-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-79-1">
-Past versions of unnamed-chunk-79-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-79-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-79-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-78-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>qqnorm(resid(child_fear_lm_1))
 qqline(resid(child_fear_lm_1))</code></pre>
-<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-79-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-79-2">
-Past versions of unnamed-chunk-79-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-79-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/all_emo_child_analysis.Rmd/unnamed-chunk-79-2.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/all_emo_child_analysis.Rmd/unnamed-chunk-78-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>#this one looks better but not great.</p>
 <p>#use ANOVA to estimate effects</p>
 <pre class="r"><code>aov_output &lt;- anova(child_fear_lm_1) %&gt;%

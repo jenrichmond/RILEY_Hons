@@ -433,7 +433,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree809570952444dee6daf6e77984d263a74cf0e127targetblank8095709a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/809570952444dee6daf6e77984d263a74cf0e127" target="_blank">8095709</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreee7fcdcf349b25037477cb59dfaa3a3629625e2bctargetblanke7fcdcfa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/e7fcdcf349b25037477cb59dfaa3a3629625e2bc" target="_blank">e7fcdcf</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree809570952444dee6daf6e77984d263a74cf0e127targetblank8095709a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreee7fcdcf349b25037477cb59dfaa3a3629625e2bctargetblanke7fcdcfa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/809570952444dee6daf6e77984d263a74cf0e127" target="_blank">8095709</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/e7fcdcf349b25037477cb59dfaa3a3629625e2bc" target="_blank">e7fcdcf</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -521,13 +521,19 @@ Ignored files:
     Ignored:    analysis/child_bar_plot.png
     Ignored:    analysis/child_cheek_plot.png
     Ignored:    analysis/child_cheekbin_plot.png
-    Ignored:    analysis/figure/
-
-Untracked files:
-    Untracked:  analysis/adult_child_plot_analyses.Rmd
+    Ignored:    analysis/emomodelnobins.png
+    Ignored:    analysis/emomodelnobinsbrow.png
+    Ignored:    analysis/emotionbymodel.png
+    Ignored:    analysis/emotionbymodelbrow.png
+    Ignored:    analysis/emoxmodelFS.png
+    Ignored:    analysis/emoxmodelFSbrow.png
+    Ignored:    analysis/emoxmodelHA.png
+    Ignored:    analysis/emoxmodelHAbrow.png
+    Ignored:    analysis/modelbyemotion.png
+    Ignored:    analysis/modelbyemotionbrow.png
 
 Unstaged changes:
-    Modified:   analysis/all_emo_child_analysis.Rmd
+    Modified:   analysis/adult_child_plot_analyses.Rmd
 
 </code></pre>
 <p>
@@ -540,9 +546,86 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/adult_child_plot_analyses.Rmd</code>) and HTML (<code>docs/adult_child_plot_analyses.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/e7fcdcf349b25037477cb59dfaa3a3629625e2bc/analysis/adult_child_plot_analyses.Rmd" target="_blank">e7fcdcf</a>
+</td>
+<td>
+Your Name
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+jenny model emotion plots
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/930b045d800f3c01b16cddb8b1a5432043e17226/analysis/adult_child_plot_analyses.Rmd" target="_blank">930b045</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+Riley adding analyses
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/930b045d800f3c01b16cddb8b1a5432043e17226/docs/adult_child_plot_analyses.html" target="_blank">930b045</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-16
+</td>
+<td>
+Riley adding analyses
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -597,8 +680,8 @@ $ zdiff       &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, 
 $ emo         &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, h…
 $ log_modulus &lt;dbl&gt; 0.125744579, -0.514226320, 0.033725726, -0.118800829, -0.…</code></pre>
 </div>
-<div id="cheek-happy-angry" class="section level1">
-<h1>CHEEK happy-angry</h1>
+<div id="cheek-happy-angry-fear-sad" class="section level1">
+<h1>CHEEK happy-angry-fear-sad</h1>
 <div id="make-cheek-df" class="section level3">
 <h3>Make cheek df</h3>
 <p>cheek</p>
@@ -614,6 +697,8 @@ cheek_data$bin &lt;- fct_relevel(cheek_data$bin, c(&quot;diff_bin1&quot;, &quot;
 levels(cheek_data$bin)</code></pre>
 <pre><code> [1] &quot;diff_bin1&quot;  &quot;diff_bin2&quot;  &quot;diff_bin3&quot;  &quot;diff_bin4&quot;  &quot;diff_bin5&quot; 
  [6] &quot;diff_bin6&quot;  &quot;diff_bin7&quot;  &quot;diff_bin8&quot;  &quot;diff_bin9&quot;  &quot;diff_bin10&quot;</code></pre>
+<pre class="r"><code>naniar::vis_miss(cheek_data)</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>add “model” to best fit from 9_cheek_analysis</p>
 </div>
 <div id="model-1-slopes-emo" class="section level2">
@@ -855,9 +940,12 @@ Correlation matrix not shown by default, as p = 80 &gt; 12.
 Use print(x, correlation=TRUE)  or
     vcov(x)        if you need it</code></pre>
 <pre class="r"><code>tidy_cheek1 &lt;- tidy(cheek_lm_1)</code></pre>
-<p>#plot cheek data for all emo</p>
+</div>
+</div>
+<div id="plot-cheek-data-for-all-emo" class="section level1">
+<h1>plot cheek data for all emo</h1>
 <pre class="r"><code>cheek_plot &lt;- cheek_data %&gt;%
-  arrange(pp_no, model, trial, bin)</code></pre>
+  arrange(pp_no, emotion, model, trial, bin)</code></pre>
 <p>#create new column called time_bin</p>
 <pre class="r"><code>cheek_plot$time_bin &lt;- cheek_plot$bin
 
@@ -873,6 +961,9 @@ cheek_plot &lt;- cheek_plot %&gt;%
                               &quot;diff_bin8&quot; = &quot;800&quot;,
                               &quot;diff_bin9&quot; = &quot;900&quot;,
                               &quot;diff_bin10&quot; = &quot;1000&quot;, .default = &quot;NA&quot;))</code></pre>
+<div id="model-x-emotion" class="section level3">
+<h3>model x emotion</h3>
+<p>This plot compares the response to child vs adult faces within each emotion. What we really need is a comparison of response to happy, angry, fear, sad within each level of model.</p>
 <pre class="r"><code>plot &lt;- cheek_plot %&gt;%
   group_by(time_bin, model, emo) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
@@ -888,15 +979,144 @@ cheek_plot &lt;- cheek_plot %&gt;%
   labs(y = &quot;Mean difference in muscle activity 
 (baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
  easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12)</code></pre>
+ easy_y_axis_title_size(size = 12) </code></pre>
 <pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot)</code></pre>
 <pre><code>Warning: Removed 4 rows containing missing values (geom_errorbar).</code></pre>
-<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-12-1">
+Past versions of unnamed-chunk-12-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-12-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/930b045d800f3c01b16cddb8b1a5432043e17226/docs/figure/adult_child_plot_analyses.Rmd/unnamed-chunk-12-1.png" target="_blank">930b045</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-16
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>ggsave(&quot;modelbyemotion.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<pre><code>Warning: Removed 4 rows containing missing values (geom_errorbar).</code></pre>
+</div>
+<div id="emotion-x-model" class="section level3">
+<h3>emotion x model</h3>
+<pre class="r"><code>plot2 &lt;- cheek_plot %&gt;%
+  group_by(time_bin, model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in muscle activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>print(plot2)</code></pre>
+<pre><code>Warning: Removed 4 rows containing missing values (geom_errorbar).</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emotionbymodel.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<pre><code>Warning: Removed 4 rows containing missing values (geom_errorbar).</code></pre>
+</div>
+<div id="emotion-x-model-happyangry" class="section level3">
+<h3>emotion x model (HappyAngry)</h3>
+<pre class="r"><code>plot3 &lt;- cheek_plot %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  group_by(time_bin, model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in muscle activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>plot3</code></pre>
+<pre><code>Warning: Removed 4 rows containing missing values (geom_errorbar).</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emoxmodelHA.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<pre><code>Warning: Removed 4 rows containing missing values (geom_errorbar).</code></pre>
+</div>
+<div id="emotion-x-model-fearsad" class="section level3">
+<h3>emotion x model (FearSad)</h3>
+<pre class="r"><code>plot4 &lt;- cheek_plot %&gt;%
+  filter(emo %in% c(&quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  group_by(time_bin, model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in muscle activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>plot4</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emoxmodelFS.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
 <p>#plot averaged across bins</p>
-<pre class="r"><code>plot &lt;- cheek_plot %&gt;%
+<pre class="r"><code> cheek_plot %&gt;%
   group_by(model, emo) %&gt;%
-  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
   ggplot(aes(x = emo, y = meanZ, fill = model)) +
   geom_col(position = &quot;dodge&quot;) +
   theme_apa(base_size = 14) +
@@ -910,8 +1130,31 @@ cheek_plot &lt;- cheek_plot %&gt;%
   easy_x_axis_title_size(size = 12) +
   easy_y_axis_title_size(size = 12)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;model&#39; (override with `.groups` argument)</code></pre>
-<pre class="r"><code>print(plot)</code></pre>
-<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cheek_plot %&gt;%
+  group_by(model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = model, y = meanZ, fill = emo)) +
+  geom_col(position = &quot;dodge&quot;) +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.2, end = 0.9) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  labs(y = &quot;Mean z-score difference (RMS) from baseline
+(averaged across bins)&quot;, x = &quot;Emotion&quot;) +
+  easy_x_axis_title_size(size = 12) +
+  easy_y_axis_title_size(size = 12)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;model&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-16-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emomodelnobins.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+</div>
+<div id="jenny-up-to-here" class="section level3">
+<h3>JENNY up to here</h3>
 </div>
 </div>
 <div id="brow---now-do-the-same-for-brow" class="section level1">
@@ -929,6 +1172,8 @@ brow_data$bin &lt;- fct_relevel(brow_data$bin, c(&quot;diff_bin1&quot;, &quot;di
 levels(brow_data$bin)</code></pre>
 <pre><code> [1] &quot;diff_bin1&quot;  &quot;diff_bin2&quot;  &quot;diff_bin3&quot;  &quot;diff_bin4&quot;  &quot;diff_bin5&quot; 
  [6] &quot;diff_bin6&quot;  &quot;diff_bin7&quot;  &quot;diff_bin8&quot;  &quot;diff_bin9&quot;  &quot;diff_bin10&quot;</code></pre>
+<pre class="r"><code>naniar::vis_miss(brow_data)</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>add “model” to best fit from 10_brow_analysis</p>
 <div id="model-1-slopes-emo-1" class="section level2">
 <h2>model 1 (slopes emo)</h2>
@@ -1192,6 +1437,7 @@ brow_plot &lt;- brow_plot %&gt;%
                               &quot;diff_bin8&quot; = &quot;800&quot;,
                               &quot;diff_bin9&quot; = &quot;900&quot;,
                               &quot;diff_bin10&quot; = &quot;1000&quot;, .default = &quot;NA&quot;))</code></pre>
+<p>#this plot compares the response to child vs adult faces within each emotion</p>
 <pre class="r"><code>plot &lt;- brow_plot %&gt;%
   group_by(time_bin, model, emo) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
@@ -1210,8 +1456,10 @@ brow_plot &lt;- brow_plot %&gt;%
  easy_y_axis_title_size(size = 12)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot)</code></pre>
-<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>#plot averaged across bins</p>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;modelbyemotionbrow.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<p>#plot averaged across bins - emotion by model</p>
 <pre class="r"><code>plot &lt;- brow_plot %&gt;%
   group_by(model, emo) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
@@ -1229,7 +1477,128 @@ brow_plot &lt;- brow_plot %&gt;%
   easy_y_axis_title_size(size = 12)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;model&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot)</code></pre>
-<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emotionbymodelbrow.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<div id="emotion-x-model---all-emo-plotted-together" class="section level3">
+<h3>emotion x model - all emo plotted together</h3>
+<pre class="r"><code>plot2 &lt;- brow_plot %&gt;%
+  group_by(time_bin, model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in muscle activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>print(plot2)</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emotionbymodelbrow.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<p>#emotion by model - happy and angry</p>
+<pre class="r"><code>plot3 &lt;- brow_plot %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  group_by(time_bin, model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in muscle activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>plot3</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emoxmodelHAbrow.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<p>#emotion by model - fear and sad</p>
+<pre class="r"><code>plot4 &lt;- brow_plot %&gt;%
+  filter(emo %in% c(&quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  group_by(time_bin, model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in muscle activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) </code></pre>
+<pre><code>`summarise()` regrouping output by &#39;time_bin&#39;, &#39;model&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>plot4</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emoxmodelFSbrow.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<p>#plot averaged across bins - emotion by model</p>
+<pre class="r"><code> brow_plot %&gt;%
+  group_by(model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = emo, y = meanZ, fill = model)) +
+  geom_col(position = &quot;dodge&quot;) +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.2, end = 0.9) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  labs(y = &quot;Mean z-score difference (RMS) from baseline
+(averaged across bins)&quot;, x = &quot;Model age&quot;) +
+  easy_x_axis_title_size(size = 12) +
+  easy_y_axis_title_size(size = 12)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;model&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>brow_plot %&gt;%
+  group_by(model, emo) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = model, y = meanZ, fill = emo)) +
+  geom_col(position = &quot;dodge&quot;) +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.2, end = 0.9) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  labs(y = &quot;Mean z-score difference (RMS) from baseline
+(averaged across bins)&quot;, x = &quot;Model age&quot;) +
+  easy_x_axis_title_size(size = 12) +
+  easy_y_axis_title_size(size = 12)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;model&#39; (override with `.groups` argument)</code></pre>
+<p><img src="figure/adult_child_plot_analyses.Rmd/unnamed-chunk-29-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;emomodelnobinsbrow.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1261,29 +1630,31 @@ other attached packages:
 
 loaded via a namespace (and not attached):
  [1] nlme_3.1-142        fs_1.3.1            lubridate_1.7.4    
- [4] httr_1.4.1          rprojroot_1.3-2     numDeriv_2016.8-1.1
- [7] tools_3.6.2         TMB_1.7.18          backports_1.1.8    
-[10] utf8_1.1.4          R6_2.4.1            DBI_1.1.0          
-[13] lazyeval_0.2.2      colorspace_1.4-1    withr_2.1.2        
-[16] tidyselect_1.1.0    compiler_3.6.2      git2r_0.27.1       
-[19] cli_2.0.2           rvest_0.3.5         xml2_1.2.2         
-[22] labeling_0.3        scales_1.1.0        digest_0.6.25      
-[25] minqa_1.2.4         rmarkdown_2.3       pkgconfig_2.0.3    
-[28] htmltools_0.5.0     dbplyr_1.4.2        rlang_0.4.7        
-[31] readxl_1.3.1        rstudioapi_0.11     farver_2.0.3       
-[34] generics_0.0.2      jsonlite_1.7.0      magrittr_1.5       
-[37] Rcpp_1.0.5          munsell_0.5.0       fansi_0.4.1        
-[40] lifecycle_0.2.0     stringi_1.4.6       yaml_2.2.1         
-[43] MASS_7.3-51.4       plyr_1.8.5          grid_3.6.2         
-[46] promises_1.1.0      crayon_1.3.4        lattice_0.20-38    
-[49] haven_2.2.0         splines_3.6.2       hms_0.5.3          
-[52] knitr_1.29          pillar_1.4.6        boot_1.3-23        
-[55] reshape2_1.4.3      reprex_0.3.0        glue_1.4.1         
-[58] evaluate_0.14       modelr_0.1.5        vctrs_0.3.1        
-[61] nloptr_1.2.2.2      httpuv_1.5.2        cellranger_1.1.0   
-[64] gtable_0.3.0        assertthat_0.2.1    xfun_0.15          
-[67] broom_0.7.0.9001    coda_0.19-3         later_1.0.0        
-[70] audio_0.1-7         statmod_1.4.34      ellipsis_0.3.1     </code></pre>
+ [4] naniar_0.5.1        httr_1.4.1          rprojroot_1.3-2    
+ [7] numDeriv_2016.8-1.1 tools_3.6.2         TMB_1.7.18         
+[10] backports_1.1.8     utf8_1.1.4          R6_2.4.1           
+[13] DBI_1.1.0           lazyeval_0.2.2      colorspace_1.4-1   
+[16] withr_2.1.2         tidyselect_1.1.0    compiler_3.6.2     
+[19] git2r_0.27.1        cli_2.0.2           rvest_0.3.5        
+[22] xml2_1.2.2          labeling_0.3        scales_1.1.0       
+[25] digest_0.6.25       minqa_1.2.4         rmarkdown_2.3      
+[28] pkgconfig_2.0.3     htmltools_0.5.0     dbplyr_1.4.2       
+[31] rlang_0.4.7         readxl_1.3.1        rstudioapi_0.11    
+[34] farver_2.0.3        generics_0.0.2      jsonlite_1.7.0     
+[37] magrittr_1.5        Rcpp_1.0.5          munsell_0.5.0      
+[40] fansi_0.4.1         visdat_0.5.3        lifecycle_0.2.0    
+[43] stringi_1.4.6       whisker_0.4         yaml_2.2.1         
+[46] MASS_7.3-51.4       plyr_1.8.5          grid_3.6.2         
+[49] promises_1.1.0      crayon_1.3.4        lattice_0.20-38    
+[52] haven_2.2.0         splines_3.6.2       hms_0.5.3          
+[55] knitr_1.29          pillar_1.4.6        boot_1.3-23        
+[58] reshape2_1.4.3      reprex_0.3.0        glue_1.4.1         
+[61] evaluate_0.14       modelr_0.1.5        vctrs_0.3.1        
+[64] nloptr_1.2.2.2      httpuv_1.5.2        cellranger_1.1.0   
+[67] gtable_0.3.0        assertthat_0.2.1    xfun_0.15          
+[70] broom_0.7.0.9001    coda_0.19-3         later_1.0.0        
+[73] audio_0.1-7         statmod_1.4.34      ellipsis_0.3.1     </code></pre>
+</div>
 </div>
 </div>
 

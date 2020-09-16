@@ -144,6 +144,7 @@ cheek_plot <- cheek_plot %>%
                            
 ```
 
+
 ### model x emotion
 This plot compares the response to child vs adult faces within each emotion. What we really need is a comparison of response to happy, angry, fear, sad within each level of model. 
 ```{r}
@@ -256,7 +257,6 @@ ggsave("emoxmodelFS.png")
 ```
 
 
-
 #plot averaged across bins
 
 ```{r}
@@ -319,6 +319,8 @@ brow_data$emo <- fct_relevel(brow_data$emo, c("happy", "angry", "fear", "sad"))
 brow_data$bin <- fct_relevel(brow_data$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
 
 levels(brow_data$bin)
+
+naniar::vis_miss(brow_data)
 ```
 
 add "model" to best fit from 10_brow_analysis 
@@ -405,7 +407,7 @@ brow_plot <- brow_plot %>%
 ```
 
 
-
+#this plot compares the response to child vs adult faces within each emotion 
 ```{r}
 plot <- brow_plot %>%
   group_by(time_bin, model, emo) %>%
@@ -425,11 +427,13 @@ plot <- brow_plot %>%
  easy_y_axis_title_size(size = 12)
 
 print(plot)
+
+ggsave("modelbyemotionbrow.png")
 ```
 
 
 
-#plot averaged across bins
+#plot averaged across bins - emotion by model
 
 ```{r}
 plot <- brow_plot %>%
@@ -450,7 +454,149 @@ plot <- brow_plot %>%
   
 print(plot)
 
+ggsave("emotionbymodelbrow.png")
+
 ```
+
+
+### emotion x model - all emo plotted together
+
+```{r}
+plot2 <- brow_plot %>%
+  group_by(time_bin, model, emo) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black", size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = "Mean difference in muscle activity 
+(baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) 
+
+print(plot2)
+
+ggsave("emotionbymodelbrow.png")
+
+```
+
+#emotion by model - happy and angry 
+
+```{r}
+plot3 <- brow_plot %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  group_by(time_bin, model, emo) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black", size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = "Mean difference in muscle activity 
+(baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) 
+
+plot3
+
+ggsave("emoxmodelHAbrow.png")
+```
+
+#emotion by model - fear and sad 
+```{r}
+plot4 <- brow_plot %>%
+  filter(emo %in% c("fear", "sad")) %>%
+  group_by(time_bin, model, emo) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), 
+            stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.2, end = 0.6) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black", size = 1)) +
+  facet_wrap(~model) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = "Mean difference in muscle activity 
+(baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
+ easy_x_axis_title_size(size = 12) +
+ easy_y_axis_title_size(size = 12) 
+
+plot4
+
+ggsave("emoxmodelFSbrow.png")
+
+```
+
+
+#plot averaged across bins - emotion by model 
+
+```{r}
+ brow_plot %>%
+  group_by(model, emo) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = emo, y = meanZ, fill = model)) +
+  geom_col(position = "dodge") +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.2, end = 0.9) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  "black", size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  labs(y = "Mean z-score difference (RMS) from baseline
+(averaged across bins)", x = "Model age") +
+  easy_x_axis_title_size(size = 12) +
+  easy_y_axis_title_size(size = 12)
+
+
+brow_plot %>%
+  group_by(model, emo) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), 
+            sd_RMS = sd(zdiff, na.rm = TRUE), 
+            n = n(), stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = model, y = meanZ, fill = emo)) +
+  geom_col(position = "dodge") +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.2, end = 0.9) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  "black", size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  labs(y = "Mean z-score difference (RMS) from baseline
+(averaged across bins)", x = "Model age") +
+  easy_x_axis_title_size(size = 12) +
+  easy_y_axis_title_size(size = 12)
+  
+ggsave("emomodelnobinsbrow.png")
+
+```
+
+
+
+
+
+
+
 
 
 

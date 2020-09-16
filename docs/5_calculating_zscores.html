@@ -409,7 +409,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-12
+<strong>Last updated:</strong> 2020-09-16
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6a11da0791d294fca2f8fa48aa4a0b623a1a3b7ctargetblank6a11da0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6a11da0791d294fca2f8fa48aa4a0b623a1a3b7c" target="_blank">6a11da0</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree6a11da0791d294fca2f8fa48aa4a0b623a1a3b7ctargetblank6a11da0a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/6a11da0791d294fca2f8fa48aa4a0b623a1a3b7c" target="_blank">6a11da0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -523,23 +523,21 @@ Ignored files:
     Ignored:    analysis/child_cheekbin_plot.png
 
 Untracked files:
-    Untracked:  analysis/11_plotting_cheek.Rmd
-    Untracked:  analysis/12_plotting_brow.Rmd
-    Untracked:  analysis/13_adult_child_analysis.Rmd
-    Untracked:  analysis/14_plotting_adult_child.Rmd
-    Untracked:  analysis/testing_zscore.Rmd
-    Untracked:  child_bar_plot.png
-    Untracked:  child_cheek_plot.png
-    Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
+    Untracked:  analysis/test_zscore.Rmd
 
 Unstaged changes:
-    Modified:   analysis/10_brow_analysis.Rmd
-    Modified:   analysis/4_clean_baseline.Rmd
     Modified:   analysis/5_calculating_zscores.Rmd
     Modified:   analysis/6_bin_outliers.Rmd
-    Modified:   analysis/7_plotting.Rmd
-    Modified:   analysis/8_analysing.Rmd
+
+Staged changes:
+    Modified:   README2
+    Modified:   analysis/10_brow_analysis.Rmd
+    Modified:   analysis/13_adult_child_analysis.Rmd
     Modified:   analysis/9_cheek_analysis.Rmd
+    Modified:   analysis/all_emo_adult_analysis.Rmd
+    Modified:   analysis/all_emo_child_analysis.Rmd
+    Modified:   analysis/all_emo_plotting.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -578,6 +576,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/analysis/5_calculating_zscores.Rmd" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+riley updating
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/75150a36addff1fcd8c3a4f58b044efe93543422/docs/5_calculating_zscores.html" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+riley updating
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -700,33 +732,8 @@ summary(widepp401)</code></pre>
   pivot_wider(names_from = muscle, values_from = rms) %&gt;%
   group_by(pp_no) %&gt;%
   mutate(zbrow = scale(brow, center = TRUE, scale = TRUE)) %&gt;%
-  mutate(zcheek = scale(cheek, center = TRUE, scale = TRUE))
-
-summary(data_zscore)</code></pre>
-<pre><code>    pp_no              model              emotion          bin           
- Length:33814       Length:33814       Min.   :121.0   Length:33814      
- Class :character   Class :character   1st Qu.:232.0   Class :character  
- Mode  :character   Mode  :character   Median :424.0   Mode  :character  
-                                       Mean   :340.6                     
-                                       3rd Qu.:434.0                     
-                                       Max.   :535.0                     
-                                                                         
-     bin_no      trial                brow              cheek         
- Min.   : 0   Length:33814       Min.   :  0.1886   Min.   :  0.6277  
- 1st Qu.: 2   Class :character   1st Qu.:  4.6377   1st Qu.:  3.2768  
- Median : 5   Mode  :character   Median :  7.0499   Median :  4.2666  
- Mean   : 5                      Mean   :  8.6066   Mean   :  7.0917  
- 3rd Qu.: 8                      3rd Qu.: 10.4639   3rd Qu.:  6.5576  
- Max.   :10                      Max.   :290.7781   Max.   :393.9381  
-                                 NA&#39;s   :2048       NA&#39;s   :2861      
-     zbrow.V1          zcheek.V1    
- Min.   :-3.1176   Min.   :-3.1136  
- 1st Qu.:-0.5069   1st Qu.:-0.4478  
- Median :-0.1799   Median :-0.2782  
- Mean   : 0.0000   Mean   : 0.0000  
- 3rd Qu.: 0.2854   3rd Qu.: 0.0631  
- Max.   :16.7866   Max.   :22.0455  
- NA&#39;s   :2048      NA&#39;s   :2861     </code></pre>
+  mutate(zcheek = scale(cheek, center = TRUE, scale = TRUE))</code></pre>
+<p>summary(data_zscore)</p>
 </div>
 <div id="calculating-difference-scores" class="section level1">
 <h1>calculating difference scores</h1>
@@ -800,6 +807,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/5_calculating_zscores.Rmd/unnamed-chunk-9-1.png" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/jenrichmond/RILEY_Hons/blob/519b1993a945ed2d151d6c10653c6e14e8ee032f/docs/figure/5_calculating_zscores.Rmd/unnamed-chunk-9-1.png" target="_blank">519b199</a>
@@ -883,6 +901,7 @@ other attached packages:
  [1] naniar_0.5.1    skimr_2.0.2     here_0.1        forcats_0.4.0  
  [5] stringr_1.4.0   dplyr_1.0.0     purrr_0.3.4     readr_1.3.1    
  [9] tidyr_1.1.0     tibble_3.0.3    ggplot2_3.2.1   tidyverse_1.3.0
+[13] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5       lubridate_1.7.4  assertthat_0.2.1 rprojroot_1.3-2 
@@ -892,15 +911,15 @@ loaded via a namespace (and not attached):
 [17] readxl_1.3.1     rstudioapi_0.11  whisker_0.4      rmarkdown_2.3   
 [21] labeling_0.3     munsell_0.5.0    broom_0.7.0.9001 compiler_3.6.2  
 [25] httpuv_1.5.2     modelr_0.1.5     xfun_0.15        pkgconfig_2.0.3 
-[29] base64enc_0.1-3  htmltools_0.5.0  tidyselect_1.1.0 workflowr_1.6.2 
-[33] fansi_0.4.1      crayon_1.3.4     dbplyr_1.4.2     withr_2.1.2     
-[37] later_1.0.0      grid_3.6.2       jsonlite_1.7.0   gtable_0.3.0    
-[41] lifecycle_0.2.0  DBI_1.1.0        git2r_0.27.1     magrittr_1.5    
-[45] scales_1.1.0     cli_2.0.2        stringi_1.4.6    farver_2.0.3    
-[49] fs_1.3.1         promises_1.1.0   xml2_1.2.2       ellipsis_0.3.1  
-[53] generics_0.0.2   vctrs_0.3.1      tools_3.6.2      glue_1.4.1      
-[57] hms_0.5.3        yaml_2.2.1       colorspace_1.4-1 rvest_0.3.5     
-[61] knitr_1.29       haven_2.2.0     </code></pre>
+[29] base64enc_0.1-3  htmltools_0.5.0  tidyselect_1.1.0 fansi_0.4.1     
+[33] crayon_1.3.4     dbplyr_1.4.2     withr_2.1.2      later_1.0.0     
+[37] grid_3.6.2       jsonlite_1.7.0   gtable_0.3.0     lifecycle_0.2.0 
+[41] DBI_1.1.0        git2r_0.27.1     magrittr_1.5     scales_1.1.0    
+[45] cli_2.0.2        stringi_1.4.6    farver_2.0.3     fs_1.3.1        
+[49] promises_1.1.0   xml2_1.2.2       ellipsis_0.3.1   generics_0.0.2  
+[53] vctrs_0.3.1      tools_3.6.2      glue_1.4.1       hms_0.5.3       
+[57] yaml_2.2.1       colorspace_1.4-1 rvest_0.3.5      knitr_1.29      
+[61] haven_2.2.0     </code></pre>
 </div>
 </div>
 

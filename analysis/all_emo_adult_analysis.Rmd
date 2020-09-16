@@ -1,6 +1,7 @@
 ---
 title: "all_emo_adult_analysis"
 output: html_document
+date: "`r format(Sys.time(), '%a/%d/%b')`"
 ---
 #load packages
 ```{r}

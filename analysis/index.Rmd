@@ -22,13 +22,27 @@ This website hosts Riley's honours data analysis. The cleaning, plotting, analys
 
 - [plotting cheek and brow activity in response to child and adult faces](7_plotting.html)
 
+- [plotting cheek response to child and adult faces](11_plotting_cheek.html)
+
+- [plotting cheek response to child and adult faces](12_plotting_brow.html)
+
+- [plotting brow and cheek activity (separately) for happy and angry faces for adult and child faces together](14_plotting_adult_child.html)
+
+- [all emo plotting](all_emo_plotting.html)
+
+
+
 # 3. Analysis
 
 - [first models- emotion, bin, emotion*bin with random intercepts for participant and trial](8_analysing.html)
+
 - [cheek analysis](9_cheek_analysis.html)
--- riley updated 10-9-2020 12:30pm
+  + cheek analysis looking at responses to child and adult faces separately, just happy vs. angry
+  
 - [brow analysis](10_brow_analysis.html)
--- riley updated 10-9-2020 12:30pm
+  + brow analysis looking at responses to child and adult faces separately, just happy vs. angry
 
+Jenny has checked code above, looks good. Skipping over the all_emo_chid and adult Rmds. You can't look at emotions individually. The activity level has to be assessed relative to another emotion. 
 
-
+- [adding model to compare child and adult within the same model](13_adult_child_analysis.html)
+- doesn't look like there is an effect of model or interactions involving model. 

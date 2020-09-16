@@ -44,6 +44,7 @@ summary(widepp401)
 
 ```
 
+
 # now do all the data 
 
 - make data wide, use mutate to make new z variables 
@@ -55,9 +56,13 @@ data_zscore <- data %>%
   mutate(zbrow = scale(brow, center = TRUE, scale = TRUE)) %>%
   mutate(zcheek = scale(cheek, center = TRUE, scale = TRUE))
 
+```
+
+
+
 summary(data_zscore)
 
-```
+
 # calculating difference scores 
 
 - calculate differences scores from baseline

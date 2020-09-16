@@ -19,6 +19,8 @@ library(janitor)
 ```{r}
 bins <- read_csv(here::here("data", "adult_child_combined", "zdiff_cheek_brow.csv"))
 ```
+
+
 # make new screening column 
 
 ... which is TRUE if the zdiff value for a particular bin is greater than 2sd above the mean zdiff value for tha trial for that participant/emotion/muscle

@@ -1,6 +1,7 @@
 ---
 title: "all_emo_plotting"
 output: html_document
+date: "`r format(Sys.time(), '%a/%d/%b')`"
 ---
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)

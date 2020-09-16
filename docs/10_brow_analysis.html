@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -244,7 +245,6 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -273,12 +273,6 @@ $(document).ready(function () {
 }
 }
 
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
 
 .toc-content {
   padding-left: 30px;
@@ -385,6 +379,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">10_brow_analysis</h1>
+<h4 class="date">Tue/15/Sep</h4>
 
 </div>
 
@@ -409,10 +404,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-12
+<strong>Last updated:</strong> 2020-09-15
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
 </p>
 <p>
 <strong>Knit directory:</strong> <code>RILEY_Hons/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -476,12 +471,36 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongdetected"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>Cache:</strong> detected </a>
 </p>
 </div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div id="strongCachestrongdetected" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+The following chunks had caches available:
+<ul>
+<li>
+unnamed-chunk-14
+</li>
+<li>
+unnamed-chunk-21
+</li>
+<li>
+unnamed-chunk-25
+</li>
+<li>
+unnamed-chunk-31
+</li>
+<li>
+unnamed-chunk-38
+</li>
+<li>
+unnamed-chunk-6
+</li>
+<li>
+unnamed-chunk-9
+</li>
+</ul>
+<p>To ensure reproducibility of the results, delete the cache directory <code>10_brow_analysis_cache</code> and re-run the analysis. To have workflowr automatically delete the cache directory prior to building the file, set <code>delete_cache = TRUE</code> when running <code>wflow_build()</code> or <code>wflow_publish()</code>.</p>
 </div>
 </div>
 </div>
@@ -500,46 +519,44 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree3a784816e1f7f4e6953f37a718d43b9eb46d71fdtargetblank3a78481a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/3a784816e1f7f4e6953f37a718d43b9eb46d71fd" target="_blank">3a78481</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree3a784816e1f7f4e6953f37a718d43b9eb46d71fdtargetblank3a78481a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/3a784816e1f7f4e6953f37a718d43b9eb46d71fd" target="_blank">3a78481</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-    Ignored:    analysis/child_bar_plot.png
-    Ignored:    analysis/child_cheek_plot.png
-    Ignored:    analysis/child_cheekbin_plot.png
-
-Untracked files:
-    Untracked:  analysis/11_plotting_cheek.Rmd
-    Untracked:  analysis/12_plotting_brow.Rmd
-    Untracked:  analysis/13_adult_child_analysis.Rmd
-    Untracked:  analysis/14_plotting_adult_child.Rmd
-    Untracked:  analysis/testing_zscore.Rmd
-    Untracked:  child_bar_plot.png
-    Untracked:  child_cheek_plot.png
-    Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
+    Ignored:    Amy_childadult_raw_data/
+    Ignored:    analysis/10_brow_analysis_cache/
+    Ignored:    analysis/9_cheek_analysis_cache/
+    Ignored:    analysis/figure/
+    Ignored:    analysis/just messing around/
+    Ignored:    analysis/working/
+    Ignored:    data/adultsfaces/
+    Ignored:    data/childfaces/
+    Ignored:    data/clean_data/
+    Ignored:    data/missing_values/
+    Ignored:    data/testdata/
 
 Unstaged changes:
     Modified:   analysis/10_brow_analysis.Rmd
-    Modified:   analysis/4_clean_baseline.Rmd
-    Modified:   analysis/5_calculating_zscores.Rmd
-    Modified:   analysis/6_bin_outliers.Rmd
-    Modified:   analysis/7_plotting.Rmd
-    Modified:   analysis/8_analysing.Rmd
     Modified:   analysis/9_cheek_analysis.Rmd
+    Modified:   analysis/all_emo_adult_analysis.Rmd
+    Modified:   analysis/all_emo_child_analysis.Rmd
+    Modified:   analysis/all_emo_plotting.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -578,6 +595,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/analysis/10_brow_analysis.Rmd" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+riley updating
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/75150a36addff1fcd8c3a4f58b044efe93543422/docs/10_brow_analysis.html" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+riley updating
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -695,7 +746,9 @@ library(lme4)
 library(lmerTest)
 library(broom.mixed)
 library(pixiedust)
-library(beepr)</code></pre>
+library(beepr)
+
+knitr::opts_chunk$set(autodep = TRUE)</code></pre>
 </div>
 <div id="read-in-data" class="section level1">
 <h1>read in data</h1>
@@ -719,19 +772,29 @@ cols(
 
 levels(df$emotion)</code></pre>
 <pre><code>[1] &quot;121&quot; &quot;131&quot; &quot;232&quot; &quot;323&quot; &quot;424&quot; &quot;434&quot; &quot;525&quot; &quot;535&quot;</code></pre>
-<pre class="r"><code>df &lt;- df %&gt;% mutate_if(is.character, as.factor)
+<pre class="r"><code>df &lt;- df %&gt;%
+  mutate(emo = case_when(emotion == 121 ~ &quot;happy&quot;, 
+                              emotion == 323 ~ &quot;angry&quot;, 
+                              emotion == 424 ~ &quot;fear&quot;, 
+                              emotion == 525 ~ &quot;sad&quot;, 
+                              emotion == 131 ~ &quot;happy&quot;, 
+                              emotion == 232 ~ &quot;angry&quot;, 
+                              emotion == 434 ~ &quot;fear&quot;, 
+                              emotion == 535 ~ &quot;sad&quot;))
+
+df &lt;- df %&gt;% mutate_if(is.character, as.factor)
 
 glimpse(df)</code></pre>
 <pre><code>Rows: 61,480
 Columns: 8
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
-$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
-$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, c…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, diff_…
-$ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0.1985…
-$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, …
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
+$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, …
+$ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0…
+$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, …</code></pre>
 </div>
 <div id="brow-happy-angry-child" class="section level1">
 <h1>BROW happy-angry child</h1>
@@ -747,16 +810,18 @@ $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, ha
 glimpse(HA_child_brow)</code></pre>
 <pre><code>Rows: 7,570
 Columns: 8
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
-$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
-$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, b…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, diff_…
-$ zdiff   &lt;dbl&gt; -0.66832501, 5.03682881, 0.31704396, 0.52214752, 0.54634740, …
-$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
-<p>#Fix factor levels</p>
-<pre class="r"><code>HA_child_brow$emo &lt;- fct_relevel(HA_child_brow$emo, c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;))
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
+$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, …
+$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
+$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, …
+$ zdiff   &lt;dbl&gt; -0.66832501, 5.03682881, 0.31704396, 0.52214752, 0.54634…
+$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, …</code></pre>
+</div>
+<div id="fix-factor-levels" class="section level3">
+<h3>Fix factor levels</h3>
+<pre class="r"><code>HA_child_brow$emo &lt;- fct_relevel(HA_child_brow$emo, c(&quot;happy&quot;, &quot;angry&quot;))
 
 levels(HA_child_brow$emo)</code></pre>
 <pre><code>[1] &quot;happy&quot; &quot;angry&quot; &quot;fear&quot;  &quot;sad&quot;  </code></pre>
@@ -767,7 +832,7 @@ levels(HA_child_brow$bin)</code></pre>
  [6] &quot;diff_bin6&quot;  &quot;diff_bin7&quot;  &quot;diff_bin8&quot;  &quot;diff_bin9&quot;  &quot;diff_bin10&quot;</code></pre>
 </div>
 <div id="fit-model-1" class="section level2">
-<h2>fit model 1</h2>
+<h2>Fit model 1</h2>
 <p>This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data.</p>
 <pre class="r"><code>child_brow_lm &lt;- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)</code></pre>
 <div id="check-assumptions" class="section level3">
@@ -856,15 +921,15 @@ RileyFerguson
 <div id="compute-log_modulus" class="section level3">
 <h3>compute log_modulus</h3>
 <pre class="r"><code>HA_child_brow &lt;- HA_child_brow %&gt;%
-  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))</code></pre>
+  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
 </div>
-<div id="fit-model-again" class="section level3">
-<h3>fit model again</h3>
-<pre class="r"><code>child_brow_lm_new &lt;- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)</code></pre>
+<div id="try-fit-model-again" class="section level3">
+<h3>try fit model again</h3>
+<pre class="r"><code>child_brow_lm_1 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)</code></pre>
 </div>
 <div id="check-assumptions-again" class="section level3">
 <h3>check assumptions again</h3>
-<pre class="r"><code>plot(child_brow_lm_new)</code></pre>
+<pre class="r"><code>plot(child_brow_lm_1)</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
@@ -903,8 +968,8 @@ RileyFerguson
 </table>
 </div>
 </div>
-<pre class="r"><code>qqnorm(resid(child_brow_lm_new))
-qqline(resid(child_brow_lm_new))</code></pre>
+<pre class="r"><code>qqnorm(resid(child_brow_lm_1))
+qqline(resid(child_brow_lm_1))</code></pre>
 <p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-10-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-2">
@@ -944,97 +1009,8 @@ RileyFerguson
 </div>
 </div>
 </div>
-<div id="compute-new-log-mod" class="section level3">
-<h3>compute new log mod</h3>
-<pre class="r"><code>HA_child_brow &lt;- HA_child_brow %&gt;%
-  mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
-</div>
-<div id="try-fit-model-again" class="section level3">
-<h3>try fit model again</h3>
-<pre class="r"><code>child_brow_lm_1 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)</code></pre>
-</div>
-<div id="check-assumptions-again-1" class="section level3">
-<h3>check assumptions again</h3>
-<pre class="r"><code>plot(child_brow_lm_1)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-1">
-Past versions of unnamed-chunk-13-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-13-1.png" target="_blank">0f46834</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>qqnorm(resid(child_brow_lm_1))
-qqline(resid(child_brow_lm_1))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-13-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-13-2">
-Past versions of unnamed-chunk-13-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-13-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-13-2.png" target="_blank">0f46834</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>#get anova, summary and tidy</p>
+<div id="get-anova-summary-and-tidy" class="section level3">
+<h3>get anova, summary and tidy</h3>
 <pre class="r"><code>anova(child_brow_lm_1)</code></pre>
 <pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
          Sum Sq Mean Sq NumDF  DenDF F value Pr(&gt;F)
@@ -1042,8 +1018,8 @@ emo     0.33916 0.33916     1 6872.0  1.6023 0.2056
 bin     1.50270 0.16697     9 6868.4  0.7888 0.6268
 emo:bin 2.32105 0.25789     9 6868.4  1.2184 0.2783</code></pre>
 <pre class="r"><code>summary(child_brow_lm_1)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
-  method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
+  Satterthwaite&#39;s method [lmerModLmerTest]
 Formula: log_modulus_new ~ emo + bin + emo * bin + (1 | pp_no)
    Data: HA_child_brow
 
@@ -1091,11 +1067,11 @@ Use print(x, correlation=TRUE)  or
 <pre class="r"><code>tidy_child_brow1 &lt;- tidy(child_brow_lm_1)</code></pre>
 </div>
 </div>
-</div>
-<div id="fit-model-2-slopes-for-emotion" class="section level1">
-<h1>fit model 2 (slopes for emotion)</h1>
+<div id="fit-model-2-slopes-for-emotion" class="section level2">
+<h2>fit model 2 (slopes for emotion)</h2>
 <pre class="r"><code>child_brow_lm_2 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_child_brow, REML = FALSE)</code></pre>
-<p>#get anova, summary and tidy</p>
+<div id="get-anova-summary-and-tidy-1" class="section level3">
+<h3>get anova, summary and tidy</h3>
 <pre class="r"><code>anova(child_brow_lm_2)</code></pre>
 <pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
          Sum Sq  Mean Sq NumDF  DenDF F value Pr(&gt;F)
@@ -1103,8 +1079,8 @@ emo     0.05501 0.055008     1   49.0  0.2690 0.6063
 bin     1.49389 0.165988     9 6819.5  0.8118 0.6053
 emo:bin 2.29256 0.254729     9 6819.5  1.2458 0.2617</code></pre>
 <pre class="r"><code>summary(child_brow_lm_2)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
-  method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
+  Satterthwaite&#39;s method [lmerModLmerTest]
 Formula: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
    Data: HA_child_brow
 
@@ -1151,8 +1127,9 @@ Correlation matrix not shown by default, as p = 20 &gt; 12.
 Use print(x, correlation=TRUE)  or
     vcov(x)        if you need it</code></pre>
 <pre class="r"><code>tidy_child_brow2 &lt;- tidy(child_brow_lm_2)</code></pre>
-<div id="check-fit" class="section level2">
-<h2>check fit</h2>
+</div>
+<div id="check-fit" class="section level3">
+<h3>check fit</h3>
 <pre class="r"><code>AIC(child_brow_lm_1)</code></pre>
 <pre><code>[1] 9031.58</code></pre>
 <pre class="r"><code>AIC(child_brow_lm_2)</code></pre>
@@ -1162,63 +1139,59 @@ Use print(x, correlation=TRUE)  or
 Models:
 child_brow_lm_1: log_modulus_new ~ emo + bin + emo * bin + (1 | pp_no)
 child_brow_lm_2: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
-                npar    AIC    BIC  logLik deviance Chisq Df Pr(&gt;Chisq)    
-child_brow_lm_1   22 9031.6 9182.1 -4493.8   8987.6                        
-child_brow_lm_2   24 8882.3 9046.5 -4417.1   8834.3 153.3  2  &lt; 2.2e-16 ***
+                Df    AIC    BIC  logLik deviance Chisq Chi Df Pr(&gt;Chisq)
+child_brow_lm_1 22 9031.6 9182.1 -4493.8   8987.6                        
+child_brow_lm_2 24 8882.3 9046.5 -4417.1   8834.3 153.3      2  &lt; 2.2e-16
+                   
+child_brow_lm_1    
+child_brow_lm_2 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>#model take home - the model with the addition of a slope for emotion provides a better fit for the data than the model without</p>
+<p>model take home - the model with the addition of a slope for emotion provides a better fit for the data than the model without</p>
 </div>
 </div>
-<div id="fit-model-3-slope-for-emotion-and-bin---failed-to-converge" class="section level1">
-<h1>fit model 3 (slope for emotion and bin) - failed to converge</h1>
+<div id="fit-model-3-slope-for-emotion-and-bin---failed-to-converge" class="section level2">
+<h2>fit model 3 (slope for emotion and bin) - failed to converge</h2>
 <pre class="r"><code>child_brow_lm_3 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_child_brow, REML = FALSE)</code></pre>
-<pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<pre><code>Warning: Model failed to converge with 1 negative eigenvalue: -7.3e+01</code></pre>
-<pre class="r"><code>anova(child_brow_lm_2, child_brow_lm_3)</code></pre>
-<pre><code>Data: HA_child_brow
-Models:
-child_brow_lm_2: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
-child_brow_lm_3: log_modulus_new ~ emo + bin + emo * bin + (1 + emo + bin | pp_no)
-                npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)
-child_brow_lm_2   24 8882.3 9046.5 -4417.1   8834.3                     
-child_brow_lm_3   87 8980.5 9575.7 -4403.2   8806.5 27.813 63          1</code></pre>
-<pre class="r"><code>AIC(child_brow_lm_2)</code></pre>
-<pre><code>[1] 8882.276</code></pre>
-<pre class="r"><code>AIC(child_brow_lm_3)</code></pre>
-<pre><code>[1] 8980.463</code></pre>
 </div>
-<div id="model-3-failed-to-converge-model-2-provides-the-best-fit" class="section level1">
-<h1>model 3 failed to converge, model 2 provides the best fit</h1>
-<p>#get confidence intervals</p>
+</div>
+<div id="child-model-take-home" class="section level1">
+<h1>Child model take home</h1>
+<p>model 3 failed to converge, model 2 provides the best fit</p>
+</div>
+<div id="get-confidence-intervals" class="section level1">
+<h1>get confidence intervals</h1>
 <pre class="r"><code>confint.merMod(child_brow_lm_2, level = 0.95)</code></pre>
 <pre><code>Computing profile confidence intervals ...</code></pre>
 <pre><code>                              2.5 %       97.5 %
-.sig01                  0.084672317  0.139515697
-.sig02                 -0.703169292 -0.200042538
-.sig03                  0.133984808  0.216399604
-.sigma                  0.444702698  0.459883964
-(Intercept)            -0.109735934  0.004004098
-emoangry               -0.091264599  0.074548436
-bindiff_bin2           -0.080882390  0.054526209
-bindiff_bin3           -0.051302599  0.083511479
-bindiff_bin4           -0.072390703  0.062716855
-bindiff_bin5           -0.040521617  0.094199587
-bindiff_bin6           -0.054777381  0.080036916
-bindiff_bin7           -0.043510214  0.091305204
-bindiff_bin8           -0.053570653  0.081633271
-bindiff_bin9           -0.079256495  0.055847044
-bindiff_bin10          -0.096909952  0.038296491
-emoangry:bindiff_bin2  -0.048633723  0.142789189
-emoangry:bindiff_bin3  -0.106914206  0.083874353
-emoangry:bindiff_bin4  -0.090772584  0.099949221
-emoangry:bindiff_bin5  -0.121392405  0.069475534
-emoangry:bindiff_bin6  -0.102973613  0.087748877
-emoangry:bindiff_bin7  -0.085956668  0.104491354
-emoangry:bindiff_bin8  -0.020435397  0.170906394
-emoangry:bindiff_bin9  -0.052045898  0.139157963
-emoangry:bindiff_bin10 -0.009517059  0.182406433</code></pre>
-<pre class="r"><code>really_nice_table &lt;- dust(child_brow_lm_2) %&gt;%
+.sig01                  0.084672318  0.139515719
+.sig02                 -0.703170029 -0.200065717
+.sig03                  0.133983953  0.216712166
+.sigma                  0.444702699  0.459883939
+(Intercept)            -0.109735971  0.004004094
+emoangry               -0.091264389  0.074547732
+bindiff_bin2           -0.080882391  0.054526177
+bindiff_bin3           -0.051302555  0.083511474
+bindiff_bin4           -0.072390574  0.062716856
+bindiff_bin5           -0.040521191  0.094199580
+bindiff_bin6           -0.054777353  0.080036581
+bindiff_bin7           -0.043510198  0.091305200
+bindiff_bin8           -0.053570622  0.081633271
+bindiff_bin9           -0.079256462  0.055847051
+bindiff_bin10          -0.096909924  0.038296489
+emoangry:bindiff_bin2  -0.048633718  0.142789174
+emoangry:bindiff_bin3  -0.106914202  0.083874310
+emoangry:bindiff_bin4  -0.090772569  0.099949226
+emoangry:bindiff_bin5  -0.121392109  0.069475533
+emoangry:bindiff_bin6  -0.102973601  0.087748809
+emoangry:bindiff_bin7  -0.085956667  0.104491347
+emoangry:bindiff_bin8  -0.020435380  0.170906349
+emoangry:bindiff_bin9  -0.052045893  0.139157946
+emoangry:bindiff_bin10 -0.009517046  0.182406424</code></pre>
+</div>
+<div id="make-output-table" class="section level1">
+<h1>make output table</h1>
+<pre class="r"><code>child_really_nice_table &lt;- dust(child_brow_lm_2) %&gt;%
   sprinkle(col = 4:7, round = 3, pad = 15, halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
   sprinkle(col = 8, fn = quote(pvalString(value)), halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
   sprinkle_colnames(term = &quot;Term&quot;, 
@@ -1229,7 +1202,7 @@ emoangry:bindiff_bin10 -0.009517059  0.182406433</code></pre>
   sprinkle(bg_pattern_by = &quot;rows&quot;) %&gt;%
     sprinkle_print_method(&quot;html&quot;) 
 
-really_nice_table</code></pre>
+child_really_nice_table</code></pre>
 <table style = 'margin:auto;border-collapse:collapse;'>
 <tr>
 <th colspan = '1'; rowspan = '1'; style='text-align:left;'>effect </th>
@@ -1482,7 +1455,9 @@ really_nice_table</code></pre>
 <td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
 </tr>
 </table></br></br>
-<p>#now do the same for adult</p>
+</div>
+<div id="brow-happy-angry-adult" class="section level1">
+<h1>BROW happy-angry adult</h1>
 <div id="make-brow-ha-adult-df" class="section level3">
 <h3>Make brow HA adult df</h3>
 <p>just happy/angry child face for cheek</p>
@@ -1495,16 +1470,18 @@ really_nice_table</code></pre>
 glimpse(HA_adult_brow)</code></pre>
 <pre><code>Rows: 7,770
 Columns: 8
-$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
-$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
-$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
-$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
-$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, b…
-$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, diff_…
-$ zdiff   &lt;dbl&gt; 0.13399249, -0.67234414, 0.03430089, -0.12614560, -0.19859639…
-$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
-<p>#Fix factor levels</p>
-<pre class="r"><code>HA_adult_brow$emo &lt;- fct_relevel(HA_adult_brow$emo, c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;))
+$ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, …
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, …
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
+$ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, …
+$ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, br…
+$ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, …
+$ zdiff   &lt;dbl&gt; 0.13399249, -0.67234414, 0.03430089, -0.12614560, -0.198…
+$ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, …</code></pre>
+</div>
+<div id="fix-factor-levels-1" class="section level3">
+<h3>Fix factor levels</h3>
+<pre class="r"><code>HA_adult_brow$emo &lt;- fct_relevel(HA_adult_brow$emo, c(&quot;happy&quot;, &quot;angry&quot;))
 
 levels(HA_adult_brow$emo)</code></pre>
 <pre><code>[1] &quot;happy&quot; &quot;angry&quot; &quot;fear&quot;  &quot;sad&quot;  </code></pre>
@@ -1516,147 +1493,96 @@ levels(HA_adult_brow$bin)</code></pre>
 </div>
 <div id="fit-model-1-1" class="section level2">
 <h2>fit model 1</h2>
-<pre class="r"><code>adult_brow_lm &lt;- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)</code></pre>
-<div id="check-assumptions-1" class="section level3">
-<h3>check assumptions</h3>
-<pre class="r"><code>plot(adult_brow_lm)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-31-1">
-Past versions of unnamed-chunk-31-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-31-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-31-1.png" target="_blank">fa74f81</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-08
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-31-1.png" target="_blank">0f46834</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>qqnorm(resid(adult_brow_lm))
-qqline(resid(adult_brow_lm))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-31-2.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-31-2">
-Past versions of unnamed-chunk-31-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-31-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-31-2.png" target="_blank">fa74f81</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-08
-</td>
-</tr>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/0f4683417c138e72a95e55d581007140113cd5d6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-31-2.png" target="_blank">0f46834</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-07
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As suscepted, need to transform to correct normality.</p>
-</div>
-<div id="compute-log_modulus-1" class="section level3">
-<h3>compute log_modulus</h3>
-<pre class="r"><code>HA_adult_brow &lt;- HA_adult_brow %&gt;%
-  mutate(log_modulus = sign(zdiff) + log(1+abs(zdiff)))</code></pre>
-</div>
-<div id="fit-model-again-1" class="section level3">
-<h3>fit model again</h3>
-<pre class="r"><code>adult_brow_lm_new &lt;- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)</code></pre>
-</div>
-<div id="check-assumptions-again-2" class="section level3">
-<h3>check assumptions again</h3>
-<pre class="r"><code>plot(adult_brow_lm_new)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>qqnorm(resid(adult_brow_lm_new))
-qqline(resid(adult_brow_lm_new))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-34-2.png" width="672" style="display: block; margin: auto;" /> ### compute new log mod</p>
 <pre class="r"><code>HA_adult_brow &lt;- HA_adult_brow %&gt;%
   mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))</code></pre>
-</div>
 <div id="try-fit-model-again-1" class="section level3">
 <h3>try fit model again</h3>
 <pre class="r"><code>adult_brow_lm_1 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)</code></pre>
 </div>
-<div id="check-assumptions-again-3" class="section level3">
+<div id="check-assumptions-again-1" class="section level3">
 <h3>check assumptions again</h3>
 <pre class="r"><code>plot(adult_brow_lm_1)</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-37-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-1">
+Past versions of unnamed-chunk-27-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-27-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-27-1.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>qqnorm(resid(adult_brow_lm_1))
 qqline(resid(adult_brow_lm_1))</code></pre>
-<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-37-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/10_brow_analysis.Rmd/unnamed-chunk-27-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-27-2">
+Past versions of unnamed-chunk-27-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-27-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/fa74f815dae5983e1d1fdbafb747f0d75678d2f6/docs/figure/10_brow_analysis.Rmd/unnamed-chunk-27-2.png" target="_blank">fa74f81</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-08
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<div id="get-anova-summary-and-tidy" class="section level1">
-<h1>get anova, summary and tidy</h1>
+<div id="get-anova-summary-and-tidy-2" class="section level3">
+<h3>get anova, summary and tidy</h3>
 <pre class="r"><code>anova(adult_brow_lm_1)</code></pre>
 <pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
          Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
@@ -1666,8 +1592,8 @@ emo:bin 0.75846 0.08427     9 7029.1  0.5323 0.85211
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>summary(adult_brow_lm_1)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
-  method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
+  Satterthwaite&#39;s method [lmerModLmerTest]
 Formula: log_modulus_new ~ emo + bin + emo * bin + (1 | pp_no)
    Data: HA_adult_brow
 
@@ -1711,10 +1637,13 @@ Correlation matrix not shown by default, as p = 20 &gt; 12.
 Use print(x, correlation=TRUE)  or
     vcov(x)        if you need it</code></pre>
 <pre class="r"><code>tidy_adult_brow1 &lt;- tidy(adult_brow_lm_1)</code></pre>
+</div>
+</div>
 <div id="fit-model-2-slope-for-emotion" class="section level2">
 <h2>fit model 2 (slope for emotion)</h2>
 <pre class="r"><code>adult_brow_lm_2 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_adult_brow, REML = FALSE)</code></pre>
-<p>#get anova, summary, and tidy</p>
+<div id="get-anova-summary-and-tidy-3" class="section level3">
+<h3>get anova, summary, and tidy</h3>
 <pre class="r"><code>anova(adult_brow_lm_2)</code></pre>
 <pre><code>Type III Analysis of Variance Table with Satterthwaite&#39;s method
          Sum Sq  Mean Sq NumDF  DenDF F value Pr(&gt;F)
@@ -1722,8 +1651,8 @@ emo     0.06375 0.063750     1   49.8  0.4214 0.5192
 bin     0.34926 0.038806     9 6979.1  0.2565 0.9856
 emo:bin 0.76494 0.084994     9 6979.1  0.5618 0.8293</code></pre>
 <pre class="r"><code>summary(adult_brow_lm_2)</code></pre>
-<pre><code>Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite&#39;s
-  method [lmerModLmerTest]
+<pre><code>Linear mixed model fit by maximum likelihood . t-tests use
+  Satterthwaite&#39;s method [lmerModLmerTest]
 Formula: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
    Data: HA_adult_brow
 
@@ -1768,7 +1697,9 @@ Correlation matrix not shown by default, as p = 20 &gt; 12.
 Use print(x, correlation=TRUE)  or
     vcov(x)        if you need it</code></pre>
 <pre class="r"><code>tidy_adult_brow2 &lt;- tidy(adult_brow_lm_2)</code></pre>
-<p>#check fit</p>
+</div>
+<div id="check-fit-1" class="section level3">
+<h3>check fit</h3>
 <pre class="r"><code>AIC(adult_brow_lm_1)</code></pre>
 <pre><code>[1] 7194.809</code></pre>
 <pre class="r"><code>AIC(adult_brow_lm_2)</code></pre>
@@ -1778,59 +1709,59 @@ Use print(x, correlation=TRUE)  or
 Models:
 adult_brow_lm_1: log_modulus_new ~ emo + bin + emo * bin + (1 | pp_no)
 adult_brow_lm_2: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
-                npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)    
-adult_brow_lm_1   22 7194.8 7345.8 -3575.4   7150.8                         
-adult_brow_lm_2   24 6979.4 7144.2 -3465.7   6931.4 219.39  2  &lt; 2.2e-16 ***
+                Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(&gt;Chisq)
+adult_brow_lm_1 22 7194.8 7345.8 -3575.4   7150.8                         
+adult_brow_lm_2 24 6979.4 7144.2 -3465.7   6931.4 219.39      2  &lt; 2.2e-16
+                   
+adult_brow_lm_1    
+adult_brow_lm_2 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>#model take home - model with slope for emotion provides a better fit for the data than model without slope for emotion</p>
-<p>#fit model 3 (slope for emo and bin) - failed to converge</p>
+<p>model take home - model with slope for emotion provides a better fit for the data than model without slope for emotion</p>
+</div>
+</div>
+<div id="fit-model-3-slope-for-emo-and-bin---failed-to-converge" class="section level2">
+<h2>fit model 3 (slope for emo and bin) - failed to converge</h2>
 <pre class="r"><code>adult_brow_lm_3 &lt;- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_adult_brow, REML = FALSE)</code></pre>
-<pre><code>boundary (singular) fit: see ?isSingular</code></pre>
-<pre><code>Warning: Model failed to converge with 2 negative eigenvalues: -3.0e+01 -4.5e+02</code></pre>
-<p>#check fit</p>
-<pre class="r"><code>AIC(adult_brow_lm_2)</code></pre>
-<pre><code>[1] 6979.418</code></pre>
-<pre class="r"><code>AIC(adult_brow_lm_3)</code></pre>
-<pre><code>[1] 7056.997</code></pre>
-<pre class="r"><code>anova(adult_brow_lm_2, adult_brow_lm_3)</code></pre>
-<pre><code>Data: HA_adult_brow
-Models:
-adult_brow_lm_2: log_modulus_new ~ emo + bin + emo * bin + (1 + emo | pp_no)
-adult_brow_lm_3: log_modulus_new ~ emo + bin + emo * bin + (1 + emo + bin | pp_no)
-                npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)
-adult_brow_lm_2   24 6979.4 7144.2 -3465.7   6931.4                     
-adult_brow_lm_3   87 7057.0 7654.2 -3441.5   6883.0 48.421 63     0.9122</code></pre>
-<p>#model take home - model 2 with just slope for emotion provides the best fit for the data</p>
-<p>#get confidence intervals</p>
+</div>
+</div>
+<div id="adult-model-take-home" class="section level1">
+<h1>Adult model take home</h1>
+<p>model 2 with just slope for emotion provides the best fit for the data</p>
+</div>
+<div id="get-confidence-intervals-1" class="section level1">
+<h1>get confidence intervals</h1>
 <pre class="r"><code>confint.merMod(adult_brow_lm_2, level = 0.95)</code></pre>
 <pre><code>Computing profile confidence intervals ...</code></pre>
 <pre><code>                             2.5 %      97.5 %
-.sig01                  0.08944486  0.14212171
-.sig02                 -0.74419853 -0.31140715
-.sig03                  0.13524731  0.21312930
-.sigma                  0.38258759  0.39549547
-(Intercept)            -0.05844360  0.04430253
-emoangry               -0.11700197  0.03211102
-bindiff_bin2           -0.08524874  0.02964258
-bindiff_bin3           -0.07832235  0.03648350
+.sig01                  0.08944453  0.14212171
+.sig02                 -0.74419547 -0.31139214
+.sig03                  0.13524726  0.21312895
+.sigma                  0.38258761  0.39549547
+(Intercept)            -0.05844359  0.04430251
+emoangry               -0.11700189  0.03211103
+bindiff_bin2           -0.08524872  0.02964257
+bindiff_bin3           -0.07832234  0.03648346
 bindiff_bin4           -0.06164434  0.05276189
-bindiff_bin5           -0.06098693  0.05406124
-bindiff_bin6           -0.07638099  0.03817974
-bindiff_bin7           -0.07500092  0.04004910
-bindiff_bin8           -0.07918891  0.03578156
-bindiff_bin9           -0.07600474  0.03880284
-bindiff_bin10          -0.09421178  0.02067380
-emoangry:bindiff_bin2  -0.02077276  0.14229452
-emoangry:bindiff_bin3  -0.04727073  0.11544262
-emoangry:bindiff_bin4  -0.09341904  0.06866552
-emoangry:bindiff_bin5  -0.07715209  0.08555149
-emoangry:bindiff_bin6  -0.04956063  0.11274852
-emoangry:bindiff_bin7  -0.04381515  0.11872456
-emoangry:bindiff_bin8  -0.04277128  0.12005067
+bindiff_bin5           -0.06098692  0.05406124
+bindiff_bin6           -0.07638098  0.03817973
+bindiff_bin7           -0.07500091  0.04004910
+bindiff_bin8           -0.07918890  0.03578155
+bindiff_bin9           -0.07600474  0.03880283
+bindiff_bin10          -0.09421177  0.02067379
+emoangry:bindiff_bin2  -0.02077274  0.14229450
+emoangry:bindiff_bin3  -0.04727072  0.11544258
+emoangry:bindiff_bin4  -0.09341904  0.06866551
+emoangry:bindiff_bin5  -0.07715209  0.08555148
+emoangry:bindiff_bin6  -0.04956062  0.11274850
+emoangry:bindiff_bin7  -0.04381514  0.11872453
+emoangry:bindiff_bin8  -0.04277126  0.12005065
 emoangry:bindiff_bin9  -0.04572448  0.11717153
-emoangry:bindiff_bin10 -0.05285363  0.10990853</code></pre>
-<pre class="r"><code>really_nice_table &lt;- dust(adult_brow_lm_2) %&gt;%
+emoangry:bindiff_bin10 -0.05285361  0.10990852</code></pre>
+</div>
+<div id="make-output-table-1" class="section level1">
+<h1>make output table</h1>
+<pre class="r"><code>adult_really_nice_table &lt;- dust(adult_brow_lm_2) %&gt;%
   sprinkle(col = 4:7, round = 3, pad = 15, halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
   sprinkle(col = 8, fn = quote(pvalString(value)), halign = &quot;center&quot;, valign = &quot;middle&quot;) %&gt;%
   sprinkle_colnames(term = &quot;Term&quot;, 
@@ -1841,7 +1772,7 @@ emoangry:bindiff_bin10 -0.05285363  0.10990853</code></pre>
   sprinkle(bg_pattern_by = &quot;rows&quot;) %&gt;%
     sprinkle_print_method(&quot;html&quot;) 
 
-really_nice_table</code></pre>
+adult_really_nice_table</code></pre>
 <table style = 'margin:auto;border-collapse:collapse;'>
 <tr>
 <th colspan = '1'; rowspan = '1'; style='text-align:left;'>effect </th>
@@ -2094,6 +2025,7 @@ really_nice_table</code></pre>
 <td colspan = '1'; rowspan = '1'; style='text-align:center;vertical-align:middle;background-color:#DCDCDC;'>NA </td>
 </tr>
 </table></br></br>
+<pre class="r"><code>beepr::beep()</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2102,13 +2034,13 @@ really_nice_table</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 3.6.2 (2019-12-12)
+<pre><code>R version 3.5.1 (2018-07-02)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
-Running under: macOS High Sierra 10.13.6
+Running under: macOS Sierra 10.12.6
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
@@ -2117,38 +2049,39 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] beepr_1.3         pixiedust_0.9.0   broom.mixed_0.2.6 lmerTest_3.1-2   
- [5] lme4_1.1-23       Matrix_1.2-18     here_0.1          forcats_0.4.0    
- [9] stringr_1.4.0     dplyr_1.0.0       purrr_0.3.4       readr_1.3.1      
-[13] tidyr_1.1.0       tibble_3.0.3      ggplot2_3.2.1     tidyverse_1.3.0  
+ [1] beepr_1.3         pixiedust_0.9.0   broom.mixed_0.2.6
+ [4] lmerTest_3.1-0    lme4_1.1-21       Matrix_1.2-14    
+ [7] here_0.1          forcats_0.5.0     stringr_1.4.0    
+[10] dplyr_1.0.1       purrr_0.3.3       readr_1.3.1      
+[13] tidyr_1.1.0       tibble_3.0.3      ggplot2_3.3.2    
+[16] tidyverse_1.3.0  
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-142        fs_1.3.1            lubridate_1.7.4    
- [4] httr_1.4.1          rprojroot_1.3-2     numDeriv_2016.8-1.1
- [7] tools_3.6.2         TMB_1.7.18          backports_1.1.8    
-[10] utf8_1.1.4          R6_2.4.1            DBI_1.1.0          
-[13] lazyeval_0.2.2      colorspace_1.4-1    withr_2.1.2        
-[16] tidyselect_1.1.0    compiler_3.6.2      git2r_0.27.1       
-[19] cli_2.0.2           rvest_0.3.5         xml2_1.2.2         
-[22] scales_1.1.0        checkmate_2.0.0     digest_0.6.25      
-[25] minqa_1.2.4         rmarkdown_2.3       pkgconfig_2.0.3    
-[28] htmltools_0.5.0     dbplyr_1.4.2        rlang_0.4.7        
-[31] readxl_1.3.1        rstudioapi_0.11     generics_0.0.2     
-[34] jsonlite_1.7.0      magrittr_1.5        Rcpp_1.0.5         
-[37] munsell_0.5.0       fansi_0.4.1         lifecycle_0.2.0    
-[40] stringi_1.4.6       whisker_0.4         yaml_2.2.1         
-[43] MASS_7.3-51.4       plyr_1.8.5          grid_3.6.2         
-[46] promises_1.1.0      crayon_1.3.4        lattice_0.20-38    
-[49] haven_2.2.0         splines_3.6.2       hms_0.5.3          
-[52] knitr_1.29          pillar_1.4.6        boot_1.3-23        
-[55] reshape2_1.4.3      reprex_0.3.0        glue_1.4.1         
-[58] evaluate_0.14       modelr_0.1.5        vctrs_0.3.1        
-[61] nloptr_1.2.2.2      httpuv_1.5.2        cellranger_1.1.0   
-[64] gtable_0.3.0        assertthat_0.2.1    xfun_0.15          
-[67] broom_0.7.0.9001    coda_0.19-3         later_1.0.0        
-[70] audio_0.1-7         workflowr_1.6.2     statmod_1.4.34     
-[73] ellipsis_0.3.1     </code></pre>
-</div>
+ [1] nlme_3.1-137           fs_1.4.1               lubridate_1.7.4       
+ [4] httr_1.4.1             rprojroot_1.3-2        numDeriv_2016.8-1.1   
+ [7] tools_3.5.1            TMB_1.7.15             backports_1.1.8       
+[10] utf8_1.1.4             R6_2.4.1               DBI_1.0.0             
+[13] colorspace_1.4-1       withr_2.2.0            tidyselect_1.1.0      
+[16] compiler_3.5.1         git2r_0.27.1           cli_2.0.2             
+[19] rvest_0.3.6            xml2_1.3.2             checkmate_1.8.5       
+[22] scales_1.1.1           digest_0.6.25          minqa_1.2.4           
+[25] rmarkdown_1.15         pkgconfig_2.0.3        htmltools_0.5.0       
+[28] dbplyr_1.4.4           rlang_0.4.7            readxl_1.3.1          
+[31] rstudioapi_0.11.0-9000 generics_0.0.2         jsonlite_1.7.0        
+[34] magrittr_1.5           Rcpp_1.0.5             munsell_0.5.0         
+[37] fansi_0.4.1            lifecycle_0.2.0        stringi_1.4.6         
+[40] whisker_0.4            yaml_2.2.1             MASS_7.3-51.1         
+[43] plyr_1.8.6             grid_3.5.1             blob_1.2.1            
+[46] promises_1.1.1         crayon_1.3.4           lattice_0.20-35       
+[49] haven_2.3.1            splines_3.5.1          hms_0.5.3             
+[52] knitr_1.23             pillar_1.4.6           boot_1.3-20           
+[55] reshape2_1.4.3         codetools_0.2-15       reprex_0.3.0          
+[58] glue_1.4.1             evaluate_0.14          modelr_0.1.8          
+[61] vctrs_0.3.2            nloptr_1.2.2.1         httpuv_1.5.2          
+[64] cellranger_1.1.0       gtable_0.3.0           assertthat_0.2.1      
+[67] xfun_0.8               broom_0.7.0            coda_0.19-3           
+[70] later_1.1.0.1          audio_0.1-5.1          workflowr_1.6.2       
+[73] ellipsis_0.3.1        </code></pre>
 </div>
 </div>
 
@@ -2214,7 +2147,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

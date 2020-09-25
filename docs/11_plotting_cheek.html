@@ -409,7 +409,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-14
+<strong>Last updated:</strong> 2020-09-24
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree75150a36addff1fcd8c3a4f58b044efe93543422targetblank75150a3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/75150a36addff1fcd8c3a4f58b044efe93543422" target="_blank">75150a3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree23ddc30e7a6d410c77697fece5ced7829309c6fetargetblank23ddc30a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/23ddc30e7a6d410c77697fece5ced7829309c6fe" target="_blank">23ddc30</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree75150a36addff1fcd8c3a4f58b044efe93543422targetblank75150a3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree23ddc30e7a6d410c77697fece5ced7829309c6fetargetblank23ddc30a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/75150a36addff1fcd8c3a4f58b044efe93543422" target="_blank">75150a3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/23ddc30e7a6d410c77697fece5ced7829309c6fe" target="_blank">23ddc30</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -518,16 +518,29 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/10_brow_analysis_cache/
     Ignored:    analysis/child_bar_plot.png
     Ignored:    analysis/child_cheek_plot.png
     Ignored:    analysis/child_cheekbin_plot.png
+    Ignored:    analysis/emomodelnobins.png
+    Ignored:    analysis/emotionbymodel.png
+    Ignored:    analysis/emotionbymodelbrow.png
+    Ignored:    analysis/emoxmodelFS.png
+    Ignored:    analysis/emoxmodelFSbrow.png
+    Ignored:    analysis/emoxmodelHA.png
+    Ignored:    analysis/emoxmodelHAbrow.png
+    Ignored:    analysis/modelbyemotion.png
+    Ignored:    analysis/modelbyemotionbrow.png
 
 Untracked files:
-    Untracked:  README2
+    Untracked:  analysis/confidence_interval_test.Rmd
 
 Unstaged changes:
+    Modified:   analysis/10_brow_analysis.Rmd
     Modified:   analysis/11_plotting_cheek.Rmd
-    Modified:   analysis/13_adult_child_analysis.Rmd
+    Modified:   analysis/12_plotting_brow.Rmd
+    Modified:   analysis/9_cheek_analysis.Rmd
+    Modified:   analysis/adult_child_plot_analyses.Rmd
 
 </code></pre>
 <p>
@@ -566,6 +579,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/3a784816e1f7f4e6953f37a718d43b9eb46d71fd/analysis/11_plotting_cheek.Rmd" target="_blank">3a78481</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+Riley noting changes
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/3a784816e1f7f4e6953f37a718d43b9eb46d71fd/docs/11_plotting_cheek.html" target="_blank">3a78481</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+Riley noting changes
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -657,13 +704,14 @@ $ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0.1
 $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
 <p>#CHILD HA CHEEK</p>
 <pre class="r"><code>plot_child_cheek &lt;- df %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+   filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(emotion %in% c(&quot;121&quot;, &quot;323&quot;, &quot;424&quot;, &quot;525&quot;)) %&gt;%
   filter(muscle == &quot;cheek&quot;) %&gt;%
   filter(model == &quot;child&quot;) %&gt;%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
 glimpse(plot_child_cheek)</code></pre>
-<pre><code>Rows: 7,570
+<pre><code>Rows: 15,100
 Columns: 8
 $ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
 $ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
@@ -701,25 +749,25 @@ plot_child_cheek &lt;- plot_child_cheek %&gt;%
 <p>#plot cheek activity</p>
 <pre class="r"><code>plot_data &lt;- plot_child_cheek %&gt;%
   filter(model == &quot;child&quot;) %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+   filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(emotion %in% c(&quot;121&quot;, &quot;323&quot;, &quot;424&quot;, &quot;525&quot;)) %&gt;%
   filter(muscle == &quot;cheek&quot;) %&gt;%
   group_by(emo, time_bin) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey(start = 0.3, end = 0.6) +
+  scale_colour_grey(start = 0.0, end = 0.8) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = &quot;black&quot;, size = 1)) +
-  scale_y_continuous(limits = c(-0.15, 0.2)) +
+  scale_y_continuous(limits = c(-0.2, 0.2)) +
   labs(y = &quot;Mean difference in cheek activity 
 (baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
- easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12)</code></pre>
+ easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot_data)</code></pre>
-<pre><code>Warning: Removed 3 rows containing missing values (geom_errorbar).</code></pre>
 <p><img src="figure/11_plotting_cheek.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
@@ -760,16 +808,15 @@ RileyFerguson
 </div>
 <pre class="r"><code>ggsave(&quot;child_cheek_plot.png&quot;)</code></pre>
 <pre><code>Saving 7 x 5 in image</code></pre>
-<pre><code>Warning: Removed 3 rows containing missing values (geom_errorbar).</code></pre>
 <p>#bar graph</p>
 <p>#read in data</p>
 <pre class="r"><code>plot_child &lt;- df %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
   filter(model == &quot;child&quot;) %&gt;%
-  arrange(pp_no, emotion, muscle, trial, bin)
+  arrange(pp_no, emotion, emo, muscle, trial, bin)
 
 glimpse(plot_child)</code></pre>
-<pre><code>Rows: 15,140
+<pre><code>Rows: 30,200
 Columns: 8
 $ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
 $ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
@@ -781,22 +828,26 @@ $ zdiff   &lt;dbl&gt; -0.66832501, 5.03682881, 0.31704396, 0.52214752, 0.5463474
 $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
 <pre class="r"><code>plot_data &lt;- plot_child %&gt;%
   filter(model == &quot;child&quot;) %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
-  filter(muscle == c(&quot;brow&quot;, &quot;cheek&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(muscle == c(&quot;cheek&quot;, &quot;brow&quot;)) %&gt;%
   group_by(emo, muscle) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
-  ggplot(aes(x = muscle, y = meanZ, fill = emo)) +
+  ggplot(aes(x = emo, y = meanZ, fill = emo)) +
   geom_col(position = &quot;dodge&quot;) +
   theme_apa(base_size = 14) +
-  scale_fill_grey(start = 0.4, end = 0.7) +
+  scale_fill_grey(start = 0.3, end = 0.7) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
   scale_y_continuous(limits = c(-0.1, 0.1)) +
+  facet_wrap(~muscle) +
   labs(y = &quot;Mean z-score difference (RMS) from baseline
-(averaged across bins)&quot;, x = &quot;Muscle&quot;) +
-  easy_x_axis_title_size(size = 12) +
-  easy_y_axis_title_size(size = 12)</code></pre>
+(averaged across bins)&quot;, x = &quot;Emotion&quot;) +
+  easy_remove_legend() +
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14) +
+  easy_x_axis_labels_size(size = 12) +
+  easy_y_axis_labels_size(size = 12)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot_data)</code></pre>
 <p><img src="figure/11_plotting_cheek.Rmd/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -841,13 +892,13 @@ RileyFerguson
 <pre><code>Saving 7 x 5 in image</code></pre>
 <p>#ADULT HA CHEEK</p>
 <pre class="r"><code>plot_adult_cheek &lt;- df %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
   filter(muscle == &quot;cheek&quot;) %&gt;%
   filter(model == &quot;adult&quot;) %&gt;%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
 glimpse(plot_adult_cheek)</code></pre>
-<pre><code>Rows: 7,770
+<pre><code>Rows: 15,640
 Columns: 8
 $ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
 $ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
@@ -882,10 +933,10 @@ plot_adult_cheek &lt;- plot_adult_cheek %&gt;%
                               &quot;diff_bin8&quot; = &quot;800&quot;,
                               &quot;diff_bin9&quot; = &quot;900&quot;,
                               &quot;diff_bin10&quot; = &quot;1000&quot;, .default = &quot;NA&quot;))</code></pre>
-<p>#plot adult cheek for happy and angry</p>
+<p>#plot adult cheek</p>
 <pre class="r"><code>plot_data &lt;- plot_adult_cheek %&gt;%
   filter(model == &quot;adult&quot;) %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
   filter(muscle == &quot;cheek&quot;) %&gt;%
   group_by(emo, time_bin) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
@@ -894,14 +945,14 @@ plot_adult_cheek &lt;- plot_adult_cheek %&gt;%
   geom_line() +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
-  scale_colour_grey(start = 0.3, end = 0.6) +
+  scale_colour_grey(start = 0.0, end = 0.8) +
   theme_apa() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
   scale_y_continuous(limits = c(-0.15, 0.25)) + 
   labs(y = &quot;Mean difference in cheek activity 
-(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation (ms)&quot;) +
-easy_x_axis_title_size(size = 12) +
-easy_y_axis_title_size(size = 12)</code></pre>
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+easy_x_axis_title_size(size = 14) +
+easy_y_axis_title_size(size = 14)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot_data)</code></pre>
 <pre><code>Warning: Removed 1 rows containing missing values (geom_errorbar).</code></pre>
@@ -943,82 +994,71 @@ RileyFerguson
 </table>
 </div>
 </div>
-<pre class="r"><code>plot_adult &lt;- df %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+<pre class="r"><code>plot_data &lt;- plot_adult_cheek %&gt;%
   filter(model == &quot;adult&quot;) %&gt;%
-  arrange(pp_no, emotion, muscle, trial, bin)
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(muscle == &quot;cheek&quot;) %&gt;%
+  group_by(emo, time_bin) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  scale_colour_grey(start = 0.0, end = 0.6) +
+  theme_apa() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.15, 0.4)) + 
+  labs(y = &quot;Mean difference in cheek activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+easy_x_axis_title_size(size = 14) +
+easy_y_axis_title_size(size = 14)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>print(plot_data)</code></pre>
+<p><img src="figure/11_plotting_cheek.Rmd/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggsave(&quot;happyangryadult.png&quot;)</code></pre>
+<pre><code>Saving 7 x 5 in image</code></pre>
+<pre class="r"><code>plot_adult &lt;- df %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(model == &quot;adult&quot;) %&gt;%
+  arrange(pp_no, emotion, emo, muscle, trial, bin)
 
-glimpse(plot_child)</code></pre>
-<pre><code>Rows: 15,140
+glimpse(plot_adult)</code></pre>
+<pre><code>Rows: 31,280
 Columns: 8
 $ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
-$ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
-$ emotion &lt;fct&gt; 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 1…
+$ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
+$ emotion &lt;fct&gt; 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 1…
 $ trial   &lt;fct&gt; trial1, trial1, trial1, trial1, trial1, trial1, trial1, trial…
 $ muscle  &lt;fct&gt; brow, brow, brow, brow, brow, brow, brow, brow, brow, brow, b…
 $ bin     &lt;fct&gt; diff_bin1, diff_bin10, diff_bin2, diff_bin3, diff_bin4, diff_…
-$ zdiff   &lt;dbl&gt; -0.66832501, 5.03682881, 0.31704396, 0.52214752, 0.54634740, …
+$ zdiff   &lt;dbl&gt; 0.13399249, -0.67234414, 0.03430089, -0.12614560, -0.19859639…
 $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
 <pre class="r"><code>plot_data &lt;- plot_adult %&gt;%
   filter(model == &quot;adult&quot;) %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
-  filter(muscle == c(&quot;brow&quot;, &quot;cheek&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(muscle == c(&quot;cheek&quot;, &quot;brow&quot;)) %&gt;%
   group_by(emo, muscle) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
-  ggplot(aes(x = muscle, y = meanZ, fill = emo)) +
+  ggplot(aes(x = emo, y = meanZ, fill = emo)) +
   geom_col(position = &quot;dodge&quot;) +
   theme_apa(base_size = 14) +
-  scale_fill_grey(start = 0.4, end = 0.7) +
+  scale_fill_grey(start = 0.3, end = 0.7) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .5, width = .4, position = position_dodge(.9)) +
   theme_classic() +
+  facet_wrap(~muscle) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
   scale_y_continuous(limits = c(-0.1, 0.1)) +
   labs(y = &quot;Mean z-score difference (RMS) from baseline
-(averaged across bins)&quot;, x = &quot;Muscle&quot;) +
-  easy_x_axis_title_size(size = 12) +
-easy_y_axis_title_size(size = 12) +
-easy_y_axis_labels_size(size = 12)</code></pre>
+(averaged across bins)&quot;, x = &quot;Emotion&quot;) +
+    easy_remove_legend() +
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14) +
+  easy_x_axis_labels_size(size = 12) +
+  easy_y_axis_labels_size(size = 12)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot_data)</code></pre>
-<pre><code>Warning: Removed 1 rows containing missing values (geom_errorbar).</code></pre>
-<p><img src="figure/11_plotting_cheek.Rmd/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-17-1">
-Past versions of unnamed-chunk-17-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-17-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/11_plotting_cheek.Rmd/unnamed-chunk-17-1.png" target="_blank">75150a3</a>
-</td>
-<td>
-RileyFerguson
-</td>
-<td>
-2020-09-14
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="figure/11_plotting_cheek.Rmd/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1046,7 +1086,7 @@ other attached packages:
  [5] broom.mixed_0.2.6  lmerTest_3.1-2     lme4_1.1-23        Matrix_1.2-18     
  [9] here_0.1           forcats_0.4.0      stringr_1.4.0      dplyr_1.0.0       
 [13] purrr_0.3.4        readr_1.3.1        tidyr_1.1.0        tibble_3.0.3      
-[17] ggplot2_3.2.1      tidyverse_1.3.0    workflowr_1.6.2   
+[17] ggplot2_3.2.1      tidyverse_1.3.0   
 
 loaded via a namespace (and not attached):
  [1] nlme_3.1-142        fs_1.3.1            httr_1.4.1         
@@ -1072,7 +1112,7 @@ loaded via a namespace (and not attached):
 [61] nloptr_1.2.2.2      httpuv_1.5.2        cellranger_1.1.0   
 [64] gtable_0.3.0        assertthat_0.2.1    xfun_0.15          
 [67] broom_0.7.0.9001    coda_0.19-3         later_1.0.0        
-[70] statmod_1.4.34      ellipsis_0.3.1     </code></pre>
+[70] workflowr_1.6.2     statmod_1.4.34      ellipsis_0.3.1     </code></pre>
 </div>
 </div>
 

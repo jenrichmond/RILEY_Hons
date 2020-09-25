@@ -13,6 +13,7 @@ library(broom.mixed)
 library(pixiedust)
 library(beepr)
 library(ggplot2) 
+library(knitr)
 
 knitr::opts_chunk$set(autodep = TRUE)
 ```
@@ -44,20 +45,21 @@ df <- df %>% mutate_if(is.character, as.factor)
 glimpse(df)
 ```
 
-# CHEEK happy-angry child
+# CHEEK child
 
 ### Make cheek HA child df 
 
-just happy/angry child face for cheek
+child face for cheek
 
 ```{r}
-HA_child_cheek <- df %>%
-  filter(emo %in% c("happy", "angry")) %>%
+child_cheek <- df %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("121", "323", "424", "525")) %>%
   filter(muscle == "cheek") %>%
   filter(model == "child") %>%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
-glimpse(HA_child_cheek)
+glimpse(child_cheek)
 
 ```
 
@@ -65,13 +67,15 @@ Fix factor levels
 
 ```{r}
 
-HA_child_cheek$emo <- fct_relevel(HA_child_cheek$emo, c("happy", "angry"))
+child_cheek$emo <- fct_relevel(child_cheek$emo, c("happy", "angry", "fear", "sad"))
 
-levels(HA_child_cheek$emo)
+child_cheek$emotion <- fct_relevel(child_cheek$emotion, c("121", "323", "424", "525"))
 
-HA_child_cheek$bin <- fct_relevel(HA_child_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+levels(child_cheek$emo)
 
-levels(HA_child_cheek$bin)
+child_cheek$bin <- fct_relevel(child_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(child_cheek$bin)
 ```
 
 ## Model 1 (intercepts only)
@@ -80,7 +84,7 @@ levels(HA_child_cheek$bin)
 This model predicts Zdiff from fixed effects of emotion (happy, angry), bin (1-10), and emotion x bin interaction. It includes random intercepts for participant (accounting for the potential of some kids to just have more active faces than others) and random intercepts for trials (accounting for the possibiity that face activation differs across the the 10 trials). No slopes are included. 
 
 ```{r cache = TRUE}
-child_cheek_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no) + (1|trial), data = HA_child_cheek, REML = FALSE)
+child_cheek_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no) + (1|trial), data = child_cheek, REML = FALSE)
 ```
 
 
@@ -100,16 +104,16 @@ log modulus - transforms the absolute value (without the -) and then puts the si
 
 
 ```{r}
-HA_child_cheek <- HA_child_cheek %>%
+child_cheek <- child_cheek %>%
   mutate(log_modulus = sign(zdiff) * log(1+abs(zdiff)))
 
-glimpse(HA_child_cheek)
+glimpse(child_cheek)
 ```
 
 ### try fit model again
 
 ```{r cache = TRUE}
-child_cheek_lm_1 <- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_cheek, REML = FALSE)
+child_cheek_lm_1 <- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = child_cheek, REML = FALSE)
 
 ```
 
@@ -148,12 +152,15 @@ tidy_child_cheek1 <- tidy(child_cheek_lm_1)
 ## Model 2 (slopes for emotion)
 
 ```{r}
-child_cheek_lm_2 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = HA_child_cheek, REML = FALSE)
+child_cheek_lm_2 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = child_cheek, REML = FALSE)
 ```
+
 #get anova, summary and tidy 
 
 ```{r}
-anova(child_cheek_lm_2)
+aov_output2 <- anova(child_cheek_lm_2)
+
+kable(aov_output2, digits = 3)
 ```
 
 ```{r}
@@ -183,16 +190,17 @@ model take away - the addition of a slope for emotion improves model fit
 ## model 3 (slopes for emotion and bin ) 
 
 ```{r eval = FALSE}
-child_cheek_lm_3 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_child_cheek, REML = FALSE)
+child_cheek_lm_3 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = child_cheek, REML = FALSE)
 ```
 
 model 3 fails to converge - thus, model 2 provides the best fit for the data
-
 
 #### get confidence intervals
 ```{r cache = TRUE}
 confint.merMod(child_cheek_lm_2, level = 0.95)
 ```
+
+
 
 ```{r}
 child_really_nice_table <- dust(child_cheek_lm_2) %>%
@@ -210,16 +218,17 @@ child_really_nice_table
 ```
 
 
-# CHEEK happy-angry adult
+# CHEEK adult
 
 ```{r}
-HA_adult_cheek <- df %>%
-  filter(emo %in% c("happy", "angry")) %>%
+adult_cheek <- df %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("131", "232", "434", "535")) %>%
   filter(muscle == "cheek") %>%
   filter(model == "adult") %>%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
-glimpse(HA_adult_cheek)
+glimpse(adult_cheek)
 
 ```
 
@@ -228,18 +237,20 @@ glimpse(HA_adult_cheek)
 ### fix factor levels 
 
 ```{r}
-HA_adult_cheek$emo <- fct_relevel(HA_adult_cheek$emo, c("happy", "angry"))
+adult_cheek$emo <- fct_relevel(adult_cheek$emo, c("happy", "angry", "fear", "sad"))
 
-levels(HA_adult_cheek$emo)
+adult_cheek$emotion <- fct_relevel(adult_cheek$emotion, c("131", "232", "434", "535"))
 
-HA_adult_cheek$bin <- fct_relevel(HA_adult_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+levels(adult_cheek$emo)
 
-levels(HA_adult_cheek$bin)
+adult_cheek$bin <- fct_relevel(adult_cheek$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+
+levels(adult_cheek$bin)
 ```
 ## Model 1
 
 ```{r}
-adult_cheek_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
+adult_cheek_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = adult_cheek, REML = FALSE)
 ```
 
 
@@ -256,14 +267,14 @@ qqline(resid(adult_cheek_lm))
 ### compute log_modulus
 
 ```{r}
-HA_adult_cheek <- HA_adult_cheek %>%
+adult_cheek <- adult_cheek %>%
   mutate(log_modulus = sign(zdiff) * log(1+abs(zdiff)))
 ```
 
 ### try fit model again
 
 ```{r}
-adult_cheek_lm_1 <- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_cheek, REML = FALSE)
+adult_cheek_lm_1 <- lmer(log_modulus ~ emo + bin + emo*bin + (1|pp_no), data = adult_cheek, REML = FALSE)
 
 ```
 
@@ -292,16 +303,20 @@ tidy_adult_cheek1 <- tidy(adult_cheek_lm_1)
 
 ## model 2 (slope for emotion)
 ```{r}
-adult_cheek_lm_2 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = HA_adult_cheek, REML = FALSE)
+adult_cheek_lm_2 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo|pp_no) , data = adult_cheek, REML = FALSE)
 ```
 
 
 ### get anova, summary and tidy 
 ```{r}
-anova(adult_cheek_lm_2)
+aov_output3 <- anova(adult_cheek_lm_2)
+
+kable(aov_output3, digits = 3)
 ```
+
 ```{r}
 summary(adult_cheek_lm_2)
+
 ```
 
 ```{r}
@@ -325,7 +340,7 @@ model take away - the addition of a slope for emotion improves model fit
 ## model 3
 
 ```{r eval = FALSE}
-adult_cheek_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_adult_cheek, REML = FALSE)
+adult_cheek_lm_3 <- lmer(log_modulus ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = adult_cheek, REML = FALSE)
 ```
 
 # model take home

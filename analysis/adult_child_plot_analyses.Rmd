@@ -17,6 +17,7 @@ library(ggplot2)
 library(ggeasy)
 library(dplyr)
 library(papaja)
+library(knitr)
 ```
 
 Goal here is to work out whether it is possible to compare responses to child and adult faces i.e. to include model in the model. 
@@ -112,6 +113,47 @@ tidy_cheek1 <- tidy(cheek_lm_1)
 ```
 
 
+```{r}
+aov_output <- anova(cheek_lm_1)
+
+nice_aov <- dust(aov_output) %>%
+  sprinkle(col = 1:6, round = 3, pad = 15, halign = "center", valign = "middle") %>% 
+  sprinkle(col = 6, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+   sprinkle_print_method("html") 
+
+nice_aov
+```
+
+
+```{r}
+anova(cheek_lm_1)
+
+kable(aov_output, digits = 3)
+```
+
+#get confidence intervals 
+```{r cache = TRUE}
+confint.merMod(cheek_lm_1, level = 0.95)
+```
+
+
+```{r}
+really_nice_table <- dust(cheek_lm_1) %>%
+  sprinkle(col = 4:7, round = 3, pad = 15, halign = "center", valign = "middle") %>%
+  sprinkle(col = 8, fn = quote(pvalString(value)), halign = "center", valign = "middle") %>%
+  sprinkle_colnames(term = "Term", 
+                    estimate = "Estimate", 
+                    std.error = "SE",
+                    statistic = "t statistic", 
+                    p.value = "P-value")  %>%
+  sprinkle(bg_pattern_by = "rows") %>%
+    sprinkle_print_method("html") 
+
+really_nice_table
+```
+
+
+
 # CHEEK plots 
 
 ### plot cheek data for all emo 
@@ -157,7 +199,7 @@ cplot1 <- cheek_plot %>%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey(start = 0.2, end = 0.6) +
+  scale_colour_grey(start = 0.1, end = 0.7) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black", size = 1)) +
@@ -165,8 +207,8 @@ cplot1 <- cheek_plot %>%
   scale_y_continuous(limits = c(-0.15, 0.25)) +
   labs(title = "cheek", y = "Mean difference in muscle activity 
 (baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
- easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12) 
+ easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14) 
 
 print(cplot1)
 
@@ -191,7 +233,7 @@ cplot2 <- cheek_plot %>%
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black", size = 1)) +
   facet_wrap(~model) +
-  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  scale_y_continuous(limits = c(-0.15, 0.3)) +
   labs(title = "cheek", y = "Mean difference in muscle activity 
 (baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
  easy_x_axis_title_size(size = 12) +
@@ -244,15 +286,15 @@ cplot4 <- cheek_plot %>%
   ggplot(aes(x = emo, y = meanZ, fill = model)) +
   geom_col(position = "dodge") +
   theme_apa(base_size = 14) +
-  scale_fill_grey(start = 0.2, end = 0.9) +
+  scale_fill_grey(start = 0.3, end = 0.9) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  "black", size = 1)) +
   scale_y_continuous(limits = c(-0.1, 0.1)) +
   labs(title = "cheek", y = "Mean z-score difference (RMS) from baseline
 (averaged across bins)", x = "Emotion") +
-  easy_x_axis_title_size(size = 12) +
-  easy_y_axis_title_size(size = 12)
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14)
 
 cplot4 
 
@@ -261,18 +303,23 @@ cplot5 <- cheek_plot %>%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), 
             sd_RMS = sd(zdiff, na.rm = TRUE), 
             n = n(), stderr = sd_RMS/sqrt(n)) %>%
-  ggplot(aes(x = model, y = meanZ, fill = emo)) +
+  ggplot(aes(x = emo, y = meanZ, fill = emo)) +
   geom_col(position = "dodge") +
   theme_apa(base_size = 14) +
-  scale_fill_grey(start = 0.2, end = 0.9) +
+  scale_fill_grey(start = 0.3, end = 0.9) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
   theme_classic() +
+  facet_wrap(~model) +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  "black", size = 1)) +
   scale_y_continuous(limits = c(-0.1, 0.1)) +
-  labs(y = "Mean z-score difference (RMS) from baseline
+  labs(title = "Cheek", y = "Mean z-score difference (RMS) from baseline
 (averaged across bins)", x = "Emotion") +
-  easy_x_axis_title_size(size = 12) +
-  easy_y_axis_title_size(size = 12)
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14) +
+  easy_remove_legend() +
+  easy_x_axis_labels_size(size = 12) +
+  easy_y_axis_labels_size(size = 12)
+  
 
 cplot5
   
@@ -284,7 +331,6 @@ ggsave("emomodelnobins.png")
 
 Eyeballing CHEEK output. Looks like we have significant bin differences late in the trial (bin8, bin9, bin10) and sig emotion x bin differences late in the trial (bin8 and bin9) for angry. Which makes sense when you look at the plot.
 
-Riley--- what happened to the error bar at bin 9 adult?? can you check it out?
 
 
 ```{r}
@@ -312,8 +358,8 @@ cplot6 <- cheek_plot %>%
   scale_y_continuous(limits = c(-0.15, 0.25)) +
   labs(title = "cheek", y = "Mean difference in muscle activity 
 (baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
- easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12) 
+ easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14) 
 
 cplot6
 ```
@@ -397,6 +443,9 @@ summary(brow_lm_1)
 tidy_brow1 <- tidy(brow_lm_1)
 ```
 
+```{r}
+anova(brow_lm_1)
+```
 
 
 # plot brow 
@@ -443,16 +492,16 @@ bplot1 <- brow_plot %>%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey(start = 0.2, end = 0.6) +
+  scale_colour_grey(start = 0.1, end = 0.7) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour = "black", size = 1)) +
   facet_wrap(~model) +
   scale_y_continuous(limits = c(-0.15, 0.25)) +
-  labs(title = "brow", y = "Mean difference in muscle activity 
+  labs(title = "Brow", y = "Mean difference in muscle activity 
 (baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
- easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12) 
+ easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14) 
 
 print(bplot1)
 
@@ -536,9 +585,9 @@ ggsave("emoxmodelFSbrow.png")
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  "black", size = 1)) +
   scale_y_continuous(limits = c(-0.1, 0.1)) +
   labs(title = "brow", y = "Mean z-score difference (RMS) from baseline
-(averaged across bins)", x = "Model age") +
-  easy_x_axis_title_size(size = 12) +
-  easy_y_axis_title_size(size = 12)
+(averaged across bins)", x = "Emotion") +
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14)
 
 bplot4 
 
@@ -547,7 +596,7 @@ bplot5 <- brow_plot %>%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), 
             sd_RMS = sd(zdiff, na.rm = TRUE), 
             n = n(), stderr = sd_RMS/sqrt(n)) %>%
-  ggplot(aes(x = model, y = meanZ, fill = emo)) +
+  ggplot(aes(x = emo, y = meanZ, fill = emo)) +
   geom_col(position = "dodge") +
   theme_apa(base_size = 14) +
   scale_fill_grey(start = 0.2, end = 0.9) +
@@ -555,10 +604,12 @@ bplot5 <- brow_plot %>%
   theme_classic() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =  "black", size = 1)) +
   scale_y_continuous(limits = c(-0.1, 0.1)) +
-  labs(title = "brow", y = "Mean z-score difference (RMS) from baseline
-(averaged across bins)", x = "Model age") +
-  easy_x_axis_title_size(size = 12) +
-  easy_y_axis_title_size(size = 12)
+  facet_wrap(~model) +
+  labs(title = "Brow", y = "Mean z-score difference (RMS) from baseline
+(averaged across bins)", x = "Emotion") +
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14) +
+  easy_remove_legend()
  
 bplot5
 
@@ -578,7 +629,7 @@ A: no, effect for model 1 and 2 are the same. The only sig effect is fear:bin3, 
 
 
 ```{r}
-summary(brow_lm_2)
+summary(brow_lm_1)
 ```
 
 Does that fear > happy at bin3 make sense from the plot?? 

@@ -409,7 +409,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-12
+<strong>Last updated:</strong> 2020-09-24
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -433,7 +433,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -500,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree23ddc30e7a6d410c77697fece5ced7829309c6fetargetblank23ddc30a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jenrichmond/RILEY_Hons/tree/23ddc30e7a6d410c77697fece5ced7829309c6fe" target="_blank">23ddc30</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstreea2580168e5baee3aaa264662c160d150303a4fb7targetblanka258016a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjenrichmondRILEYHonstree23ddc30e7a6d410c77697fece5ced7829309c6fetargetblank23ddc30a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/a2580168e5baee3aaa264662c160d150303a4fb7" target="_blank">a258016</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jenrichmond/RILEY_Hons/tree/23ddc30e7a6d410c77697fece5ced7829309c6fe" target="_blank">23ddc30</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -518,28 +518,32 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/10_brow_analysis_cache/
     Ignored:    analysis/child_bar_plot.png
     Ignored:    analysis/child_cheek_plot.png
     Ignored:    analysis/child_cheekbin_plot.png
+    Ignored:    analysis/emomodelnobins.png
+    Ignored:    analysis/emotionbymodel.png
+    Ignored:    analysis/emotionbymodelbrow.png
+    Ignored:    analysis/emoxmodelFS.png
+    Ignored:    analysis/emoxmodelFSbrow.png
+    Ignored:    analysis/emoxmodelHA.png
+    Ignored:    analysis/emoxmodelHAbrow.png
+    Ignored:    analysis/modelbyemotion.png
+    Ignored:    analysis/modelbyemotionbrow.png
 
 Untracked files:
-    Untracked:  analysis/11_plotting_cheek.Rmd
-    Untracked:  analysis/12_plotting_brow.Rmd
-    Untracked:  analysis/13_adult_child_analysis.Rmd
-    Untracked:  analysis/14_plotting_adult_child.Rmd
-    Untracked:  analysis/testing_zscore.Rmd
-    Untracked:  child_bar_plot.png
-    Untracked:  child_cheek_plot.png
-    Untracked:  data/adult_child_combined/zdiff_binscreened2.csv
+    Untracked:  analysis/confidence_interval_test.Rmd
+    Untracked:  happyangryadult.png
 
 Unstaged changes:
     Modified:   analysis/10_brow_analysis.Rmd
-    Modified:   analysis/4_clean_baseline.Rmd
-    Modified:   analysis/5_calculating_zscores.Rmd
-    Modified:   analysis/6_bin_outliers.Rmd
-    Modified:   analysis/7_plotting.Rmd
-    Modified:   analysis/8_analysing.Rmd
+    Modified:   analysis/11_plotting_cheek.Rmd
+    Modified:   analysis/12_plotting_brow.Rmd
     Modified:   analysis/9_cheek_analysis.Rmd
+    Modified:   analysis/adult_child_plot_analyses.Rmd
+    Modified:   child_bar_plot.png
+    Modified:   child_cheek_plot.png
 
 </code></pre>
 <p>
@@ -552,9 +556,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/12_plotting_brow.Rmd</code>) and HTML (<code>docs/12_plotting_brow.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/analysis/12_plotting_brow.Rmd" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+riley updating
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jenrichmond/RILEY_Hons/75150a36addff1fcd8c3a4f58b044efe93543422/docs/12_plotting_brow.html" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+riley updating
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -605,13 +669,14 @@ $ zdiff   &lt;dbl&gt; 0.133992486, -0.672344142, 0.034300886, -0.126145600, -0.1
 $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
 <p>#CHILD HA BROW</p>
 <pre class="r"><code>plot_child_brow &lt;- df %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(emotion %in% c(&quot;121&quot;, &quot;323&quot;, &quot;424&quot;, &quot;525&quot;)) %&gt;%
   filter(muscle == &quot;brow&quot;) %&gt;%
   filter(model == &quot;child&quot;) %&gt;%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
 glimpse(plot_child_brow)</code></pre>
-<pre><code>Rows: 7,570
+<pre><code>Rows: 15,100
 Columns: 8
 $ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
 $ model   &lt;fct&gt; child, child, child, child, child, child, child, child, child…
@@ -623,6 +688,8 @@ $ zdiff   &lt;dbl&gt; -0.66832501, 5.03682881, 0.31704396, 0.52214752, 0.5463474
 $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, happy…</code></pre>
 <p>#make sure it is only the relevant emotions</p>
 <pre class="r"><code>plot_child_brow$emo &lt;- fct_relevel(plot_child_brow$emo, c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;))
+
+plot_child_brow$emotion &lt;- fct_relevel(plot_child_brow$emotion, c(&quot;121&quot;, &quot;323&quot;, &quot;424&quot;, &quot;525&quot;))
 
 levels(plot_child_brow$emo)</code></pre>
 <pre><code>[1] &quot;happy&quot; &quot;angry&quot; &quot;fear&quot;  &quot;sad&quot;  </code></pre>
@@ -649,14 +716,15 @@ plot_child_brow &lt;- plot_child_brow %&gt;%
 <p>#plot brow activity</p>
 <pre class="r"><code>plot_data &lt;- plot_child_brow %&gt;%
   filter(model == &quot;child&quot;) %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(emotion %in% c(&quot;121&quot;, &quot;323&quot;, &quot;424&quot;, &quot;525&quot;)) %&gt;%
   filter(muscle == &quot;brow&quot;) %&gt;%
-  group_by(emo, time_bin) %&gt;%
+  group_by(emo, time_bin, emotion) %&gt;%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey(start = 0.3, end = 0.6) +
+  scale_colour_grey(start = 0.0, end = 0.8) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
   theme_apa(base_size = 14) +
@@ -664,20 +732,80 @@ plot_child_brow &lt;- plot_child_brow %&gt;%
   scale_y_continuous(limits = c(-0.15, 0.25)) +
   labs(y = &quot;Mean difference in brow activity 
 (baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
-  easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12)</code></pre>
-<pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
+  easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;emo&#39;, &#39;time_bin&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot_data)</code></pre>
 <p><img src="figure/12_plotting_brow.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>#adult HA BROW</p>
-<pre class="r"><code>plot_adult_brow &lt;- df %&gt;%
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/jenrichmond/RILEY_Hons/blob/75150a36addff1fcd8c3a4f58b044efe93543422/docs/figure/12_plotting_brow.Rmd/unnamed-chunk-7-1.png" target="_blank">75150a3</a>
+</td>
+<td>
+RileyFerguson
+</td>
+<td>
+2020-09-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre class="r"><code>plot_data &lt;- plot_child_brow %&gt;%
+  filter(model == &quot;child&quot;) %&gt;%
   filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emotion %in% c(&quot;121&quot;, &quot;323&quot;)) %&gt;%
   filter(muscle == &quot;brow&quot;) %&gt;%
+  group_by(emo, time_bin, emotion) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.0, end = 0.8) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme_apa(base_size = 14) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = &quot;Mean difference in brow activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+  easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;emo&#39;, &#39;time_bin&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>print(plot_data)</code></pre>
+<p><img src="figure/12_plotting_brow.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>#adult BROW</p>
+<pre class="r"><code>plot_adult_brow &lt;- df %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(emotion %in% c(&quot;131&quot;, &quot;232&quot;, &quot;434&quot;, &quot;535&quot;)) %&gt;%
   filter(model == &quot;adult&quot;) %&gt;%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, muscle, trial, bin)
 
 glimpse(plot_adult_brow)</code></pre>
-<pre><code>Rows: 7,770
+<pre><code>Rows: 31,280
 Columns: 8
 $ pp_no   &lt;fct&gt; pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401, pp401…
 $ model   &lt;fct&gt; adult, adult, adult, adult, adult, adult, adult, adult, adult…
@@ -692,7 +820,9 @@ $ emo     &lt;fct&gt; happy, happy, happy, happy, happy, happy, happy, happy, ha
 
 levels(plot_adult_brow$emo)</code></pre>
 <pre><code>[1] &quot;happy&quot; &quot;angry&quot; &quot;fear&quot;  &quot;sad&quot;  </code></pre>
-<pre class="r"><code>plot_adult_brow$bin &lt;- fct_relevel(plot_adult_brow$bin, c(&quot;diff_bin1&quot;, &quot;diff_bin2&quot;, &quot;diff_bin3&quot;, &quot;diff_bin4&quot;, &quot;diff_bin5&quot;, &quot;diff_bin6&quot;, &quot;diff_bin7&quot;, &quot;diff_bin8&quot;, &quot;diff_bin9&quot;, &quot;diff_bin10&quot;))
+<pre class="r"><code>plot_adult_brow$emotion &lt;- fct_relevel(plot_adult_brow$emotion, c(&quot;131&quot;, &quot;232&quot;, &quot;434&quot;, &quot;535&quot;))
+
+plot_adult_brow$bin &lt;- fct_relevel(plot_adult_brow$bin, c(&quot;diff_bin1&quot;, &quot;diff_bin2&quot;, &quot;diff_bin3&quot;, &quot;diff_bin4&quot;, &quot;diff_bin5&quot;, &quot;diff_bin6&quot;, &quot;diff_bin7&quot;, &quot;diff_bin8&quot;, &quot;diff_bin9&quot;, &quot;diff_bin10&quot;))
 
 levels(plot_adult_brow$bin)</code></pre>
 <pre><code> [1] &quot;diff_bin1&quot;  &quot;diff_bin2&quot;  &quot;diff_bin3&quot;  &quot;diff_bin4&quot;  &quot;diff_bin5&quot; 
@@ -715,24 +845,51 @@ plot_adult_brow &lt;- plot_adult_brow %&gt;%
 <p>#plot brow activity</p>
 <pre class="r"><code>plot_data &lt;- plot_adult_brow %&gt;%
   filter(model == &quot;adult&quot;) %&gt;%
-  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;)) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
+  filter(muscle == c(&quot;cheek&quot;, &quot;brow&quot;)) %&gt;%
+  group_by(emo, muscle) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
+  ggplot(aes(x = emo, y = meanZ, fill = emo)) +
+  geom_col(position = &quot;dodge&quot;) +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.3, end = 0.7) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  facet_wrap(~muscle) +
+  labs(y = &quot;Mean z-score difference (RMS) from baseline
+(averaged across bins)&quot;, x = &quot;Emotion&quot;) +
+  easy_remove_legend() +
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14) +
+  easy_x_axis_labels_size(size = 12) +
+  easy_y_axis_labels_size(size = 12)</code></pre>
+<pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
+<pre class="r"><code>print(plot_data)</code></pre>
+<p><img src="figure/12_plotting_brow.Rmd/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>plot_data &lt;- plot_adult_brow %&gt;%
+  filter(model == &quot;adult&quot;) %&gt;%
+  filter(emo %in% c(&quot;happy&quot;, &quot;angry&quot;, &quot;fear&quot;, &quot;sad&quot;)) %&gt;%
   filter(muscle == &quot;brow&quot;) %&gt;%
   group_by(emo, time_bin) %&gt;%
-  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd = sd(zdiff, na.rm = TRUE)) %&gt;%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %&gt;%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey() +
-  geom_errorbar(aes(ymin = meanZ-sd, ymax = meanZ+sd)) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
-  scale_fill_grey(start = 0.40, end = 0.6) +
+  scale_colour_grey(start = 0.0, end = 0.8) +
   theme_apa() +
-  scale_y_continuous(limits = c(-0.15, 0.25)) +
-  labs(y = &quot;mean difference in cheek activity (baseline corrected z-score)&quot;, x = &quot;time post-stimulus presentation (ms)&quot;)</code></pre>
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    &quot;black&quot;, size = 1)) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) + 
+  labs(y = &quot;Mean difference in brow activity 
+(baseline corrected z-score)&quot;, x = &quot;Time post-stimulus presentation onset (ms)&quot;) +
+easy_x_axis_title_size(size = 14) +
+easy_y_axis_title_size(size = 14)</code></pre>
 <pre><code>`summarise()` regrouping output by &#39;emo&#39; (override with `.groups` argument)</code></pre>
 <pre class="r"><code>print(plot_data)</code></pre>
-<pre><code>Warning: Removed 20 rows containing missing values (geom_errorbar).</code></pre>
-<p><img src="figure/12_plotting_brow.Rmd/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/12_plotting_brow.Rmd/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -762,21 +919,21 @@ other attached packages:
 [13] tidyverse_1.3.0   
 
 loaded via a namespace (and not attached):
- [1] tidyselect_1.1.0 xfun_0.15        haven_2.2.0      colorspace_1.4-1
- [5] vctrs_0.3.1      generics_0.0.2   htmltools_0.5.0  yaml_2.2.1      
- [9] utf8_1.1.4       rlang_0.4.7      later_1.0.0      pillar_1.4.6    
-[13] withr_2.1.2      glue_1.4.1       DBI_1.1.0        dbplyr_1.4.2    
-[17] modelr_0.1.5     readxl_1.3.1     lifecycle_0.2.0  munsell_0.5.0   
-[21] gtable_0.3.0     workflowr_1.6.2  cellranger_1.1.0 rvest_0.3.5     
-[25] evaluate_0.14    labeling_0.3     knitr_1.29       httpuv_1.5.2    
-[29] fansi_0.4.1      broom_0.7.0.9001 Rcpp_1.0.5       promises_1.1.0  
-[33] backports_1.1.8  scales_1.1.0     jsonlite_1.7.0   farver_2.0.3    
-[37] fs_1.3.1         hms_0.5.3        digest_0.6.25    stringi_1.4.6   
-[41] grid_3.6.2       rprojroot_1.3-2  cli_2.0.2        tools_3.6.2     
-[45] magrittr_1.5     lazyeval_0.2.2   crayon_1.3.4     pkgconfig_2.0.3 
-[49] ellipsis_0.3.1   xml2_1.2.2       reprex_0.3.0     lubridate_1.7.4 
-[53] assertthat_0.2.1 rmarkdown_2.3    httr_1.4.1       rstudioapi_0.11 
-[57] R6_2.4.1         git2r_0.27.1     compiler_3.6.2  </code></pre>
+ [1] Rcpp_1.0.5       lubridate_1.7.4  assertthat_0.2.1 rprojroot_1.3-2 
+ [5] digest_0.6.25    utf8_1.1.4       R6_2.4.1         cellranger_1.1.0
+ [9] backports_1.1.8  reprex_0.3.0     evaluate_0.14    httr_1.4.1      
+[13] pillar_1.4.6     rlang_0.4.7      lazyeval_0.2.2   readxl_1.3.1    
+[17] rstudioapi_0.11  whisker_0.4      rmarkdown_2.3    labeling_0.3    
+[21] munsell_0.5.0    broom_0.7.0.9001 compiler_3.6.2   httpuv_1.5.2    
+[25] modelr_0.1.5     xfun_0.15        pkgconfig_2.0.3  htmltools_0.5.0 
+[29] tidyselect_1.1.0 workflowr_1.6.2  fansi_0.4.1      crayon_1.3.4    
+[33] dbplyr_1.4.2     withr_2.1.2      later_1.0.0      grid_3.6.2      
+[37] jsonlite_1.7.0   gtable_0.3.0     lifecycle_0.2.0  DBI_1.1.0       
+[41] git2r_0.27.1     magrittr_1.5     scales_1.1.0     cli_2.0.2       
+[45] stringi_1.4.6    farver_2.0.3     fs_1.3.1         promises_1.1.0  
+[49] xml2_1.2.2       ellipsis_0.3.1   generics_0.0.2   vctrs_0.3.1     
+[53] tools_3.6.2      glue_1.4.1       hms_0.5.3        yaml_2.2.1      
+[57] colorspace_1.4-1 rvest_0.3.5      knitr_1.29       haven_2.2.0     </code></pre>
 </div>
 </div>
 

@@ -23,8 +23,6 @@ df <- read_csv(here::here("data", "adult_child_combined", "zdiff_binscreened2.cs
 ```
 
 
-
-
 # fix data types
 
 The emotion variable below is numbers so not sure how the emotion %in% c(happy, angry) was working. Add emo variable with emotion labels
@@ -34,7 +32,7 @@ df$emotion <- as.factor(df$emotion)
 levels(df$emotion)
 
 df <- df %>%
-  mutate(emo = case_when(emotion == 121 ~ "happy", 
+mutate(emo = case_when(emotion == 121 ~ "happy", 
                               emotion == 323 ~ "angry", 
                               emotion == 424 ~ "fear", 
                               emotion == 525 ~ "sad", 
@@ -50,20 +48,21 @@ glimpse(df)
 
 
 
-# BROW happy-angry child
+# BROW  child
 
-### Make brow HA child df 
+### Make brow child df 
 
 just happy/angry child face for cheek
 
 ```{r}
-HA_child_brow <- df %>%
-  filter(emo %in% c("happy", "angry")) %>%
+child_brow <- df %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("121", "323", "424", "525")) %>%
   filter(muscle == "brow") %>%
   filter(model == "child") %>%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
-glimpse(HA_child_brow)
+glimpse(child_brow)
 
 ```
 
@@ -73,15 +72,15 @@ glimpse(HA_child_brow)
 
 ```{r}
 
-HA_child_brow$emo <- fct_relevel(HA_child_brow$emo, c("happy", "angry"))
+child_brow$emo <- fct_relevel(child_brow$emo, c("happy", "angry", "fear", "sad"))
 
-levels(HA_child_brow$emo)
+levels(child_brow$emo)
 
+child_brow$emotion <- fct_relevel(child_brow$emotion, c("121", "323", "424", "525"))
 
+child_brow$bin <- fct_relevel(child_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
 
-HA_child_brow$bin <- fct_relevel(HA_child_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
-
-levels(HA_child_brow$bin)
+levels(child_brow$bin)
 ```
 
 
@@ -90,7 +89,7 @@ levels(HA_child_brow$bin)
 This is the model structure we will use to check assumptions. Include all predicted fixed effects and simplest random effect structure (just intercepts for participant). In all likelihood this model with zscores as DV will not meet assumptions and we will need to transform data. 
 
 ```{r cache = TRUE}
-child_brow_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)
+child_brow_lm <- lmer(zdiff ~ emo + bin + emo*bin + (1|pp_no), data = child_brow, REML = FALSE)
 
 ```
 
@@ -109,14 +108,14 @@ As suscepted, need to transform to correct normality.
 
 
 ```{r}
-HA_child_brow <- HA_child_brow %>%
+child_brow <- child_brow %>%
   mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
 ```
 
 ### try fit model again
 
 ```{r cache = TRUE}
-child_brow_lm_1 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_child_brow, REML = FALSE)
+child_brow_lm_1 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = child_brow, REML = FALSE)
 
 ```
 
@@ -145,7 +144,7 @@ tidy_child_brow1 <- tidy(child_brow_lm_1)
 ## fit model 2 (slopes for emotion)
 
 ```{r cache = TRUE}
-child_brow_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_child_brow, REML = FALSE)
+child_brow_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = child_brow, REML = FALSE)
 ```
 
 ### get anova, summary and tidy 
@@ -178,17 +177,13 @@ model take home - the model with the addition of a slope for emotion provides a 
 ## fit model 3 (slope for emotion and bin) - failed to converge
 
 ```{r eval = FALSE}
-child_brow_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_child_brow, REML = FALSE)
+child_brow_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = child_brow, REML = FALSE)
 ```
 
 # Child model take home
 model 3 failed to converge, model 2 provides the best fit 
 
 
-# get confidence intervals 
-```{r cache = TRUE}
-confint.merMod(child_brow_lm_2, level = 0.95)
-```
 # make output table
 ```{r}
 
@@ -207,20 +202,22 @@ child_really_nice_table
 
 ```
 
-# BROW happy-angry adult
+# BROWadult
 
-### Make brow HA adult df 
+### Make brow adult df 
 
-just happy/angry child face for cheek
 
 ```{r}
-HA_adult_brow <- df %>%
-  filter(emo %in% c("happy", "angry")) %>%
+adult_brow <- df %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("131", "232", "434", "535")) %>%
   filter(muscle == "brow") %>%
   filter(model == "adult") %>%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
-glimpse(HA_adult_brow)
+glimpse(adult_brow)
+
+levels(adult_brow$emotion)
 
 ```
 
@@ -229,29 +226,31 @@ glimpse(HA_adult_brow)
 
 ```{r}
 
-HA_adult_brow$emo <- fct_relevel(HA_adult_brow$emo, c("happy", "angry"))
+adult_brow$emo <- fct_relevel(adult_brow$emo, c("happy", "angry", "fear", "sad"))
 
-levels(HA_adult_brow$emo)
+adult_brow$emotion <- fct_relevel(adult_brow$emotion, c("131", "232", "434", "535"))
 
+levels(adult_brow$emo)
 
+adult_brow$bin <- fct_relevel(adult_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
 
-HA_adult_brow$bin <- fct_relevel(HA_adult_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
+levels(adult_brow$bin)
 
-levels(HA_adult_brow$bin)
+levels(adult_brow$emotion)
 ```
 
 
 ## fit model 1 
 
 ```{r cache = TRUE}
-HA_adult_brow <- HA_adult_brow %>%
+adult_brow <- adult_brow %>%
   mutate(log_modulus_new = sign(zdiff) * log(1+abs(zdiff)))
 ```
 
 ### try fit model again
 
 ```{r}
-adult_brow_lm_1 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = HA_adult_brow, REML = FALSE)
+adult_brow_lm_1 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1|pp_no), data = adult_brow, REML = FALSE)
 
 ```
 
@@ -281,7 +280,7 @@ tidy_adult_brow1 <- tidy(adult_brow_lm_1)
 ## fit model 2 (slope for emotion)
 
 ```{r cache = TRUE}
-adult_brow_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = HA_adult_brow, REML = FALSE)
+adult_brow_lm_2 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo|pp_no), data = adult_brow, REML = FALSE)
 ```
 
 ### get anova, summary, and tidy 
@@ -314,7 +313,7 @@ model take home - model with slope for emotion provides a better fit for the dat
 ## fit model 3 (slope for emo and bin) - failed to converge
 
 ```{r eval = FALSE}
-adult_brow_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = HA_adult_brow, REML = FALSE)
+adult_brow_lm_3 <- lmer(log_modulus_new ~ emo + bin + emo*bin + (1 + emo + bin|pp_no), data = adult_brow, REML = FALSE)
 
 ```
 

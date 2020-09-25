@@ -36,10 +36,11 @@ glimpse(df)
 
 ```{r}
 plot_child_brow <- df %>%
-  filter(emo %in% c("happy", "angry")) %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("121", "323", "424", "525")) %>%
   filter(muscle == "brow") %>%
   filter(model == "child") %>%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, trial, bin)
 
 glimpse(plot_child_brow)
 ```
@@ -48,6 +49,8 @@ glimpse(plot_child_brow)
 ```{r}
 
 plot_child_brow$emo <- fct_relevel(plot_child_brow$emo, c("happy", "angry", "fear", "sad"))
+
+plot_child_brow$emotion <- fct_relevel(plot_child_brow$emotion, c("121", "323", "424", "525"))
 
 levels(plot_child_brow$emo)
 
@@ -85,14 +88,15 @@ plot_child_brow <- plot_child_brow %>%
 ```{r}
 plot_data <- plot_child_brow %>%
   filter(model == "child") %>%
-  filter(emo %in% c("happy", "angry")) %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("121", "323", "424", "525")) %>%
   filter(muscle == "brow") %>%
-  group_by(emo, time_bin) %>%
+  group_by(emo, time_bin, emotion) %>%
   summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %>%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey(start = 0.3, end = 0.6) +
+  scale_colour_grey(start = 0.0, end = 0.8) +
   geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
   theme_apa(base_size = 14) +
@@ -100,28 +104,55 @@ plot_data <- plot_child_brow %>%
   scale_y_continuous(limits = c(-0.15, 0.25)) +
   labs(y = "Mean difference in brow activity 
 (baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
-  easy_x_axis_title_size(size = 12) +
- easy_y_axis_title_size(size = 12)
+  easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14)
 
 
 
 print(plot_data)
-
-
-
-
 ```
 
 
 
-#adult HA BROW
+```{r}
+plot_data <- plot_child_brow %>%
+  filter(model == "child") %>%
+  filter(emo %in% c("happy", "angry")) %>%
+  filter(emotion %in% c("121", "323")) %>%
+  filter(muscle == "brow") %>%
+  group_by(emo, time_bin, emotion) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
+  geom_point() +
+  geom_line() +
+  scale_colour_grey(start = 0.0, end = 0.8) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
+  theme_classic() +
+  theme_apa(base_size = 14) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    "black", size = 1)) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) +
+  labs(y = "Mean difference in brow activity 
+(baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
+  easy_x_axis_title_size(size = 14) +
+ easy_y_axis_title_size(size = 14)
+
+
+
+print(plot_data)
+```
+
+
+
+
+
+#adult BROW
 
 ```{r}
 plot_adult_brow <- df %>%
-  filter(emo %in% c("happy", "angry")) %>%
-  filter(muscle == "brow") %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(emotion %in% c("131", "232", "434", "535")) %>%
   filter(model == "adult") %>%
-  arrange(pp_no, emotion, trial, bin)
+  arrange(pp_no, emotion, emo, muscle, trial, bin)
 
 glimpse(plot_adult_brow)
 ```
@@ -133,6 +164,7 @@ plot_adult_brow$emo <- fct_relevel(plot_adult_brow$emo, c("happy", "angry", "fea
 
 levels(plot_adult_brow$emo)
 
+plot_adult_brow$emotion <- fct_relevel(plot_adult_brow$emotion, c("131", "232", "434", "535"))
 
 plot_adult_brow$bin <- fct_relevel(plot_adult_brow$bin, c("diff_bin1", "diff_bin2", "diff_bin3", "diff_bin4", "diff_bin5", "diff_bin6", "diff_bin7", "diff_bin8", "diff_bin9", "diff_bin10"))
 
@@ -167,24 +199,60 @@ plot_adult_brow <- plot_adult_brow %>%
 ```{r}
 plot_data <- plot_adult_brow %>%
   filter(model == "adult") %>%
-  filter(emo %in% c("happy", "angry")) %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
+  filter(muscle == c("cheek", "brow")) %>%
+  group_by(emo, muscle) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %>%
+  ggplot(aes(x = emo, y = meanZ, fill = emo)) +
+  geom_col(position = "dodge") +
+  theme_apa(base_size = 14) +
+  scale_fill_grey(start = 0.3, end = 0.7) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4, position = position_dodge(.9)) +
+  theme_classic() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    "black", size = 1)) +
+  scale_y_continuous(limits = c(-0.1, 0.1)) +
+  facet_wrap(~muscle) +
+  labs(y = "Mean z-score difference (RMS) from baseline
+(averaged across bins)", x = "Emotion") +
+  easy_remove_legend() +
+  easy_x_axis_title_size(size = 14) +
+  easy_y_axis_title_size(size = 14) +
+  easy_x_axis_labels_size(size = 12) +
+  easy_y_axis_labels_size(size = 12)
+
+print(plot_data)
+```
+
+```{r}
+plot_data <- plot_adult_brow %>%
+  filter(model == "adult") %>%
+  filter(emo %in% c("happy", "angry", "fear", "sad")) %>%
   filter(muscle == "brow") %>%
   group_by(emo, time_bin) %>%
-  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd = sd(zdiff, na.rm = TRUE)) %>%
+  summarise(meanZ = mean(zdiff, na.rm = TRUE), sd_RMS = sd(zdiff, na.rm = TRUE), n = n(), stderr = sd_RMS/sqrt(n)) %>%
   ggplot(aes(x = time_bin, y = meanZ, group = emo, colour = emo)) +
   geom_point() +
   geom_line() +
-  scale_colour_grey() +
-  geom_errorbar(aes(ymin = meanZ-sd, ymax = meanZ+sd)) +
+  geom_errorbar(aes(ymin = meanZ-stderr, ymax = meanZ+stderr), size = .4, width = .4) +
   theme_classic() +
-  scale_fill_grey(start = 0.40, end = 0.6) +
+  scale_colour_grey(start = 0.0, end = 0.8) +
   theme_apa() +
-  scale_y_continuous(limits = c(-0.15, 0.25)) +
-  labs(y = "mean difference in cheek activity (baseline corrected z-score)", x = "time post-stimulus presentation (ms)")
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(colour =    "black", size = 1)) +
+  scale_y_continuous(limits = c(-0.15, 0.25)) + 
+  labs(y = "Mean difference in brow activity 
+(baseline corrected z-score)", x = "Time post-stimulus presentation onset (ms)") +
+easy_x_axis_title_size(size = 14) +
+easy_y_axis_title_size(size = 14)
 
 print(plot_data)
-
 ```
+
+
+
+
+
+
+
 
 
 
